@@ -1,0 +1,2 @@
+convert the python script to exe
+    pyinstaller --onefile PythonTechnicalScanner.py
