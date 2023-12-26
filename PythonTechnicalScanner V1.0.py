@@ -87,10 +87,10 @@ def analyze_symbol(symbol, analysis_type, base_url_charts, base_url_finance, bas
                                     interval=Interval.INTERVAL_4_HOURS )
         
         if 'analysis' in locals ( ) and analysis is not None and analysis.get_analysis ( ) is not None:
-            summary            = analysis.get_analysis().summary
-            indicators         = analysis.get_analysis().indicators
-            oscillator         = analysis.get_analysis().oscillators
-            moving_averages    = analysis.get_analysis().moving_averages
+            summary            = analysis.get_analysis ( ).summary
+            indicators         =analysis.get_analysis().indicators
+            oscillator         = analysis.get_analysis ( ).oscillators
+            moving_averages    = analysis.get_analysis ( ).moving_averages
             
             if summary is not None:
                 buy_signal      = summary['BUY']
@@ -126,7 +126,7 @@ def send_email(subject, body, attachment_path=None):
     """
     # Email configuration
     sender_email = "hafeezcst@gmail.com"  # Replace with your email address
-    receiver_emails = [ "hafeezcst@gmail.com","ammarhafeez3495@gmail.com","amok3495@gmail.com"]  # Replace with the recipient's email addresses
+    receiver_emails = [ "ammarhafeez3495@gmail.com","amok3495@gmail.com"]  # Replace with the recipient's email addresses
     # receiver_email = ", ".join(receiver_emails)
     smtp_server = "smtp.gmail.com"  # Replace with your SMTP server (e.g., smtp.gmail.com for Gmail)
     smtp_port = 587  # Replace with your SMTP port (587 is the default for TLS)
@@ -207,9 +207,9 @@ def main():
     
     if not analysis_type:
         time.sleep ( 2 )  # Delay for 5 seconds
-        print ( f"Selected analysis type: D" )
+        
         analysis_type = "D"  # Default selection
-    
+        print ( f"Selected analysis type: {analysis_type}" )
     recommendation_options = ["STRONG_BUY", "BUY", "NEUTRAL", "SELL", "STRONG_SELL"]
     
     recommendation_filter = input (
@@ -232,7 +232,7 @@ def main():
     base_url_tech       = "https://www.tradingview.com/symbols/PSX-"  # Set the base URL
     # Set default analysis type to "M" if the user presses Enter without entering a choice
     if not analysis_type:
-        analysis_type = "M"
+        analysis_type = "D"
     
     print ( f"Selected analysis type: {analysis_type}" )
     print ( )

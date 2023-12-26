@@ -18,6 +18,8 @@ import smtplib
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 import logging
+from decouple import config  # Import the config function from python-decouple
+import configparser
 # Configure logging
 logging.basicConfig(filename='analysis_log.txt', level=logging.ERROR)
 
@@ -74,16 +76,16 @@ def analyze_symbol(symbol, analysis_type, base_url_charts, base_url_finance, bas
     """
     try:
         if analysis_type == "M":
-            analysis     = TA_Handler ( symbol=symbol, screener="PAKISTAN", exchange="PSX",
+            analysis     = TA_Handler ( symbol=symbol, screener="QATAR", exchange="QSE",
                                     interval=Interval.INTERVAL_1_MONTH )
         elif analysis_type == "W":
-            analysis     = TA_Handler ( symbol=symbol, screener="PAKISTAN", exchange="PSX",
+            analysis     = TA_Handler ( symbol=symbol, screener="QATAR", exchange="QSE",
                                     interval=Interval.INTERVAL_1_WEEK )
         elif analysis_type == "D":
-            analysis     = TA_Handler ( symbol=symbol, screener="PAKISTAN", exchange="PSX",
+            analysis     = TA_Handler ( symbol=symbol, screener="QATAR", exchange="QSE",
                                     interval=Interval.INTERVAL_1_DAY )
         elif analysis_type == "4H":
-            analysis     = TA_Handler ( symbol=symbol, screener="PAKISTAN", exchange="PSX",
+            analysis     = TA_Handler ( symbol=symbol, screener="QATAR", exchange="QSE",
                                     interval=Interval.INTERVAL_4_HOURS )
         
         if 'analysis' in locals ( ) and analysis is not None and analysis.get_analysis ( ) is not None:
@@ -109,7 +111,7 @@ def analyze_symbol(symbol, analysis_type, base_url_charts, base_url_finance, bas
                 financials = f"{base_url_finance}{symbol}/financials-overview/"
                 technicals = f"{base_url_tech}{symbol}/technicals/"
                 
-                return symbol, summary, close, buy_signal, sell_signal, neutral_signal, volume, adx, rsi, rsi_last, ao, change, charts, financials, technicals
+                return symbol, summary, close, sell_signal, neutral_signal, buy_signal, volume, adx, rsi, rsi_last, ao, change, charts, financials, technicals
     
     except Exception as e:
         error_message = f"Exception occurred for symbol: {symbol}. Error Message: {e}"
@@ -126,15 +128,16 @@ def send_email(subject, body, attachment_path=None):
     """
     # Email configuration
     sender_email = "hafeezcst@gmail.com"  # Replace with your email address
-    receiver_emails = [ "hafeezcst@gmail.com","ammarhafeez3495@gmail.com","amok3495@gmail.com"]  # Replace with the recipient's email addresses
+    receiver_emails = ["ammarhafeez3495@gmail.com","amok3495@gmail.com"]  # Replace with the recipient's email addresses
     # receiver_email = ", ".join(receiver_emails)
     smtp_server = "smtp.gmail.com"  # Replace with your SMTP server (e.g., smtp.gmail.com for Gmail)
     smtp_port = 587  # Replace with your SMTP port (587 is the default for TLS)
     
-    # Email account credentials
-    username = "hafeezcst@gmail.com"  # Replace with your email address
-    # Update this line with your application-specific password
-    password = "ujdw djtr anws chry"
+    # Load email credentials from config file
+    config = configparser.ConfigParser()
+    config.read('config.ini')
+    username = config.get('email', 'username')
+    password = config.get('email', 'password')
     
     # Create the email message
     message = MIMEMultipart ( )
@@ -207,9 +210,9 @@ def main():
     
     if not analysis_type:
         time.sleep ( 2 )  # Delay for 5 seconds
-        print ( f"Selected analysis type: D" )
+        
         analysis_type = "D"  # Default selection
-    
+        print ( f"Selected analysis type: {analysis_type}" )
     recommendation_options = ["STRONG_BUY", "BUY", "NEUTRAL", "SELL", "STRONG_SELL"]
     
     recommendation_filter = input (
@@ -225,22 +228,21 @@ def main():
         recommendation_filter = input (
             f"Select recommendation filter ({', '.join ( recommendation_options )}): " ).upper ( )
     
-    volume_threshold = 50000  # Filter by this volume threshold 1 misslion
+    volume_threshold = 1000000  # Filter by this volume threshold 1 misslion
     ao_threshold: int   = 0  # Filter by this AO threshold
-    base_url_charts     = "https://www.tradingview.com/chart/ZMYE714n/?symbol=PSX%3A"  # Set the base URL
-    base_url_finance    = "https://www.tradingview.com/symbols/PSX-"  # Set the base URL
-    base_url_tech       = "https://www.tradingview.com/symbols/PSX-"  # Set the base URL
+    base_url_charts     = "https://www.tradingview.com/chart/ZMYE714n/?symbol=QSE%3A"  # Set the base URL
+    base_url_finance    = "https://www.tradingview.com/symbols/QSE-"  # Set the base URL
+    base_url_tech       = "https://www.tradingview.com/symbols/QSE-"  # Set the base URL
     # Set default analysis type to "M" if the user presses Enter without entering a choice
     if not analysis_type:
-        analysis_type = "M"
+        analysis_type = "D"
     
     print ( f"Selected analysis type: {analysis_type}" )
-    print ( )
-    
+       
     if analysis_type not in ["M", "W", "D", "4H"]:
         raise ValueError ( "Invalid analysis type. Please select M, W, D, or 4H" )
     
-    current_datetime = datetime.datetime.now ( ).strftime ( "%m:%d:%Y %H:%M:%S" )  # Include time
+    current_datetime = datetime.datetime.now ( ).strftime ( "%m:%d:%Y" )  # Include time
     print ( f"Technical Analysis Date and Time: {current_datetime}" )
     count = 1
     
@@ -251,16 +253,16 @@ def main():
         symbol_options = ["KMIALL", "KMI100", "KMI30", "MYLIST", "QSE"]
         
         symbol_selection = input (
-            f"Select symbol List ({', '.join ( symbol_options )}), press Enter for default KMI100: " ).upper ( )
+            f"Select symbol List ({', '.join ( symbol_options )}), press Enter for default QSE: " ).upper ( )
         
         if not symbol_selection:
             time.sleep ( 2 )  # Delay for 5 seconds
-            print ( f"Selected symbol List: KMI100" )
-            symbol_selection = "KMI100"  # Default selection
+            print ( f"Selected symbol List: QSE" )
+            symbol_selection = "QSE"  # Default selection
         while symbol_selection not in symbol_options:
             print ( "Invalid symbol selection. Please try again." )
             symbol_selection = input (
-                f"Select symbol ({', '.join ( symbol_options )}), press Enter for default KSIALL: " ).upper ( )
+                f"Select symbol ({', '.join ( symbol_options )}), press Enter for default QSE: " ).upper ( )
         
         if symbol_selection == "KMI30":
             psx_symbols = KMI30
@@ -284,73 +286,102 @@ def main():
         for future in futures:
             result = future.result ( )
             if result:
-                symbol, summary, Close, Buy_Signal, Sell_Signal, Neutral_Signal, Volume, ADX, RSI, RSI_Last, AO, Change, base_url_charts, base_url_finance, base_url_tech = result
+                symbol, summary, Close, Sell_Signal, Neutral_Signal, Buy_Signal, Volume, ADX, RSI, RSI_Last, AO, Change, base_url_charts, base_url_finance, base_url_tech = result
                 print ( f"{count}:  Symbol: {symbol}" )
                 summary = (summary.get ( 'RECOMMENDATION' ))
                 print ( summary )
                 print (
-                    f"{analysis_type} Buy_Signal:{Buy_Signal},Sell_Signal:{Sell_Signal},Neutral_Signal:{Neutral_Signal},CLOSE: {Close} Volume: {Volume} ADX:{ADX} RSI: {RSI} LAST RSI: {RSI_Last} AO: {AO} %Change(D): {Change} " )
+                    f"{analysis_type} Sell_Signal:{Sell_Signal},Neutral_Signal:{Neutral_Signal},Buy_Signal:{Buy_Signal},CLOSE: {Close} Volume: {Volume} ADX:{ADX} RSI: {RSI} LAST RSI: {RSI_Last} AO: {AO} %Change(D): {Change} " )
                 print ( )
                 count += 1
                 
                 # check and Append data to the list for CSV export if volme is greater than 5000
                 if Volume > 500:
                     analyzed_data.append (
-                        [current_datetime, symbol, summary, Close, Buy_Signal, Sell_Signal, Neutral_Signal, Volume, ADX,
+                        [current_datetime, symbol, summary, Close, Sell_Signal, Neutral_Signal, Buy_Signal, Volume, ADX,
                          RSI, RSI_Last, AO, Change, base_url_charts, base_url_finance, base_url_tech] )
                 
                 # Check if the recommendation is "user defined" and the volume is greater than the threshold
                 if summary == recommendation_filter and Volume > volume_threshold:
                     strong_buy_symbols.append (
-                        [current_datetime, symbol, summary, Close, Buy_Signal, Sell_Signal, Neutral_Signal, Volume, ADX,
+                        [current_datetime, symbol, summary, Close, Sell_Signal, Neutral_Signal, Buy_Signal, Volume, ADX,
                          RSI, RSI_Last, AO, Change, base_url_charts, base_url_finance, base_url_tech] )
                    
 
         # Get the current date
-        current_date = datetime.datetime.now ( ).strftime ( "%Y%m%d" )
-        
+        current_date = datetime.datetime.now ( ).strftime ( "%m:%d:%Y"  )
         # Set the file name with the analysis date as a postfix
-        excel_file_path = f"{analysis_type}- Advance Technical_Analysis_{symbol_selection}_{recommendation_filter}_{current_date}.xlsx"
-        with pd.ExcelWriter ( excel_file_path, engine='xlsxwriter' ) as writer:
-            
-            # Create DataFrames from the lists
-            df_all = pd.DataFrame ( analyzed_data,
-                                    columns=['Date and Time', 'Symbol', 'Summary', f'{analysis_type} Close', 'Buy',
-                                             'Sell', 'Neutral', 'Volume', 'ADX', 'RSI', 'Last RSI', 'AO', '%Change(D)',
-                                             'Charts', 'Financials', 'Technicals'] )
-            df_strong_buy = pd.DataFrame ( strong_buy_symbols,
-                                    columns=['Date and Time', 'Symbol', 'Summary', f'{analysis_type} Close',
-                                                    'Buy', 'Sell', 'Neutral', 'Volume', 'ADX', 'RSI', 'Last RSI', 'AO',
-                                                    '%Change(D)', 'Charts', 'Financials', 'Technicals'] )
-            
+        excel_file_path = f"{analysis_type}-Advance_Technical_Analysis_{symbol_selection}_{recommendation_filter}.xlsx"
+        # Specify the sheet names you want to read
+        sheet_names = ['All Symbols', f'{recommendation_filter}_Symbols']
+    # Check if the file exists
+    if os.path.exists(excel_file_path):
+    # Read existing data from the file
+        # Read data from each sheet into separate DataFrames
+        df_all_symbols = pd.read_excel(excel_file_path, sheet_name='All Symbols')
+        df_strong_buy_symbols = pd.read_excel(excel_file_path, sheet_name='Recomended_Symbols')
+    # Concatenate existing data with new data
+        df_all = pd.concat([df_all_symbols, pd.DataFrame(analyzed_data, columns=['Date and Time', 'Symbol', 'Summary', f'{analysis_type} Close', 'Sell',
+                                                                      'Neutral', 'Buy', 'Volume', 'ADX', 'RSI', 'Last RSI', 'AO', '%Change(D)',
+                                                                      'Charts', 'Financials', 'Technicals'])], ignore_index=True).drop_duplicates()
+
+        df_strong_buy = pd.concat([df_strong_buy_symbols, pd.DataFrame(strong_buy_symbols, columns=['Date and Time', 'Symbol', 'Summary', f'{analysis_type} Close',
+                                                                                  'Sell','Neutral', 'Buy', 'Volume', 'ADX', 'RSI', 'Last RSI', 'AO',
+                                                                                  '%Change(D)', 'Charts', 'Financials', 'Technicals'])], ignore_index=True).drop_duplicates()
+    else:
+    # Create a new file
+        df_all = pd.DataFrame(analyzed_data, columns=['Date and Time', 'Symbol', 'Summary', f'{analysis_type} Close', 'Sell',
+                                                    'Neutral', 'Buy', 'Volume', 'ADX', 'RSI', 'Last RSI', 'AO', '%Change(D)',
+                                                  'Charts', 'Financials', 'Technicals'])
+
+        df_strong_buy = pd.DataFrame(strong_buy_symbols, columns=['Date and Time', 'Symbol', 'Summary', f'{analysis_type} Close',
+                                                              'Sell','Neutral', 'Buy', 'Volume', 'ADX', 'RSI', 'Last RSI', 'AO',
+                                                              '%Change(D)', 'Charts', 'Financials', 'Technicals'])
+
+    with pd.ExcelWriter(excel_file_path, engine='xlsxwriter') as writer:     
             # Write DataFrames to Excel sheets
-            df_all.to_excel ( writer, sheet_name='All Symbols', index=True )
-            df_strong_buy.to_excel ( writer, sheet_name=f'{recommendation_filter}_Symbols', index=True )
+        df_all.to_excel ( writer, sheet_name='All Symbols', index=False )
+        df_strong_buy.to_excel ( writer, sheet_name='Recomended_Symbols', index=False ) 
                         
             # Get the workbook and the worksheet objects
-            workbook = writer.book
-            worksheet_all = writer.sheets['All Symbols']
-            worksheet_strong_buy = writer.sheets[f'{recommendation_filter}_Symbols']
-            # New sheet for P&L analysis
-            
+        workbook = writer.book
+        worksheet_all = writer.sheets['All Symbols']
+        worksheet_strong_buy = writer.sheets['Recomended_Symbols']
+            # New sheet for P&L analysis        
             # Define the format for highlighting
-            highlight_format = workbook.add_format ( {'bg_color': '#00AA00'} )
-            
+        highlight_format = workbook.add_format ( {'bg_color': '#00AA00'} ) 
             # Apply conditional formatting to the 'All Symbols' sheet
-            worksheet_all.conditional_format ( 'A2:Q1000', {'type': 'formula',
+        worksheet_all.conditional_format ( 'A2:Q1000', {'type': 'formula',
                                                             'criteria': 'AND($K2>50, $M2>0)',
                                                             'format': highlight_format} )
             
             # Apply conditional formatting to the '{recommendation_filter}_Symbols' sheet
-            worksheet_strong_buy.conditional_format ( 'A2:Q1000', {'type': 'formula',
+        worksheet_strong_buy.conditional_format ( 'A2:Q1000', {'type': 'formula',
                                                                    'criteria': 'AND($K2>50, $M2>0)',
                                                                    'format': highlight_format} )
-        
         print ( f"Data exported to {excel_file_path}" )
+        # Wait until the file size stabilizes (e.g., for 5 seconds)
+        initial_size = os.path.getsize(excel_file_path)
+        time.sleep(5)  # Adjust the delay as needed
+    while True:
+        current_size = os.path.getsize(excel_file_path)
+        if current_size == initial_size:
+            break  # File size has stabilized
+        initial_size = current_size
+        time.sleep(2)  # Wait and check again
+       # Explicitly close the Excel writer
+        writer.close()
+
+# Add a short delay (e.g., 1 second) before sending the email
+        time.sleep(3) 
+
         # send email
-        subject = f"{analysis_type}- Advance (TEST) Technical Analysis for  on {current_date}"
+        # Assuming the correct DataFrame is named df_strong_buy:
+        recommended_symbols = df_strong_buy
+        todays_data = recommended_symbols[recommended_symbols['Date and Time'] == datetime.datetime.now ( ).strftime ( "%m:%d:%Y" )]
+        subject = f"{analysis_type}-{symbol_selection}- {recommendation_filter}-Technical_Analysis_"
         # body    = f"Technical Analysis for {current_date} is attached."
-        body = df_strong_buy.to_string ( )
+        body = todays_data.to_string ( )
         attachment_path = excel_file_path
         send_email ( subject, body, attachment_path )
         # Sort the Excel file by symbol and date and time
