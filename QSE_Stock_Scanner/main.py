@@ -15,7 +15,7 @@ logging.basicConfig ( filename='analysis_log.txt', level=logging.ERROR )
 
 def main():
     analysis_type = input (
-        "Select analysis type (M for Monthly, W for Weekly, D for Daily,H for 4Hourly, press Enter for default D): " ).upper ( )
+        "Select analysis type (M for Monthly, W for Weekly, D for Daily,4H for 4Hourly, press Enter for default D): " ).upper ( )
     
     if not analysis_type:
         time.sleep ( 2 )  # Delay for 5 seconds
@@ -60,13 +60,13 @@ def main():
             f"Select symbol List ({', '.join ( symbol_options )}), press Enter for default List: " ).upper ( )
         
         if not symbol_selection:
-            time.sleep ( 2 )  # Delay for 5 seconds
-            symbol_selection = "KMI100"  # Default selection
+            time.sleep ( 5 )  # Delay for 5 seconds
+            symbol_selection = "QSE"  # Default selection
             print ( f"Selected symbol List: {symbol_selection}" )
         while symbol_selection not in symbol_options :
             print ( "Invalid symbol selection. Please try again." )
             symbol_selection = input (
-                f"Select symbol ({', '.join ( symbol_options )}), press Enter for default {symbol_selection} " ).upper ( )
+                f"Select symbol ({', '.join ( symbol_options )}), press Enter for default QSE: " ).upper ( )
         
         if symbol_selection == "KMI30":
             psx_symbols = KMI30
@@ -76,6 +76,8 @@ def main():
             psx_symbols = MYLIST
         elif symbol_selection == "CUSTUM": 
             psx_symbols = CUSTUM
+        elif symbol_selection == "QSE": 
+            psx_symbols = QSE    
         else :
             psx_symbols = KMIALL
         
@@ -219,7 +221,7 @@ def main():
     # Write the data to an Excel file
     
     # Define the database connection URL
-    database_url = f'sqlite:///{analysis_type}_data.db'
+    database_url = f'sqlite:///{symbol_selection}_{analysis_type}_data.db'
 
     # Create a database engine
     engine = sqlalchemy.create_engine(database_url)
@@ -292,12 +294,12 @@ def main():
         buy_symbols = df_buy
         # Filter the symbols for the current date
         # Filter the symbols for the current date
-        today_Strong_buy = recommended_symbols [
-            recommended_symbols [ 'Date and Time' ].dt.date == datetime.datetime.now ( ).date ( ) ]
-        today_buy = buy_symbols [
-            buy_symbols [ 'Date and Time' ].dt.date == datetime.datetime.now ( ).date ( ) ]
+        today_date = datetime.datetime.now().date()
+        today_Strong_buy = recommended_symbols[recommended_symbols['Date and Time'].dt.date == today_date] if not recommended_symbols.empty else pd.DataFrame()
+        today_buy = buy_symbols[buy_symbols['Date and Time'].dt.date == today_date] if not buy_symbols.empty else pd.DataFrame()
         # Sort the data by recommendation 
         subject = f"{analysis_type}-{symbol_selection}- {recommendation_filter}-Technical_Analysis_"
+        # body    = f"Technical Analysis for {current_date} is attached."
         # body    = f"Technical Analysis for {current_date} is attached."
         # Concatenate the two DataFrames
         combined_df = pd.concat ( [ today_Strong_buy, today_buy ] )

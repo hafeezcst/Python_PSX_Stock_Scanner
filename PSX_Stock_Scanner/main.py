@@ -219,7 +219,7 @@ def main():
     # Write the data to an Excel file
     
     # Define the database connection URL
-    database_url = f'sqlite:///{analysis_type}_data.db'
+    database_url = f'sqlite:///{symbol_selection}_{analysis_type}_data.db'
 
     # Create a database engine
     engine = sqlalchemy.create_engine(database_url)
