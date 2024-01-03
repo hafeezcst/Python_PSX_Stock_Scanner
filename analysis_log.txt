@@ -1,0 +1,3 @@
+ERROR:root:2023-12-31 01:34:03.798002 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2024-01-01 00:03:10.217688 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2024-01-01 00:03:11.357690 - Exception occurred for symbol: BNWM. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
