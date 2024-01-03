@@ -2,7 +2,7 @@
 
 
 a = Analysis(
-    ['PythonTechnicalScanner', 'V2.0.py'],
+    ['pythonTechnicalScanner_Strong_buy_d_qse.py'],
     pathex=[],
     binaries=[],
     datas=[],
@@ -21,7 +21,7 @@ exe = EXE(
     a.binaries,
     a.datas,
     [],
-    name='PythonTechnicalScanner',
+    name='pythonTechnicalScanner_Strong_buy_d_qse',
     debug=False,
     bootloader_ignore_signals=False,
     strip=False,

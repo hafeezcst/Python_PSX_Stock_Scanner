@@ -1,3 +1,1179 @@
-ERROR:root:2023-12-31 01:34:03.798002 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
-ERROR:root:2024-01-01 00:03:10.217688 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
-ERROR:root:2024-01-01 00:03:11.357690 - Exception occurred for symbol: BNWM. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:Exception occurred for symbol: HGFA. Error Message: Exchange or symbol not found.
+ERROR:root:Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:Exception occurred for symbol: HGFA. Error Message: Exchange or symbol not found.
+ERROR:root:Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:Exception occurred for symbol: HGFA. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-17 14:20:12.876006 - error_message
+ERROR:root:2023-12-17 14:20:12.928068 - error_message
+ERROR:root:2023-12-17 14:22:30.820937 - Exception occurred for symbol: HGFA. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-17 14:22:30.836600 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-17 14:26:42.274675 - Exception occurred for symbol: HGFA. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-17 14:26:42.361943 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-17 14:47:58.790471 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-17 14:47:58.883905 - Exception occurred for symbol: HGFA. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-17 14:51:42.627712 - Exception occurred for symbol: HGFA. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-17 14:51:42.821162 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-17 15:42:02.226585 - Exception occurred for symbol: HGFA. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-17 15:42:04.123203 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-17 15:46:29.516023 - Exception occurred for symbol: HGFA. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-17 15:46:29.545207 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-17 15:46:33.727055 - Exception occurred for symbol: ARPL. Error Message: 'float' object has no attribute 'Recommendation'
+ERROR:root:2023-12-17 15:46:34.108020 - Exception occurred for symbol: FCEPL. Error Message: 'float' object has no attribute 'Recommendation'
+ERROR:root:2023-12-17 15:46:34.526384 - Exception occurred for symbol: NML. Error Message: 'float' object has no attribute 'Recommendation'
+ERROR:root:2023-12-17 15:46:34.526384 - Exception occurred for symbol: GATM. Error Message: 'float' object has no attribute 'Recommendation'
+ERROR:root:2023-12-17 15:46:34.593885 - Exception occurred for symbol: FFC. Error Message: 'float' object has no attribute 'Recommendation'
+ERROR:root:2023-12-17 15:46:34.663881 - Exception occurred for symbol: AVN. Error Message: 'float' object has no attribute 'Recommendation'
+ERROR:root:2023-12-17 15:46:34.915813 - Exception occurred for symbol: SCBPL. Error Message: 'float' object has no attribute 'Recommendation'
+ERROR:root:2023-12-17 15:46:35.024811 - Exception occurred for symbol: GADT. Error Message: 'float' object has no attribute 'Recommendation'
+ERROR:root:2023-12-17 15:46:35.042693 - Exception occurred for symbol: UBL. Error Message: 'float' object has no attribute 'Recommendation'
+ERROR:root:2023-12-17 15:46:35.483811 - Exception occurred for symbol: GLAXO. Error Message: 'float' object has no attribute 'Recommendation'
+ERROR:root:2023-12-17 15:46:35.497433 - Exception occurred for symbol: YOUW. Error Message: 'float' object has no attribute 'Recommendation'
+ERROR:root:2023-12-17 15:46:35.499733 - Exception occurred for symbol: BOP. Error Message: 'float' object has no attribute 'Recommendation'
+ERROR:root:2023-12-17 15:46:35.600148 - Exception occurred for symbol: ENGRO. Error Message: 'float' object has no attribute 'Recommendation'
+ERROR:root:2023-12-17 15:46:35.619148 - Exception occurred for symbol: APL. Error Message: 'float' object has no attribute 'Recommendation'
+ERROR:root:2023-12-17 15:46:35.683905 - Exception occurred for symbol: INDU. Error Message: 'float' object has no attribute 'Recommendation'
+ERROR:root:2023-12-17 15:46:35.711903 - Exception occurred for symbol: HUBC. Error Message: 'float' object has no attribute 'Recommendation'
+ERROR:root:2023-12-17 15:46:35.743913 - Exception occurred for symbol: AICL. Error Message: 'float' object has no attribute 'Recommendation'
+ERROR:root:2023-12-17 15:46:36.023987 - Exception occurred for symbol: GHGL. Error Message: 'float' object has no attribute 'Recommendation'
+ERROR:root:2023-12-17 15:46:36.185797 - Exception occurred for symbol: MARI. Error Message: 'float' object has no attribute 'Recommendation'
+ERROR:root:2023-12-17 15:46:36.410436 - Exception occurred for symbol: AKBL. Error Message: 'float' object has no attribute 'Recommendation'
+ERROR:root:2023-12-17 15:46:36.465278 - Exception occurred for symbol: MEBL. Error Message: 'float' object has no attribute 'Recommendation'
+ERROR:root:2023-12-17 15:46:36.548779 - Exception occurred for symbol: SYS. Error Message: 'float' object has no attribute 'Recommendation'
+ERROR:root:2023-12-17 15:46:36.806903 - Exception occurred for symbol: PTC. Error Message: 'float' object has no attribute 'Recommendation'
+ERROR:root:2023-12-17 15:46:36.833877 - Exception occurred for symbol: ISL. Error Message: 'float' object has no attribute 'Recommendation'
+ERROR:root:2023-12-17 15:46:36.901843 - Exception occurred for symbol: MUGHAL. Error Message: 'float' object has no attribute 'Recommendation'
+ERROR:root:2023-12-17 15:46:36.954847 - Exception occurred for symbol: BAHL. Error Message: 'float' object has no attribute 'Recommendation'
+ERROR:root:2023-12-17 15:46:37.012883 - Exception occurred for symbol: FCCL. Error Message: 'float' object has no attribute 'Recommendation'
+ERROR:root:2023-12-17 15:46:37.212364 - Exception occurred for symbol: BWCL. Error Message: 'float' object has no attribute 'Recommendation'
+ERROR:root:2023-12-17 15:46:37.239214 - Exception occurred for symbol: FFBL. Error Message: 'float' object has no attribute 'Recommendation'
+ERROR:root:2023-12-17 15:46:37.297255 - Exception occurred for symbol: PKGS. Error Message: 'float' object has no attribute 'Recommendation'
+ERROR:root:2023-12-17 15:46:37.421214 - Exception occurred for symbol: PKGP. Error Message: 'float' object has no attribute 'Recommendation'
+ERROR:root:2023-12-17 15:46:37.428211 - Exception occurred for symbol: EFUG. Error Message: 'float' object has no attribute 'Recommendation'
+ERROR:root:2023-12-17 15:46:37.446993 - Exception occurred for symbol: CEPB. Error Message: 'float' object has no attribute 'Recommendation'
+ERROR:root:2023-12-17 15:46:37.449995 - Exception occurred for symbol: HMB. Error Message: 'float' object has no attribute 'Recommendation'
+ERROR:root:2023-12-17 15:46:37.499990 - Exception occurred for symbol: FATIMA. Error Message: 'float' object has no attribute 'Recommendation'
+ERROR:root:2023-12-17 15:46:37.561070 - Exception occurred for symbol: ABOT. Error Message: 'float' object has no attribute 'Recommendation'
+ERROR:root:2023-12-17 15:46:37.586991 - Exception occurred for symbol: OGDC. Error Message: 'float' object has no attribute 'Recommendation'
+ERROR:root:2023-12-17 15:46:37.669944 - Exception occurred for symbol: KAPCO. Error Message: 'float' object has no attribute 'Recommendation'
+ERROR:root:2023-12-17 15:46:37.693906 - Exception occurred for symbol: LOTCHEM. Error Message: 'float' object has no attribute 'Recommendation'
+ERROR:root:2023-12-17 15:46:37.837255 - Exception occurred for symbol: KOHC. Error Message: 'float' object has no attribute 'Recommendation'
+ERROR:root:2023-12-17 15:46:37.960642 - Exception occurred for symbol: BNWM. Error Message: 'float' object has no attribute 'Recommendation'
+ERROR:root:2023-12-17 15:46:37.960642 - Exception occurred for symbol: MLCF. Error Message: 'float' object has no attribute 'Recommendation'
+ERROR:root:2023-12-17 15:46:38.087711 - Exception occurred for symbol: NBP. Error Message: 'float' object has no attribute 'Recommendation'
+ERROR:root:2023-12-17 15:46:38.097707 - Exception occurred for symbol: DGKC. Error Message: 'float' object has no attribute 'Recommendation'
+ERROR:root:2023-12-17 15:46:38.116681 - Exception occurred for symbol: SRVI. Error Message: 'float' object has no attribute 'Recommendation'
+ERROR:root:2023-12-17 15:46:38.272945 - Exception occurred for symbol: ILP. Error Message: 'float' object has no attribute 'Recommendation'
+ERROR:root:2023-12-17 15:46:38.478713 - Exception occurred for symbol: PIOC. Error Message: 'float' object has no attribute 'Recommendation'
+ERROR:root:2023-12-17 15:46:38.617054 - Exception occurred for symbol: DAWH. Error Message: 'float' object has no attribute 'Recommendation'
+ERROR:root:2023-12-17 15:46:38.648926 - Exception occurred for symbol: EFERT. Error Message: 'float' object has no attribute 'Recommendation'
+ERROR:root:2023-12-17 15:46:38.765859 - Exception occurred for symbol: MUREB. Error Message: 'float' object has no attribute 'Recommendation'
+ERROR:root:2023-12-17 15:46:38.791862 - Exception occurred for symbol: POL. Error Message: 'float' object has no attribute 'Recommendation'
+ERROR:root:2023-12-17 15:46:38.875861 - Exception occurred for symbol: POML. Error Message: 'float' object has no attribute 'Recommendation'
+ERROR:root:2023-12-17 15:46:39.477765 - Exception occurred for symbol: AGP. Error Message: 'float' object has no attribute 'Recommendation'
+ERROR:root:2023-12-17 15:46:39.508632 - Exception occurred for symbol: THALL. Error Message: 'float' object has no attribute 'Recommendation'
+ERROR:root:2023-12-17 15:46:39.529655 - Exception occurred for symbol: NRL. Error Message: 'float' object has no attribute 'Recommendation'
+ERROR:root:2023-12-17 15:46:39.541634 - Exception occurred for symbol: PABC. Error Message: 'float' object has no attribute 'Recommendation'
+ERROR:root:2023-12-17 15:46:39.548628 - Exception occurred for symbol: PPL. Error Message: 'float' object has no attribute 'Recommendation'
+ERROR:root:2023-12-17 15:46:39.743406 - Exception occurred for symbol: RMPL. Error Message: 'float' object has no attribute 'Recommendation'
+ERROR:root:2023-12-17 15:46:39.772140 - Exception occurred for symbol: SPWL. Error Message: 'float' object has no attribute 'Recommendation'
+ERROR:root:2023-12-17 15:46:39.811148 - Exception occurred for symbol: LCI. Error Message: 'float' object has no attribute 'Recommendation'
+ERROR:root:2023-12-17 15:46:39.819141 - Exception occurred for symbol: KTML. Error Message: 'float' object has no attribute 'Recommendation'
+ERROR:root:2023-12-17 15:46:39.862140 - Exception occurred for symbol: FHAM. Error Message: 'float' object has no attribute 'Recommendation'
+ERROR:root:2023-12-17 15:46:39.879143 - Exception occurred for symbol: HBL. Error Message: 'float' object has no attribute 'Recommendation'
+ERROR:root:2023-12-17 15:46:39.909145 - Exception occurred for symbol: UPFL. Error Message: 'float' object has no attribute 'Recommendation'
+ERROR:root:2023-12-17 15:46:40.032140 - Exception occurred for symbol: NATF. Error Message: 'float' object has no attribute 'Recommendation'
+ERROR:root:2023-12-17 15:46:40.079522 - Exception occurred for symbol: PSO. Error Message: 'float' object has no attribute 'Recommendation'
+ERROR:root:2023-12-17 15:46:40.289221 - Exception occurred for symbol: TRG. Error Message: 'float' object has no attribute 'Recommendation'
+ERROR:root:2023-12-17 15:46:40.418984 - Exception occurred for symbol: PSX. Error Message: 'float' object has no attribute 'Recommendation'
+ERROR:root:2023-12-17 15:46:40.471695 - Exception occurred for symbol: PSEL. Error Message: 'float' object has no attribute 'Recommendation'
+ERROR:root:2023-12-17 15:46:40.644042 - Exception occurred for symbol: LUCK. Error Message: 'float' object has no attribute 'Recommendation'
+ERROR:root:2023-12-17 15:46:40.731862 - Exception occurred for symbol: PGLC. Error Message: 'float' object has no attribute 'Recommendation'
+ERROR:root:2023-12-17 15:46:40.849609 - Exception occurred for symbol: BIPL. Error Message: 'float' object has no attribute 'Recommendation'
+ERROR:root:2023-12-17 15:46:40.989670 - Exception occurred for symbol: PAEL. Error Message: 'float' object has no attribute 'Recommendation'
+ERROR:root:2023-12-17 15:46:41.086173 - Exception occurred for symbol: FABL. Error Message: 'float' object has no attribute 'Recommendation'
+ERROR:root:2023-12-17 15:46:41.118196 - Exception occurred for symbol: JVDC. Error Message: 'float' object has no attribute 'Recommendation'
+ERROR:root:2023-12-17 15:46:41.367937 - Exception occurred for symbol: CNERGY. Error Message: 'float' object has no attribute 'Recommendation'
+ERROR:root:2023-12-17 15:46:41.695521 - Exception occurred for symbol: PIBTL. Error Message: 'float' object has no attribute 'Recommendation'
+ERROR:root:2023-12-17 15:46:41.802336 - Exception occurred for symbol: BAFL. Error Message: 'float' object has no attribute 'Recommendation'
+ERROR:root:2023-12-17 15:46:41.829336 - Exception occurred for symbol: TGL. Error Message: 'float' object has no attribute 'Recommendation'
+ERROR:root:2023-12-17 15:46:41.892271 - Exception occurred for symbol: HINOON. Error Message: 'float' object has no attribute 'Recommendation'
+ERROR:root:2023-12-17 15:46:41.947280 - Exception occurred for symbol: KEL. Error Message: 'float' object has no attribute 'Recommendation'
+ERROR:root:2023-12-17 15:46:42.053271 - Exception occurred for symbol: ATRL. Error Message: 'float' object has no attribute 'Recommendation'
+ERROR:root:2023-12-17 15:46:42.066279 - Exception occurred for symbol: SHEL. Error Message: 'float' object has no attribute 'Recommendation'
+ERROR:root:2023-12-17 15:46:42.142271 - Exception occurred for symbol: MCB. Error Message: 'float' object has no attribute 'Recommendation'
+ERROR:root:2023-12-17 15:46:42.174269 - Exception occurred for symbol: SNGP. Error Message: 'float' object has no attribute 'Recommendation'
+ERROR:root:2023-12-17 15:46:42.323257 - Exception occurred for symbol: SHFA. Error Message: 'float' object has no attribute 'Recommendation'
+ERROR:root:2023-12-17 15:46:42.380266 - Exception occurred for symbol: COLG. Error Message: 'float' object has no attribute 'Recommendation'
+ERROR:root:2023-12-17 15:46:43.560878 - Exception occurred for symbol: MTL. Error Message: 'float' object has no attribute 'Recommendation'
+ERROR:root:2023-12-17 15:46:43.711877 - Exception occurred for symbol: CHCC. Error Message: 'float' object has no attribute 'Recommendation'
+ERROR:root:2023-12-17 15:46:47.977102 - Exception occurred for symbol: INIL. Error Message: 'float' object has no attribute 'Recommendation'
+ERROR:root:2023-12-17 15:46:48.700109 - Exception occurred for symbol: SEARL. Error Message: 'float' object has no attribute 'Recommendation'
+ERROR:root:2023-12-17 15:46:50.181374 - Exception occurred for symbol: UNITY. Error Message: 'float' object has no attribute 'Recommendation'
+ERROR:root:2023-12-17 15:46:51.001215 - Exception occurred for symbol: PAKT. Error Message: 'float' object has no attribute 'Recommendation'
+ERROR:root:2023-12-17 15:46:51.010219 - Exception occurred for symbol: EPCL. Error Message: 'float' object has no attribute 'Recommendation'
+ERROR:root:2023-12-17 15:47:26.419702 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-18 00:21:49.166011 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-18 00:21:49.166011 - Exception occurred for symbol: HGFA. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-18 00:41:52.049904 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-18 00:41:52.088169 - Exception occurred for symbol: HGFA. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-18 00:44:54.583286 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-18 00:44:54.780093 - Exception occurred for symbol: HGFA. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-18 01:03:18.960759 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-18 01:03:19.016116 - Exception occurred for symbol: HGFA. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-18 01:04:50.336571 - Exception occurred for symbol: HGFA. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-18 01:04:51.615869 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-18 01:11:51.066464 - Exception occurred for symbol: HGFA. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-18 01:11:51.076456 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-18 01:22:21.280156 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-18 01:22:21.604710 - Exception occurred for symbol: HGFA. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-18 01:44:07.257065 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-18 18:02:08.741982 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-18 18:16:13.272547 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-18 18:25:07.003185 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-18 18:50:04.992395 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-18 18:50:58.136894 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-18 18:52:11.334551 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-18 19:00:17.462649 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-18 19:01:10.623078 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-18 19:03:15.330240 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-18 19:08:27.643941 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-18 19:11:42.118523 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-18 19:14:06.682081 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-18 19:19:22.379038 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-18 19:20:30.647097 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-18 19:31:05.523242 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-18 19:33:37.011414 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-18 19:35:44.615919 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-18 19:43:02.143929 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-18 19:43:45.532441 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-18 19:48:16.621453 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-18 19:51:47.140752 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-18 19:54:45.667277 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-18 19:55:40.748617 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-18 19:57:05.183811 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-18 19:57:59.697853 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-18 19:59:36.352746 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-18 20:00:33.696453 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-18 20:06:54.486337 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-18 20:06:54.937362 - Exception occurred for symbol: FHAM. Error Message: Can't access TradingView's API. HTTP status code: 502. Check for invalid symbol, exchange, or indicators.
+ERROR:root:2023-12-18 20:06:54.937362 - Exception occurred for symbol: AGP. Error Message: Can't access TradingView's API. HTTP status code: 502. Check for invalid symbol, exchange, or indicators.
+ERROR:root:2023-12-18 20:06:54.937362 - Exception occurred for symbol: ARPL. Error Message: Can't access TradingView's API. HTTP status code: 502. Check for invalid symbol, exchange, or indicators.
+ERROR:root:2023-12-18 20:06:54.947389 - Exception occurred for symbol: BWCL. Error Message: Can't access TradingView's API. HTTP status code: 502. Check for invalid symbol, exchange, or indicators.
+ERROR:root:2023-12-18 20:08:06.009475 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-18 20:18:10.434601 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-18 20:18:56.602927 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-18 20:20:07.609875 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-18 20:26:52.953026 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-18 20:26:55.089830 - Exception occurred for symbol: ENGRO. Error Message: Can't access TradingView's API. HTTP status code: 502. Check for invalid symbol, exchange, or indicators.
+ERROR:root:2023-12-18 20:26:55.089830 - Exception occurred for symbol: PSO. Error Message: Can't access TradingView's API. HTTP status code: 502. Check for invalid symbol, exchange, or indicators.
+ERROR:root:2023-12-18 20:27:33.512152 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-18 20:28:56.588945 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-18 20:36:27.474561 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-18 20:45:55.996370 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-18 21:02:19.504065 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-18 21:04:00.598829 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-18 21:04:46.316000 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-18 21:05:28.076723 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-18 21:17:35.029910 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-18 21:23:38.944911 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-18 21:23:43.558496 - Exception occurred for symbol: FABL. Error Message: Can't access TradingView's API. HTTP status code: 502. Check for invalid symbol, exchange, or indicators.
+ERROR:root:2023-12-18 21:23:43.568438 - Exception occurred for symbol: PSEL. Error Message: Can't access TradingView's API. HTTP status code: 502. Check for invalid symbol, exchange, or indicators.
+ERROR:root:2023-12-18 21:23:43.568438 - Exception occurred for symbol: FCEPL. Error Message: Can't access TradingView's API. HTTP status code: 502. Check for invalid symbol, exchange, or indicators.
+ERROR:root:2023-12-18 21:23:43.628299 - Exception occurred for symbol: POML. Error Message: Can't access TradingView's API. HTTP status code: 502. Check for invalid symbol, exchange, or indicators.
+ERROR:root:2023-12-18 21:52:03.437010 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-18 21:56:16.106603 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-18 22:05:52.082325 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-18 22:18:51.311900 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-18 22:20:39.350454 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-18 22:21:59.263445 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-18 22:30:43.382989 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-18 22:32:14.248894 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-18 22:36:26.347209 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-18 22:48:56.811001 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-19 00:25:30.126779 - Exception occurred for symbol: MEEZ. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-19 00:25:30.171699 - Exception occurred for symbol: MLT. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-19 00:27:02.360832 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-19 20:12:21.976577 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-19 20:12:22.388620 - Exception occurred for symbol: HPL. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-19 20:13:20.828882 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-19 20:29:00.989342 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-19 20:32:08.013026 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-19 20:34:30.503797 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-19 21:35:29.416875 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-20 00:39:06.823371 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-20 20:30:10.544328 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-20 20:52:03.508722 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-20 20:56:13.838691 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-20 20:56:49.202344 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-20 20:59:26.454567 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-20 21:01:42.356391 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-20 21:05:01.679431 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-20 22:58:25.043969 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-20 23:03:10.382376 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-20 23:03:38.807014 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-20 23:09:20.738431 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-20 23:16:00.387392 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-20 23:17:59.280805 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-20 23:45:03.669747 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-20 23:51:11.584040 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-20 23:53:37.417918 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-20 23:55:24.271516 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-20 23:56:34.870618 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-20 23:58:06.646288 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-20 23:58:12.149264 - Exception occurred for symbol: FABL. Error Message: Can't access TradingView's API. HTTP status code: 502. Check for invalid symbol, exchange, or indicators.
+ERROR:root:2023-12-20 23:59:27.014736 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-21 00:15:08.186305 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-21 00:26:57.004809 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-21 00:37:28.831999 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-21 00:44:44.010199 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-21 00:51:29.719562 - Exception occurred for symbol: AGP. Error Message: Can't access TradingView's API. HTTP status code: 502. Check for invalid symbol, exchange, or indicators.
+ERROR:root:2023-12-21 00:51:29.725299 - Exception occurred for symbol: CHCC. Error Message: Can't access TradingView's API. HTTP status code: 502. Check for invalid symbol, exchange, or indicators.
+ERROR:root:2023-12-21 00:51:29.731528 - Exception occurred for symbol: BIPL. Error Message: Can't access TradingView's API. HTTP status code: 502. Check for invalid symbol, exchange, or indicators.
+ERROR:root:2023-12-21 00:51:29.958526 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-21 00:58:25.562534 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-21 01:04:28.509607 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-21 01:05:46.356083 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-21 01:08:44.414668 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-21 01:09:21.687684 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-21 01:33:04.863852 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-21 01:35:39.598224 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-21 22:25:31.934238 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-21 22:28:59.952483 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-21 22:30:53.724273 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-21 22:38:20.016043 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-21 22:58:10.088350 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-21 23:02:06.662253 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-21 23:04:29.587848 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-22 13:43:42.505935 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-22 13:48:24.688113 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-22 14:03:27.880012 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-22 14:06:51.308452 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-23 03:22:47.601807 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-25 07:46:33.631957 - Exception occurred for symbol: AGTL. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-25 07:46:33.647958 - Exception occurred for symbol: CHCC. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-25 07:46:33.651956 - Exception occurred for symbol: DOL. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-25 07:46:33.663961 - Exception occurred for symbol: ENGRO. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-25 07:46:33.664992 - Exception occurred for symbol: BIFO. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-25 07:46:33.671955 - Exception occurred for symbol: ASL. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-25 07:46:33.671955 - Exception occurred for symbol: HCAR. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-25 07:46:33.683958 - Exception occurred for symbol: EXIDE. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-25 07:46:33.683958 - Exception occurred for symbol: EFERT. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-25 07:46:33.693961 - Exception occurred for symbol: GHNI. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-25 07:46:33.699962 - Exception occurred for symbol: IMAGE. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-25 07:46:33.715972 - Exception occurred for symbol: MLCF. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-25 07:46:33.724963 - Exception occurred for symbol: MEBL. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-25 07:46:33.729955 - Exception occurred for symbol: INIL. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-25 07:46:33.763962 - Exception occurred for symbol: MUGHAL. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-25 07:46:33.781958 - Exception occurred for symbol: PAEL. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-25 07:46:33.795954 - Exception occurred for symbol: SAZEW. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-25 07:46:34.083963 - Exception occurred for symbol: PNSC. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-25 07:46:34.096956 - Exception occurred for symbol: MEEZ. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-25 07:46:34.113956 - Exception occurred for symbol: ATRL. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-25 07:46:34.133961 - Exception occurred for symbol: DYNO. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-25 07:46:34.141959 - Exception occurred for symbol: SHEL. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-25 07:46:34.143958 - Exception occurred for symbol: WHALE. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-25 07:46:34.150959 - Exception occurred for symbol: HUBC. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-25 07:46:34.154960 - Exception occurred for symbol: WTL. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-25 07:46:34.154960 - Exception occurred for symbol: ICL. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-25 07:46:34.180965 - Exception occurred for symbol: MARI. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-25 07:46:34.182961 - Exception occurred for symbol: LOTCHEM. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-25 07:46:34.194957 - Exception occurred for symbol: NRL. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-25 07:46:34.202961 - Exception occurred for symbol: MLT. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-25 07:46:34.203961 - Exception occurred for symbol: NML. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-25 07:46:34.208955 - Exception occurred for symbol: SPL. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-25 07:46:34.209961 - Exception occurred for symbol: PIBTL. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-25 07:46:34.209961 - Exception occurred for symbol: QUICE. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-25 07:46:34.213956 - Exception occurred for symbol: NETSOL. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-25 07:46:34.234958 - Exception occurred for symbol: UNITY. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-25 07:46:34.235960 - Exception occurred for symbol: STCL. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-25 07:46:34.235960 - Exception occurred for symbol: SYS. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-25 07:46:34.257957 - Exception occurred for symbol: WAVES. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-25 13:35:17.511087 - Exception occurred for symbol: MEEZ. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-25 13:35:17.869149 - Exception occurred for symbol: MLT. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-25 17:42:19.236368 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-25 17:46:47.147645 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-25 17:50:43.423047 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-25 18:07:52.783809 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-25 18:10:15.215487 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-25 18:10:30.682588 - Error sending email: (535, b'5.7.8 Username and Password not accepted. For more information, go to\n5.7.8  https://support.google.com/mail/?p=BadCredentials fj8-20020a05600c0c8800b004094e565e71sm17719141wmb.23 - gsmtp')
+ERROR:root:2023-12-25 18:13:22.548580 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-25 18:13:37.632672 - Error sending email: (535, b'5.7.8 Username and Password not accepted. For more information, go to\n5.7.8  https://support.google.com/mail/?p=BadCredentials l4-20020adff484000000b003366d04b050sm10609120wro.38 - gsmtp')
+ERROR:root:2023-12-25 18:15:28.143465 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-25 23:59:05.668386 - Exception occurred for symbol: QGRI. Error Message: 'AD'
+ERROR:root:2023-12-25 23:59:05.766387 - Exception occurred for symbol: QFBQ. Error Message: 'AD'
+ERROR:root:2023-12-25 23:59:05.779388 - Exception occurred for symbol: MCGS. Error Message: 'AD'
+ERROR:root:2023-12-25 23:59:05.785404 - Exception occurred for symbol: IGRD. Error Message: 'AD'
+ERROR:root:2023-12-25 23:59:05.789388 - Exception occurred for symbol: DHBK. Error Message: 'AD'
+ERROR:root:2023-12-25 23:59:05.814393 - Exception occurred for symbol: ZHCD. Error Message: 'AD'
+ERROR:root:2023-12-25 23:59:05.834397 - Exception occurred for symbol: DOHI. Error Message: 'AD'
+ERROR:root:2023-12-25 23:59:05.852389 - Exception occurred for symbol: MEZA. Error Message: 'AD'
+ERROR:root:2023-12-25 23:59:05.870389 - Exception occurred for symbol: QCFS. Error Message: 'AD'
+ERROR:root:2023-12-25 23:59:05.935388 - Exception occurred for symbol: GWCS. Error Message: 'AD'
+ERROR:root:2023-12-25 23:59:05.940392 - Exception occurred for symbol: AKHI. Error Message: 'AD'
+ERROR:root:2023-12-25 23:59:06.144386 - Exception occurred for symbol: QFLS. Error Message: 'AD'
+ERROR:root:2023-12-25 23:59:06.148387 - Exception occurred for symbol: QIIK. Error Message: 'AD'
+ERROR:root:2023-12-25 23:59:06.159389 - Exception occurred for symbol: QIGD. Error Message: 'AD'
+ERROR:root:2023-12-25 23:59:06.167324 - Exception occurred for symbol: QIMD. Error Message: 'AD'
+ERROR:root:2023-12-25 23:59:06.170322 - Exception occurred for symbol: MPHC. Error Message: 'AD'
+ERROR:root:2023-12-25 23:59:06.178324 - Exception occurred for symbol: GISS. Error Message: 'AD'
+ERROR:root:2023-12-25 23:59:06.182322 - Exception occurred for symbol: AHCS. Error Message: 'AD'
+ERROR:root:2023-12-25 23:59:06.188329 - Exception occurred for symbol: SIIS. Error Message: 'AD'
+ERROR:root:2023-12-25 23:59:06.193327 - Exception occurred for symbol: BEMA. Error Message: 'AD'
+ERROR:root:2023-12-25 23:59:06.217323 - Exception occurred for symbol: MKDM. Error Message: 'AD'
+ERROR:root:2023-12-25 23:59:06.217323 - Exception occurred for symbol: QNNS. Error Message: 'AD'
+ERROR:root:2023-12-25 23:59:06.218322 - Exception occurred for symbol: MERS. Error Message: 'AD'
+ERROR:root:2023-12-25 23:59:06.224322 - Exception occurred for symbol: MRDS. Error Message: 'AD'
+ERROR:root:2023-12-25 23:59:06.227325 - Exception occurred for symbol: MCCS. Error Message: 'AD'
+ERROR:root:2023-12-25 23:59:06.237324 - Exception occurred for symbol: MARK. Error Message: 'AD'
+ERROR:root:2023-12-25 23:59:06.244320 - Exception occurred for symbol: UDCD. Error Message: 'AD'
+ERROR:root:2023-12-25 23:59:06.249340 - Exception occurred for symbol: QLMI. Error Message: 'AD'
+ERROR:root:2023-12-25 23:59:06.294324 - Exception occurred for symbol: QIBK. Error Message: 'AD'
+ERROR:root:2023-12-25 23:59:06.342318 - Exception occurred for symbol: IQCD. Error Message: 'AD'
+ERROR:root:2023-12-25 23:59:06.402320 - Exception occurred for symbol: CBQK. Error Message: 'AD'
+ERROR:root:2023-12-25 23:59:06.430321 - Exception occurred for symbol: BLDN. Error Message: 'AD'
+ERROR:root:2023-12-25 23:59:06.437333 - Exception occurred for symbol: QISI. Error Message: 'AD'
+ERROR:root:2023-12-25 23:59:06.454321 - Exception occurred for symbol: QOIS. Error Message: 'AD'
+ERROR:root:2023-12-25 23:59:06.565322 - Exception occurred for symbol: DBIS. Error Message: 'AD'
+ERROR:root:2023-12-25 23:59:06.569322 - Exception occurred for symbol: QGMD. Error Message: 'AD'
+ERROR:root:2023-12-25 23:59:06.591320 - Exception occurred for symbol: FALH. Error Message: 'AD'
+ERROR:root:2023-12-25 23:59:06.606322 - Exception occurred for symbol: BRES. Error Message: 'AD'
+ERROR:root:2023-12-25 23:59:06.612325 - Exception occurred for symbol: QATI. Error Message: 'AD'
+ERROR:root:2023-12-25 23:59:06.631327 - Exception occurred for symbol: ERES. Error Message: 'AD'
+ERROR:root:2023-12-25 23:59:06.656322 - Exception occurred for symbol: WDAM. Error Message: 'AD'
+ERROR:root:2023-12-25 23:59:06.667324 - Exception occurred for symbol: NLCS. Error Message: 'AD'
+ERROR:root:2023-12-25 23:59:06.841325 - Exception occurred for symbol: DUBK. Error Message: 'AD'
+ERROR:root:2023-12-25 23:59:06.862322 - Exception occurred for symbol: ORDS. Error Message: 'AD'
+ERROR:root:2023-12-25 23:59:06.877328 - Exception occurred for symbol: IHGS. Error Message: 'AD'
+ERROR:root:2023-12-25 23:59:06.925321 - Exception occurred for symbol: QNCD. Error Message: 'AD'
+ERROR:root:2023-12-25 23:59:07.027321 - Exception occurred for symbol: QEWS. Error Message: 'AD'
+ERROR:root:2023-12-25 23:59:07.089321 - Exception occurred for symbol: MHAR. Error Message: 'AD'
+ERROR:root:2023-12-25 23:59:07.411384 - Exception occurred for symbol: QAMC. Error Message: 'AD'
+ERROR:root:2023-12-25 23:59:07.847385 - Exception occurred for symbol: QGTS. Error Message: 'AD'
+ERROR:root:2023-12-25 23:59:08.512713 - Exception occurred for symbol: VFQS. Error Message: 'AD'
+ERROR:root:2023-12-25 23:59:08.523715 - Exception occurred for symbol: ABQK. Error Message: 'AD'
+ERROR:root:2023-12-26 00:08:08.412031 - Exception occurred for symbol: BRES. Error Message: Can't access TradingView's API. HTTP status code: 502. Check for invalid symbol, exchange, or indicators.
+ERROR:root:2023-12-26 00:08:08.413032 - Exception occurred for symbol: FALH. Error Message: Can't access TradingView's API. HTTP status code: 502. Check for invalid symbol, exchange, or indicators.
+ERROR:root:2023-12-26 00:08:08.414031 - Exception occurred for symbol: QIBK. Error Message: Can't access TradingView's API. HTTP status code: 502. Check for invalid symbol, exchange, or indicators.
+ERROR:root:2023-12-26 00:08:08.414031 - Exception occurred for symbol: MKDM. Error Message: Can't access TradingView's API. HTTP status code: 502. Check for invalid symbol, exchange, or indicators.
+ERROR:root:2023-12-26 00:08:08.415031 - Exception occurred for symbol: QFLS. Error Message: Can't access TradingView's API. HTTP status code: 502. Check for invalid symbol, exchange, or indicators.
+ERROR:root:2023-12-26 00:08:08.416035 - Exception occurred for symbol: QEWS. Error Message: Can't access TradingView's API. HTTP status code: 502. Check for invalid symbol, exchange, or indicators.
+ERROR:root:2023-12-26 00:08:08.417035 - Exception occurred for symbol: QNNS. Error Message: Can't access TradingView's API. HTTP status code: 502. Check for invalid symbol, exchange, or indicators.
+ERROR:root:2023-12-26 00:08:08.418031 - Exception occurred for symbol: QGMD. Error Message: Can't access TradingView's API. HTTP status code: 502. Check for invalid symbol, exchange, or indicators.
+ERROR:root:2023-12-26 00:08:08.419031 - Exception occurred for symbol: QIMD. Error Message: Can't access TradingView's API. HTTP status code: 502. Check for invalid symbol, exchange, or indicators.
+ERROR:root:2023-12-26 00:08:08.420035 - Exception occurred for symbol: MPHC. Error Message: Can't access TradingView's API. HTTP status code: 502. Check for invalid symbol, exchange, or indicators.
+ERROR:root:2023-12-26 00:08:08.420035 - Exception occurred for symbol: AKHI. Error Message: Can't access TradingView's API. HTTP status code: 502. Check for invalid symbol, exchange, or indicators.
+ERROR:root:2023-12-26 00:08:08.421033 - Exception occurred for symbol: DHBK. Error Message: Can't access TradingView's API. HTTP status code: 502. Check for invalid symbol, exchange, or indicators.
+ERROR:root:2023-12-26 00:08:08.422031 - Exception occurred for symbol: DUBK. Error Message: Can't access TradingView's API. HTTP status code: 502. Check for invalid symbol, exchange, or indicators.
+ERROR:root:2023-12-26 00:08:08.423035 - Exception occurred for symbol: MHAR. Error Message: Can't access TradingView's API. HTTP status code: 502. Check for invalid symbol, exchange, or indicators.
+ERROR:root:2023-12-26 00:08:08.424029 - Exception occurred for symbol: SIIS. Error Message: Can't access TradingView's API. HTTP status code: 502. Check for invalid symbol, exchange, or indicators.
+ERROR:root:2023-12-26 00:08:08.425032 - Exception occurred for symbol: QOIS. Error Message: Can't access TradingView's API. HTTP status code: 502. Check for invalid symbol, exchange, or indicators.
+ERROR:root:2023-12-26 00:08:08.426031 - Exception occurred for symbol: QFBQ. Error Message: Can't access TradingView's API. HTTP status code: 502. Check for invalid symbol, exchange, or indicators.
+ERROR:root:2023-12-26 00:08:08.427038 - Exception occurred for symbol: QATI. Error Message: Can't access TradingView's API. HTTP status code: 502. Check for invalid symbol, exchange, or indicators.
+ERROR:root:2023-12-26 00:08:08.428032 - Exception occurred for symbol: QIGD. Error Message: Can't access TradingView's API. HTTP status code: 502. Check for invalid symbol, exchange, or indicators.
+ERROR:root:2023-12-27 00:24:52.980244 - Exception occurred for symbol: MEEZ. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-27 00:24:53.433548 - Exception occurred for symbol: MLT. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-27 03:54:33.924967 - Exception occurred for symbol: QIBK. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-27 03:54:33.924967 - Exception occurred for symbol: ABQK. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-27 03:54:33.924967 - Exception occurred for symbol: QAMC. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-27 03:54:33.940836 - Exception occurred for symbol: QGTS. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-27 03:54:33.945833 - Exception occurred for symbol: BRES. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-27 03:54:33.949833 - Exception occurred for symbol: QFLS. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-27 03:54:33.950832 - Exception occurred for symbol: QATI. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-27 03:54:33.957837 - Exception occurred for symbol: MARK. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-27 03:54:33.961836 - Exception occurred for symbol: CBQK. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-27 03:54:33.974833 - Exception occurred for symbol: QEWS. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-27 03:54:33.994832 - Exception occurred for symbol: IQCD. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-27 03:54:34.037893 - Exception occurred for symbol: MERS. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-27 03:54:34.084894 - Exception occurred for symbol: MCGS. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-27 03:54:34.138834 - Exception occurred for symbol: NLCS. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-27 03:54:34.145897 - Exception occurred for symbol: DBIS. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-27 03:54:34.151840 - Exception occurred for symbol: QCFS. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-27 03:54:34.169833 - Exception occurred for symbol: MHAR. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-27 03:54:34.170868 - Exception occurred for symbol: QGMD. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-27 03:54:34.187835 - Exception occurred for symbol: QOIS. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-27 03:54:34.279867 - Exception occurred for symbol: QIIK. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-27 03:54:34.285833 - Exception occurred for symbol: VFQS. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-27 03:54:34.309839 - Exception occurred for symbol: ORDS. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-27 03:54:34.341837 - Exception occurred for symbol: ERES. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-27 03:54:34.359834 - Exception occurred for symbol: GISS. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-27 03:54:34.367840 - Exception occurred for symbol: DUBK. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-27 03:54:34.368834 - Exception occurred for symbol: AHCS. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-27 03:54:34.383895 - Exception occurred for symbol: QNCD. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-27 03:54:34.395858 - Exception occurred for symbol: MEZA. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-27 03:54:34.428834 - Exception occurred for symbol: QIGD. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-27 03:54:34.434837 - Exception occurred for symbol: ZHCD. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-27 03:54:34.434837 - Exception occurred for symbol: QIMD. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-27 03:54:34.441836 - Exception occurred for symbol: DHBK. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-27 03:54:34.442836 - Exception occurred for symbol: QLMI. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-27 03:54:34.448835 - Exception occurred for symbol: GWCS. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-27 03:54:34.451835 - Exception occurred for symbol: DOHI. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-27 03:54:34.469832 - Exception occurred for symbol: QFBQ. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-27 03:54:34.470835 - Exception occurred for symbol: MRDS. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-27 03:54:34.477833 - Exception occurred for symbol: QISI. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-27 03:54:34.478831 - Exception occurred for symbol: MPHC. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-27 03:54:34.503831 - Exception occurred for symbol: MCCS. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-27 03:54:34.510831 - Exception occurred for symbol: SIIS. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-27 03:54:34.511833 - Exception occurred for symbol: AKHI. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-27 03:54:34.520836 - Exception occurred for symbol: QGRI. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-27 03:54:34.536834 - Exception occurred for symbol: WDAM. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-27 03:54:34.537833 - Exception occurred for symbol: MKDM. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-27 03:54:34.547847 - Exception occurred for symbol: IHGS. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-27 03:54:34.548837 - Exception occurred for symbol: IGRD. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-27 03:54:34.562831 - Exception occurred for symbol: QNNS. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-27 03:54:34.609896 - Exception occurred for symbol: BEMA. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-27 03:54:34.615833 - Exception occurred for symbol: UDCD. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-27 03:54:34.629833 - Exception occurred for symbol: BLDN. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-27 03:54:34.690635 - Exception occurred for symbol: FALH. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-27 04:01:45.973697 - Exception occurred for symbol: IGRD. Error Message: Can't access TradingView's API. HTTP status code: 502. Check for invalid symbol, exchange, or indicators.
+ERROR:root:2023-12-27 04:01:45.973697 - Exception occurred for symbol: QCFS. Error Message: Can't access TradingView's API. HTTP status code: 502. Check for invalid symbol, exchange, or indicators.
+ERROR:root:2023-12-27 22:55:50.412233 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-27 23:04:37.460362 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-27 23:08:10.268282 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-27 23:13:14.791608 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-27 23:18:01.111005 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-27 23:21:53.112047 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-27 23:26:54.627254 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-27 23:30:13.082073 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-27 23:36:13.241738 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-27 23:38:34.705640 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-27 23:47:16.518345 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-27 23:48:56.678748 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-27 23:52:14.639988 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-27 23:56:40.273719 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-27 23:59:10.376727 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-28 00:01:14.221093 - Exception occurred for symbol: DUBK. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-28 00:01:14.231066 - Exception occurred for symbol: QNNS. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-28 00:01:14.231066 - Exception occurred for symbol: ERES. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-28 00:01:14.231066 - Exception occurred for symbol: CBQK. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-28 00:01:14.231066 - Exception occurred for symbol: QIBK. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-28 00:01:14.238246 - Exception occurred for symbol: MARK. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-28 00:01:14.246272 - Exception occurred for symbol: IQCD. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-28 00:01:14.261248 - Exception occurred for symbol: MPHC. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-28 00:01:14.277285 - Exception occurred for symbol: IGRD. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-28 00:01:14.280264 - Exception occurred for symbol: BRES. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-28 00:01:14.364245 - Exception occurred for symbol: MEZA. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-28 00:01:14.369247 - Exception occurred for symbol: MRDS. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-28 00:01:14.376285 - Exception occurred for symbol: MCGS. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-28 00:01:14.396281 - Exception occurred for symbol: QISI. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-28 00:01:14.401300 - Exception occurred for symbol: QLMI. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-28 00:01:14.415297 - Exception occurred for symbol: NLCS. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-28 00:01:14.424245 - Exception occurred for symbol: MHAR. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-28 00:01:14.431250 - Exception occurred for symbol: AKHI. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-28 00:01:14.443288 - Exception occurred for symbol: QCFS. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-28 00:01:14.444246 - Exception occurred for symbol: QGMD. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-28 00:01:14.444246 - Exception occurred for symbol: IHGS. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-28 00:01:14.613685 - Exception occurred for symbol: ORDS. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-28 00:01:14.695784 - Exception occurred for symbol: QAMC. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-28 00:01:14.722786 - Exception occurred for symbol: QFLS. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-28 00:01:14.743790 - Exception occurred for symbol: ABQK. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-28 00:01:14.748784 - Exception occurred for symbol: QEWS. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-28 00:01:14.772786 - Exception occurred for symbol: QGTS. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-28 00:01:14.773784 - Exception occurred for symbol: QATI. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-28 00:01:14.773784 - Exception occurred for symbol: DHBK. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-28 00:01:14.793783 - Exception occurred for symbol: ZHCD. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-28 00:01:14.794785 - Exception occurred for symbol: QIIK. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-28 00:01:14.805786 - Exception occurred for symbol: QFBQ. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-28 00:01:14.808785 - Exception occurred for symbol: GISS. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-28 00:01:14.818784 - Exception occurred for symbol: VFQS. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-28 00:01:14.819783 - Exception occurred for symbol: AHCS. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-28 00:01:14.819783 - Exception occurred for symbol: MCCS. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-28 00:01:14.836787 - Exception occurred for symbol: QNCD. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-28 00:01:14.837785 - Exception occurred for symbol: MERS. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-28 00:01:14.848783 - Exception occurred for symbol: QIMD. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-28 00:01:14.856784 - Exception occurred for symbol: QGRI. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-28 00:01:14.863784 - Exception occurred for symbol: DOHI. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-28 00:01:14.865784 - Exception occurred for symbol: QIGD. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-28 00:01:14.875785 - Exception occurred for symbol: BLDN. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-28 00:01:14.880787 - Exception occurred for symbol: GWCS. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-28 00:01:14.890783 - Exception occurred for symbol: UDCD. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-28 00:01:14.890783 - Exception occurred for symbol: SIIS. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-28 00:01:14.930781 - Exception occurred for symbol: MKDM. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-28 00:01:14.936782 - Exception occurred for symbol: QOIS. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-28 00:01:14.947795 - Exception occurred for symbol: FALH. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-28 00:01:14.948786 - Exception occurred for symbol: BEMA. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-28 00:01:14.956785 - Exception occurred for symbol: WDAM. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-28 00:01:14.982782 - Exception occurred for symbol: DBIS. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-28 00:04:30.597053 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-28 00:12:48.830572 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-28 00:44:23.325779 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-28 00:46:23.759941 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-28 00:57:03.251512 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-28 01:00:30.811802 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-28 01:11:34.328616 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-28 01:14:43.813193 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-28 01:20:15.090094 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-28 23:45:04.791874 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-28 23:45:43.396517 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-28 23:49:04.137732 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-28 23:51:36.910087 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-28 23:52:40.838830 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-28 23:53:22.389960 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-29 00:02:09.334575 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-29 00:06:58.988008 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-29 00:10:49.527078 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-29 00:12:01.747650 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-29 00:13:41.929719 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-29 00:15:21.145309 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-29 00:16:25.647650 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-29 00:16:26.969231 - Exception occurred for symbol: KEL. Error Message: Can't access TradingView's API. HTTP status code: 502. Check for invalid symbol, exchange, or indicators.
+ERROR:root:2023-12-29 00:16:26.981533 - Exception occurred for symbol: PSO. Error Message: Can't access TradingView's API. HTTP status code: 502. Check for invalid symbol, exchange, or indicators.
+ERROR:root:2023-12-29 00:16:26.983538 - Exception occurred for symbol: MUGHAL. Error Message: Can't access TradingView's API. HTTP status code: 502. Check for invalid symbol, exchange, or indicators.
+ERROR:root:2023-12-29 00:16:26.984535 - Exception occurred for symbol: PAEL. Error Message: Can't access TradingView's API. HTTP status code: 502. Check for invalid symbol, exchange, or indicators.
+ERROR:root:2023-12-29 00:16:26.984535 - Exception occurred for symbol: SHFA. Error Message: Can't access TradingView's API. HTTP status code: 502. Check for invalid symbol, exchange, or indicators.
+ERROR:root:2023-12-29 00:16:26.985537 - Exception occurred for symbol: PIBTL. Error Message: Can't access TradingView's API. HTTP status code: 502. Check for invalid symbol, exchange, or indicators.
+ERROR:root:2023-12-29 00:16:27.001714 - Exception occurred for symbol: OGDC. Error Message: Can't access TradingView's API. HTTP status code: 502. Check for invalid symbol, exchange, or indicators.
+ERROR:root:2023-12-29 00:16:27.022712 - Exception occurred for symbol: UNITY. Error Message: Can't access TradingView's API. HTTP status code: 502. Check for invalid symbol, exchange, or indicators.
+ERROR:root:2023-12-29 00:18:33.407487 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-29 00:20:27.081329 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-29 00:21:01.440605 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-29 00:22:12.439014 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-29 00:22:38.269724 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-29 00:25:41.658711 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-29 00:51:43.286501 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-29 00:53:16.332504 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-29 00:54:27.382429 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-29 00:56:09.362797 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-29 00:56:41.749988 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-29 01:09:40.639102 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-29 01:10:02.508252 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-29 01:10:22.063850 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-29 01:11:41.421127 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-29 01:13:50.508809 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-29 01:15:38.041974 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-29 01:17:46.892058 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-29 01:19:41.693132 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-29 01:22:10.522951 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-29 01:23:42.677968 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-29 01:25:35.796266 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-29 01:27:00.047140 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-29 01:28:04.850997 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-29 01:44:04.570126 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-29 23:24:04.177529 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-29 23:26:28.536912 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-30 00:38:28.605764 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-30 00:46:15.304378 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-30 00:46:54.537714 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-30 00:53:47.566062 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-30 01:01:06.579841 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-30 01:02:59.193365 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-30 20:53:41.807796 - Exception occurred for symbol: MEEZ. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-30 20:53:42.275342 - Exception occurred for symbol: MLT. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-30 21:33:39.156732 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-30 23:51:38.426649 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-30 23:55:27.040917 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-31 00:26:13.450256 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-31 00:29:36.574091 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-31 00:53:01.982056 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-31 18:03:31.476573 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-31 18:06:09.194811 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-31 19:38:18.777976 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-31 19:39:12.299020 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-31 19:43:47.670402 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-31 19:47:09.636997 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-31 19:50:47.822688 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-31 19:55:30.596038 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-31 20:00:13.761676 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-31 20:05:08.153438 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-31 20:11:48.627394 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-31 20:15:20.554188 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-31 20:20:12.057674 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-31 20:48:10.442846 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-31 20:52:19.553025 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-31 20:52:22.366027 - Exception occurred for symbol: MTL. Error Message: Can't access TradingView's API. HTTP status code: 502. Check for invalid symbol, exchange, or indicators.
+ERROR:root:2023-12-31 20:55:26.100474 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-31 21:06:22.699619 - Exception occurred for symbol: NRL. Error Message: Can't access TradingView's API. HTTP status code: 502. Check for invalid symbol, exchange, or indicators.
+ERROR:root:2023-12-31 21:06:22.701654 - Exception occurred for symbol: ENGRO. Error Message: Can't access TradingView's API. HTTP status code: 502. Check for invalid symbol, exchange, or indicators.
+ERROR:root:2023-12-31 21:06:22.701654 - Exception occurred for symbol: EFERT. Error Message: Can't access TradingView's API. HTTP status code: 502. Check for invalid symbol, exchange, or indicators.
+ERROR:root:2023-12-31 21:06:22.705615 - Exception occurred for symbol: BIFO. Error Message: Can't access TradingView's API. HTTP status code: 502. Check for invalid symbol, exchange, or indicators.
+ERROR:root:2023-12-31 21:06:22.716613 - Exception occurred for symbol: ATRL. Error Message: Can't access TradingView's API. HTTP status code: 502. Check for invalid symbol, exchange, or indicators.
+ERROR:root:2023-12-31 21:06:22.789613 - Exception occurred for symbol: MLT. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-31 21:06:22.816627 - Exception occurred for symbol: MEEZ. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-31 21:07:38.354686 - Exception occurred for symbol: MEEZ. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-31 21:07:38.697680 - Exception occurred for symbol: MLT. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-31 21:10:31.473683 - Exception occurred for symbol: MEEZ. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-31 21:10:31.859688 - Exception occurred for symbol: MLT. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-31 21:11:44.977625 - Exception occurred for symbol: MEEZ. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-31 21:11:44.981662 - Exception occurred for symbol: MLT. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-31 21:11:46.548718 - Exception occurred for symbol: WHALE. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2023-12-31 21:11:46.553701 - Exception occurred for symbol: STCL. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2023-12-31 21:13:26.287598 - Exception occurred for symbol: MLT. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-31 21:13:26.317601 - Exception occurred for symbol: MEEZ. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-31 21:14:54.374596 - Exception occurred for symbol: MEEZ. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-31 21:14:54.739601 - Exception occurred for symbol: MLT. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-31 21:17:26.911383 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-31 21:20:09.424264 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-31 21:20:10.816267 - Exception occurred for symbol: HPL. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-31 21:27:52.008129 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-31 21:27:53.775125 - Exception occurred for symbol: HPL. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-31 21:30:54.423151 - Exception occurred for symbol: MEEZ. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-31 21:30:54.921146 - Exception occurred for symbol: MLT. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-31 21:36:06.775500 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-31 21:54:52.619487 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-31 22:06:33.366728 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-31 22:06:34.867726 - Exception occurred for symbol: HPL. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-31 22:16:25.205688 - Exception occurred for symbol: MLT. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-31 22:16:25.500686 - Exception occurred for symbol: HUBC. Error Message: Can't access TradingView's API. HTTP status code: 502. Check for invalid symbol, exchange, or indicators.
+ERROR:root:2023-12-31 22:16:25.549689 - Exception occurred for symbol: MEEZ. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-31 23:33:34.638838 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-31 23:33:34.873836 - Exception occurred for symbol: HPL. Error Message: Exchange or symbol not found.
+ERROR:root:2023-12-31 23:33:38.434397 - Exception occurred for symbol: EMCO. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2023-12-31 23:33:39.216401 - Exception occurred for symbol: BIFO. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2023-12-31 23:33:39.887395 - Exception occurred for symbol: HAEL. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2023-12-31 23:33:40.303400 - Exception occurred for symbol: CLOV. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2023-12-31 23:33:40.540393 - Exception occurred for symbol: BNWM. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2023-12-31 23:33:40.677394 - Exception occurred for symbol: AIRLINK. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2023-12-31 23:33:41.058396 - Exception occurred for symbol: GAL. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2023-12-31 23:33:41.744395 - Exception occurred for symbol: GLPL. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2023-12-31 23:33:42.090393 - Exception occurred for symbol: KOHP. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2023-12-31 23:33:42.522395 - Exception occurred for symbol: MFFL. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2023-12-31 23:33:43.390621 - Exception occurred for symbol: UCAPM. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-01 00:18:41.715309 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2024-01-01 00:18:42.390312 - Exception occurred for symbol: HPL. Error Message: Exchange or symbol not found.
+ERROR:root:2024-01-01 00:18:45.707309 - Exception occurred for symbol: AIRLINK. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-01 00:18:46.906309 - Exception occurred for symbol: EMCO. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-01 00:18:46.923312 - Exception occurred for symbol: CLOV. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-01 00:18:47.009312 - Exception occurred for symbol: BIFO. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-01 00:18:47.032309 - Exception occurred for symbol: GLPL. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-01 00:18:47.266309 - Exception occurred for symbol: HAEL. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-01 00:18:48.403724 - Exception occurred for symbol: GAL. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-01 00:18:48.524723 - Exception occurred for symbol: BNWM. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-01 00:18:48.885980 - Exception occurred for symbol: KOHP. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-01 00:18:48.913979 - Exception occurred for symbol: MFFL. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-01 00:18:49.927282 - Exception occurred for symbol: UCAPM. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-01 00:27:39.994031 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2024-01-01 00:27:41.880335 - Exception occurred for symbol: BNWM. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-01 00:31:00.122038 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2024-01-01 00:31:01.746037 - Exception occurred for symbol: BNWM. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-01 00:31:48.780133 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2024-01-01 00:31:51.226140 - Exception occurred for symbol: BNWM. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-01 00:34:47.281658 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2024-01-01 00:34:48.485662 - Exception occurred for symbol: BNWM. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-01 00:36:19.942504 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2024-01-01 00:36:21.496502 - Exception occurred for symbol: BNWM. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-01 00:41:21.003642 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2024-01-01 00:41:23.234653 - Exception occurred for symbol: BNWM. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-01 00:54:49.591321 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2024-01-01 00:54:51.743408 - Exception occurred for symbol: BNWM. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-01 11:16:56.151818 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2024-01-01 11:18:22.989981 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2024-01-01 11:21:19.657177 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2024-01-01 11:21:21.457174 - Exception occurred for symbol: BNWM. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-01 16:23:23.553088 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2024-01-01 16:23:24.415089 - Exception occurred for symbol: BNWM. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-01 16:27:07.120699 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2024-01-01 16:27:08.620698 - Exception occurred for symbol: BNWM. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-01 16:29:36.730121 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2024-01-01 16:29:38.190121 - Exception occurred for symbol: BNWM. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-01 16:47:22.959733 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2024-01-01 16:47:24.209733 - Exception occurred for symbol: BNWM. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-01 23:50:33.284393 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2024-01-01 23:50:35.918867 - Exception occurred for symbol: BNWM. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-01 23:53:48.747176 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2024-01-01 23:53:52.227182 - Exception occurred for symbol: BNWM. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-01 23:57:14.113797 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2024-01-01 23:57:17.932837 - Exception occurred for symbol: BNWM. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 00:10:29.148768 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2024-01-02 00:10:32.925829 - Exception occurred for symbol: BNWM. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 00:15:12.862272 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2024-01-02 00:15:16.585316 - Exception occurred for symbol: BNWM. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 00:24:40.228219 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2024-01-02 00:24:42.935215 - Exception occurred for symbol: BNWM. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 00:32:42.608384 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2024-01-02 00:32:46.673387 - Exception occurred for symbol: BNWM. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 00:40:00.293242 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2024-01-02 00:40:04.373246 - Exception occurred for symbol: BNWM. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 00:47:19.496521 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2024-01-02 00:47:23.186479 - Exception occurred for symbol: DGKC. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 00:47:23.195515 - Exception occurred for symbol: ISL. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 00:47:23.216480 - Exception occurred for symbol: PABC. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 00:47:23.250479 - Exception occurred for symbol: BNWM. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 00:47:23.255479 - Exception occurred for symbol: FFBL. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 00:47:23.270479 - Exception occurred for symbol: PIBTL. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 00:47:23.273483 - Exception occurred for symbol: CHCC. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 00:47:23.466546 - Exception occurred for symbol: PPL. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 00:47:23.565479 - Exception occurred for symbol: GLAXO. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 00:47:23.585483 - Exception occurred for symbol: KTML. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 00:47:23.616483 - Exception occurred for symbol: MUGHAL. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 00:47:23.624479 - Exception occurred for symbol: NML. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 00:47:23.635484 - Exception occurred for symbol: TGL. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 00:47:23.670480 - Exception occurred for symbol: LOTCHEM. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 00:47:23.673480 - Exception occurred for symbol: SYS. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 00:47:23.703477 - Exception occurred for symbol: SHFA. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 00:47:23.751480 - Exception occurred for symbol: THALL. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 00:47:23.758479 - Exception occurred for symbol: SEARL. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 00:47:23.761479 - Exception occurred for symbol: PAEL. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 00:47:23.767479 - Exception occurred for symbol: UNITY. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 00:47:23.852483 - Exception occurred for symbol: KOHC. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 00:47:23.852483 - Exception occurred for symbol: NRL. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 00:47:23.889482 - Exception occurred for symbol: KEL. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 00:47:23.998479 - Exception occurred for symbol: INIL. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 00:47:24.096517 - Exception occurred for symbol: PIOC. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 00:47:24.101514 - Exception occurred for symbol: MTL. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 00:47:24.141489 - Exception occurred for symbol: PSEL. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 00:47:24.149585 - Exception occurred for symbol: EPCL. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 00:47:24.155479 - Exception occurred for symbol: MLCF. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 00:47:24.166548 - Exception occurred for symbol: PKGP. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 00:47:24.366506 - Exception occurred for symbol: LUCK. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 00:48:34.270949 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2024-01-02 00:48:37.474010 - Exception occurred for symbol: PIBTL. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 00:48:37.476008 - Exception occurred for symbol: PABC. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 00:48:37.487954 - Exception occurred for symbol: ISL. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 00:48:37.490985 - Exception occurred for symbol: LUCK. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 00:48:37.503955 - Exception occurred for symbol: NML. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 00:48:37.525949 - Exception occurred for symbol: PAEL. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 00:48:37.540986 - Exception occurred for symbol: UNITY. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 00:48:37.612015 - Exception occurred for symbol: INIL. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 00:48:37.655024 - Exception occurred for symbol: KOHC. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 00:48:37.668950 - Exception occurred for symbol: PIOC. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 00:48:37.678951 - Exception occurred for symbol: SEARL. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 00:48:37.704950 - Exception occurred for symbol: THALL. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 00:48:37.708950 - Exception occurred for symbol: SHFA. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 00:48:37.742949 - Exception occurred for symbol: KEL. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 00:48:37.746949 - Exception occurred for symbol: CHCC. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 00:48:37.772987 - Exception occurred for symbol: PPL. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 00:48:37.775948 - Exception occurred for symbol: SYS. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 00:48:37.780953 - Exception occurred for symbol: EPCL. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 00:48:37.783952 - Exception occurred for symbol: MTL. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 00:48:37.811951 - Exception occurred for symbol: NRL. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 00:48:37.819950 - Exception occurred for symbol: PKGP. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 00:48:38.190009 - Exception occurred for symbol: BNWM. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 00:48:38.249948 - Exception occurred for symbol: FFBL. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 00:48:38.470016 - Exception occurred for symbol: GLAXO. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 00:48:38.481990 - Exception occurred for symbol: MUGHAL. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 00:48:38.597989 - Exception occurred for symbol: LOTCHEM. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 00:48:38.627985 - Exception occurred for symbol: KTML. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 00:48:38.630991 - Exception occurred for symbol: TGL. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 00:48:38.663985 - Exception occurred for symbol: PSEL. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 00:48:39.181955 - Exception occurred for symbol: MLCF. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 00:48:58.995955 - Exception occurred for symbol: DGKC. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 00:54:35.615297 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2024-01-02 00:54:38.181299 - Exception occurred for symbol: BNWM. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 00:56:52.452875 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2024-01-02 00:56:54.588910 - Exception occurred for symbol: SHFA. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 00:56:54.738872 - Exception occurred for symbol: MUGHAL. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 00:56:54.747875 - Exception occurred for symbol: CHCC. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 00:56:54.757874 - Exception occurred for symbol: PAEL. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 00:56:54.801874 - Exception occurred for symbol: EPCL. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 00:56:54.855873 - Exception occurred for symbol: FFBL. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 00:56:54.864874 - Exception occurred for symbol: KTML. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 00:56:54.946876 - Exception occurred for symbol: PIOC. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 00:56:54.968955 - Exception occurred for symbol: DGKC. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 00:56:54.996872 - Exception occurred for symbol: SYS. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 00:56:55.073875 - Exception occurred for symbol: MTL. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 00:56:55.118874 - Exception occurred for symbol: PSEL. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 00:56:55.133881 - Exception occurred for symbol: PPL. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 00:56:55.138873 - Exception occurred for symbol: ISL. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 00:56:55.148872 - Exception occurred for symbol: INIL. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 00:56:55.160875 - Exception occurred for symbol: UNITY. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 00:56:55.226878 - Exception occurred for symbol: KOHC. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 00:56:55.255878 - Exception occurred for symbol: NML. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 00:56:55.259874 - Exception occurred for symbol: TGL. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 00:56:55.262875 - Exception occurred for symbol: LUCK. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 00:56:55.269876 - Exception occurred for symbol: PKGP. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 00:56:55.294881 - Exception occurred for symbol: MLCF. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 00:56:55.311874 - Exception occurred for symbol: PIBTL. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 00:56:55.663876 - Exception occurred for symbol: THALL. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 00:56:55.696875 - Exception occurred for symbol: SEARL. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 00:56:55.874937 - Exception occurred for symbol: PABC. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 00:56:55.930876 - Exception occurred for symbol: LOTCHEM. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 00:56:56.218916 - Exception occurred for symbol: KEL. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 00:56:56.263875 - Exception occurred for symbol: GLAXO. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 00:57:15.565652 - Exception occurred for symbol: BNWM. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 00:57:15.871658 - Exception occurred for symbol: NRL. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 00:58:41.485773 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2024-01-02 00:58:46.811714 - Exception occurred for symbol: BNWM. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 00:58:46.822714 - Exception occurred for symbol: PPL. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 00:58:46.974753 - Exception occurred for symbol: TGL. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 00:58:47.153714 - Exception occurred for symbol: PIBTL. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 00:58:47.250689 - Exception occurred for symbol: INIL. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 00:58:47.268630 - Exception occurred for symbol: LUCK. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 00:58:47.272633 - Exception occurred for symbol: PSEL. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 00:58:47.301636 - Exception occurred for symbol: PABC. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 00:58:47.309633 - Exception occurred for symbol: UNITY. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 00:58:47.314649 - Exception occurred for symbol: SEARL. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 00:58:47.341626 - Exception occurred for symbol: DGKC. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 00:58:47.363635 - Exception occurred for symbol: KTML. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 00:58:47.369628 - Exception occurred for symbol: NRL. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 00:58:47.379667 - Exception occurred for symbol: EPCL. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 00:58:47.401634 - Exception occurred for symbol: KOHC. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 00:58:47.418668 - Exception occurred for symbol: THALL. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 00:58:47.738691 - Exception occurred for symbol: KEL. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 00:58:47.825628 - Exception occurred for symbol: GLAXO. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 00:58:47.854640 - Exception occurred for symbol: CHCC. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 00:58:47.880628 - Exception occurred for symbol: ISL. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 00:58:47.908626 - Exception occurred for symbol: PIOC. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 00:58:47.945632 - Exception occurred for symbol: SHFA. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 00:58:47.977635 - Exception occurred for symbol: MUGHAL. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 00:58:48.127689 - Exception occurred for symbol: FFBL. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 00:58:48.444692 - Exception occurred for symbol: SYS. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 00:58:48.477692 - Exception occurred for symbol: PAEL. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 00:58:48.555664 - Exception occurred for symbol: MTL. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 00:58:48.826635 - Exception occurred for symbol: MLCF. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 00:58:48.838634 - Exception occurred for symbol: NML. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 00:58:49.580689 - Exception occurred for symbol: PKGP. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 00:58:50.194628 - Exception occurred for symbol: LOTCHEM. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:00:37.241553 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2024-01-02 01:00:39.801510 - Exception occurred for symbol: EPCL. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:00:39.880548 - Exception occurred for symbol: NRL. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:00:40.043205 - Exception occurred for symbol: DGKC. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:00:40.081205 - Exception occurred for symbol: BNWM. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:00:40.098229 - Exception occurred for symbol: PAEL. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:00:40.112277 - Exception occurred for symbol: PABC. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:00:40.166208 - Exception occurred for symbol: KOHC. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:00:40.216207 - Exception occurred for symbol: PSEL. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:00:40.285202 - Exception occurred for symbol: GLAXO. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:00:40.313216 - Exception occurred for symbol: ISL. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:00:40.315204 - Exception occurred for symbol: THALL. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:00:40.319202 - Exception occurred for symbol: LOTCHEM. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:00:40.398202 - Exception occurred for symbol: MLCF. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:00:40.414207 - Exception occurred for symbol: LUCK. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:00:40.422206 - Exception occurred for symbol: INIL. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:00:40.443206 - Exception occurred for symbol: SEARL. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:00:40.510205 - Exception occurred for symbol: PPL. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:00:40.514209 - Exception occurred for symbol: SYS. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:00:40.522212 - Exception occurred for symbol: UNITY. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:00:40.528210 - Exception occurred for symbol: PIOC. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:00:40.578207 - Exception occurred for symbol: KTML. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:00:40.588206 - Exception occurred for symbol: SHFA. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:00:40.596203 - Exception occurred for symbol: MUGHAL. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:00:40.609204 - Exception occurred for symbol: KEL. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:00:40.634208 - Exception occurred for symbol: FFBL. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:00:40.800267 - Exception occurred for symbol: TGL. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:00:40.805269 - Exception occurred for symbol: MTL. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:00:40.859204 - Exception occurred for symbol: PIBTL. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:00:40.964270 - Exception occurred for symbol: PKGP. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:00:41.021203 - Exception occurred for symbol: CHCC. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:00:41.374266 - Exception occurred for symbol: NML. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:02:44.383546 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2024-01-02 01:02:50.150582 - Exception occurred for symbol: SYS. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:02:50.295584 - Exception occurred for symbol: MLCF. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:02:50.321547 - Exception occurred for symbol: PIBTL. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:02:50.369635 - Exception occurred for symbol: KEL. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:02:50.390588 - Exception occurred for symbol: EPCL. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:02:50.456548 - Exception occurred for symbol: NML. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:02:50.465551 - Exception occurred for symbol: BNWM. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:02:50.472550 - Exception occurred for symbol: SEARL. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:02:50.529547 - Exception occurred for symbol: GLAXO. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:02:50.584547 - Exception occurred for symbol: ISL. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:02:50.642551 - Exception occurred for symbol: LOTCHEM. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:02:50.664587 - Exception occurred for symbol: MTL. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:02:50.688587 - Exception occurred for symbol: TGL. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:02:50.700586 - Exception occurred for symbol: NRL. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:02:50.726547 - Exception occurred for symbol: LUCK. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:02:50.789618 - Exception occurred for symbol: PABC. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:02:50.800549 - Exception occurred for symbol: KTML. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:02:50.855549 - Exception occurred for symbol: MUGHAL. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:02:50.898548 - Exception occurred for symbol: PAEL. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:02:50.904550 - Exception occurred for symbol: SHFA. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:02:50.906552 - Exception occurred for symbol: PSEL. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:02:50.928552 - Exception occurred for symbol: KOHC. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:02:50.931549 - Exception occurred for symbol: PIOC. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:02:50.936549 - Exception occurred for symbol: CHCC. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:02:50.965548 - Exception occurred for symbol: PKGP. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:02:50.972546 - Exception occurred for symbol: UNITY. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:02:50.982546 - Exception occurred for symbol: FFBL. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:02:51.155546 - Exception occurred for symbol: PPL. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:02:51.256611 - Exception occurred for symbol: DGKC. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:02:51.487609 - Exception occurred for symbol: INIL. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:02:52.547609 - Exception occurred for symbol: THALL. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:11:42.840531 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2024-01-02 01:11:45.754569 - Exception occurred for symbol: CHCC. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:11:46.011567 - Exception occurred for symbol: EPCL. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:11:46.017561 - Exception occurred for symbol: NML. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:11:46.202579 - Exception occurred for symbol: FFBL. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:11:46.223581 - Exception occurred for symbol: MUGHAL. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:11:46.234582 - Exception occurred for symbol: DGKC. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:11:46.239580 - Exception occurred for symbol: PABC. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:11:46.297623 - Exception occurred for symbol: MLCF. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:11:46.383618 - Exception occurred for symbol: PIOC. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:11:46.396588 - Exception occurred for symbol: PSEL. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:11:46.523581 - Exception occurred for symbol: KOHC. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:11:46.549617 - Exception occurred for symbol: THALL. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:11:46.568580 - Exception occurred for symbol: GLAXO. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:11:46.571621 - Exception occurred for symbol: UNITY. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:11:46.596621 - Exception occurred for symbol: TGL. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:11:46.688580 - Exception occurred for symbol: PKGP. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:11:46.822641 - Exception occurred for symbol: MTL. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:11:46.837582 - Exception occurred for symbol: SYS. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:11:46.846580 - Exception occurred for symbol: NRL. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:11:46.883282 - Exception occurred for symbol: LUCK. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:11:46.943285 - Exception occurred for symbol: PAEL. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:11:47.141280 - Exception occurred for symbol: ISL. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:11:47.175282 - Exception occurred for symbol: INIL. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:11:47.214281 - Exception occurred for symbol: BNWM. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:11:47.279292 - Exception occurred for symbol: SHFA. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:11:47.537279 - Exception occurred for symbol: PPL. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:11:47.581281 - Exception occurred for symbol: SEARL. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:11:47.856345 - Exception occurred for symbol: PIBTL. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:11:48.189287 - Exception occurred for symbol: KEL. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:11:48.211282 - Exception occurred for symbol: KTML. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:11:48.418341 - Exception occurred for symbol: LOTCHEM. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:14:14.033248 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2024-01-02 01:14:17.152243 - Exception occurred for symbol: DGKC. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:14:17.177245 - Exception occurred for symbol: TGL. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:14:17.262245 - Exception occurred for symbol: NRL. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:14:17.268242 - Exception occurred for symbol: PKGP. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:14:17.330244 - Exception occurred for symbol: BNWM. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:14:17.332246 - Exception occurred for symbol: ISL. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:14:17.375270 - Exception occurred for symbol: LUCK. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:14:17.381244 - Exception occurred for symbol: KOHC. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:14:17.392240 - Exception occurred for symbol: LOTCHEM. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:14:17.477244 - Exception occurred for symbol: SHFA. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:14:17.644250 - Exception occurred for symbol: MLCF. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:14:17.666245 - Exception occurred for symbol: CHCC. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:14:17.801302 - Exception occurred for symbol: PABC. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:14:17.856243 - Exception occurred for symbol: MUGHAL. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:14:17.888246 - Exception occurred for symbol: EPCL. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:14:17.985243 - Exception occurred for symbol: PIOC. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:14:18.184243 - Exception occurred for symbol: PAEL. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:14:18.189248 - Exception occurred for symbol: KEL. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:14:18.195241 - Exception occurred for symbol: UNITY. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:14:18.239248 - Exception occurred for symbol: PIBTL. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:14:18.314245 - Exception occurred for symbol: MTL. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:14:18.413241 - Exception occurred for symbol: KTML. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:14:18.419243 - Exception occurred for symbol: PPL. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:14:18.431242 - Exception occurred for symbol: GLAXO. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:14:18.476247 - Exception occurred for symbol: PSEL. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:14:18.528243 - Exception occurred for symbol: INIL. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:14:18.703244 - Exception occurred for symbol: NML. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:14:18.708243 - Exception occurred for symbol: THALL. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:14:19.073249 - Exception occurred for symbol: SEARL. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:14:19.540244 - Exception occurred for symbol: FFBL. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:14:19.647245 - Exception occurred for symbol: SYS. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:18:02.449899 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2024-01-02 01:18:07.437835 - Exception occurred for symbol: GHGL. Error Message: Can't access TradingView's API. HTTP status code: 502. Check for invalid symbol, exchange, or indicators.
+ERROR:root:2024-01-02 01:18:08.321836 - Exception occurred for symbol: CHCC. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:18:08.355877 - Exception occurred for symbol: MUGHAL. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:18:08.460362 - Exception occurred for symbol: PIBTL. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:18:08.492299 - Exception occurred for symbol: NRL. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:18:08.638298 - Exception occurred for symbol: ISL. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:18:08.668298 - Exception occurred for symbol: KEL. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:18:08.672297 - Exception occurred for symbol: BNWM. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:18:08.713303 - Exception occurred for symbol: MTL. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:18:08.772299 - Exception occurred for symbol: PIOC. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:18:08.885364 - Exception occurred for symbol: PAEL. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:18:08.890343 - Exception occurred for symbol: INIL. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:18:08.898300 - Exception occurred for symbol: PSEL. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:18:08.961366 - Exception occurred for symbol: GLAXO. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:18:08.964341 - Exception occurred for symbol: LOTCHEM. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:18:08.986296 - Exception occurred for symbol: THALL. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:18:08.996299 - Exception occurred for symbol: FFBL. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:18:09.004301 - Exception occurred for symbol: PPL. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:18:09.009299 - Exception occurred for symbol: PKGP. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:18:09.048306 - Exception occurred for symbol: UNITY. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:18:09.232343 - Exception occurred for symbol: SEARL. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:18:09.253299 - Exception occurred for symbol: SYS. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:18:09.358339 - Exception occurred for symbol: KTML. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:18:09.497303 - Exception occurred for symbol: KOHC. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:18:09.663361 - Exception occurred for symbol: PABC. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:18:09.745348 - Exception occurred for symbol: EPCL. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:18:09.941361 - Exception occurred for symbol: LUCK. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:18:10.128361 - Exception occurred for symbol: SHFA. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:18:10.194362 - Exception occurred for symbol: MLCF. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:18:10.473300 - Exception occurred for symbol: NML. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:18:10.603372 - Exception occurred for symbol: DGKC. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:18:10.973358 - Exception occurred for symbol: TGL. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:21:19.648098 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2024-01-02 01:21:22.800097 - Exception occurred for symbol: CHCC. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:21:23.021099 - Exception occurred for symbol: ISL. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:21:23.028103 - Exception occurred for symbol: MTL. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:21:23.040100 - Exception occurred for symbol: BNWM. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:21:23.048139 - Exception occurred for symbol: MUGHAL. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:21:23.061097 - Exception occurred for symbol: FFBL. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:21:23.069139 - Exception occurred for symbol: KOHC. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:21:23.078097 - Exception occurred for symbol: TGL. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:21:23.194882 - Exception occurred for symbol: INIL. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:21:23.201918 - Exception occurred for symbol: PABC. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:21:23.237884 - Exception occurred for symbol: LOTCHEM. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:21:23.240924 - Exception occurred for symbol: KTML. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:21:23.244886 - Exception occurred for symbol: PPL. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:21:23.249888 - Exception occurred for symbol: MLCF. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:21:23.311883 - Exception occurred for symbol: UNITY. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:21:23.324884 - Exception occurred for symbol: PSEL. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:21:23.369886 - Exception occurred for symbol: THALL. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:21:23.392887 - Exception occurred for symbol: GLAXO. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:21:23.402886 - Exception occurred for symbol: PKGP. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:21:23.404884 - Exception occurred for symbol: SEARL. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:21:23.426884 - Exception occurred for symbol: KEL. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:21:23.429883 - Exception occurred for symbol: SYS. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:21:23.468884 - Exception occurred for symbol: NRL. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:21:23.471882 - Exception occurred for symbol: NML. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:21:23.476881 - Exception occurred for symbol: DGKC. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:21:23.515952 - Exception occurred for symbol: PIBTL. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:21:23.532963 - Exception occurred for symbol: PAEL. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:21:24.040889 - Exception occurred for symbol: EPCL. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:21:24.253884 - Exception occurred for symbol: LUCK. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:21:24.395941 - Exception occurred for symbol: SHFA. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:21:24.399890 - Exception occurred for symbol: PIOC. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:24:13.264273 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2024-01-02 01:24:16.609989 - Exception occurred for symbol: PSEL. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:24:16.650950 - Exception occurred for symbol: BNWM. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:24:16.759952 - Exception occurred for symbol: PPL. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:24:16.763956 - Exception occurred for symbol: EPCL. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:24:16.777951 - Exception occurred for symbol: MLCF. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:24:16.807951 - Exception occurred for symbol: NML. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:24:16.880951 - Exception occurred for symbol: LUCK. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:24:16.936951 - Exception occurred for symbol: DGKC. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:24:16.943951 - Exception occurred for symbol: SYS. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:24:16.957947 - Exception occurred for symbol: INIL. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:24:16.959951 - Exception occurred for symbol: PKGP. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:24:16.964948 - Exception occurred for symbol: PABC. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:24:16.977948 - Exception occurred for symbol: PAEL. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:24:17.035949 - Exception occurred for symbol: SEARL. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:24:17.037949 - Exception occurred for symbol: ISL. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:24:17.039947 - Exception occurred for symbol: THALL. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:24:17.116012 - Exception occurred for symbol: KEL. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:24:17.125947 - Exception occurred for symbol: UNITY. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:24:17.128948 - Exception occurred for symbol: GLAXO. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:24:17.163946 - Exception occurred for symbol: CHCC. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:24:17.194954 - Exception occurred for symbol: KOHC. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:24:17.223950 - Exception occurred for symbol: TGL. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:24:17.277947 - Exception occurred for symbol: NRL. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:24:17.312948 - Exception occurred for symbol: KTML. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:24:17.323947 - Exception occurred for symbol: LOTCHEM. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:24:17.330951 - Exception occurred for symbol: MTL. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:24:17.380954 - Exception occurred for symbol: PIBTL. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:24:17.856258 - Exception occurred for symbol: MUGHAL. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:24:18.206260 - Exception occurred for symbol: SHFA. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:24:18.280197 - Exception occurred for symbol: PIOC. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:24:18.522196 - Exception occurred for symbol: FFBL. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:26:38.678265 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2024-01-02 01:26:41.668223 - Exception occurred for symbol: KEL. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:26:41.744225 - Exception occurred for symbol: NML. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:26:41.794223 - Exception occurred for symbol: MTL. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:26:41.828223 - Exception occurred for symbol: KOHC. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:26:41.834227 - Exception occurred for symbol: ISL. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:26:41.838224 - Exception occurred for symbol: LOTCHEM. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:26:41.937228 - Exception occurred for symbol: PPL. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:26:41.940235 - Exception occurred for symbol: PAEL. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:26:41.948224 - Exception occurred for symbol: LUCK. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:26:42.033227 - Exception occurred for symbol: FFBL. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:26:42.043233 - Exception occurred for symbol: CHCC. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:26:42.051224 - Exception occurred for symbol: SEARL. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:26:42.067226 - Exception occurred for symbol: THALL. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:26:42.069226 - Exception occurred for symbol: MLCF. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:26:42.079226 - Exception occurred for symbol: MUGHAL. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:26:42.081225 - Exception occurred for symbol: UNITY. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:26:42.083225 - Exception occurred for symbol: PSEL. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:26:42.085224 - Exception occurred for symbol: SHFA. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:26:42.088222 - Exception occurred for symbol: DGKC. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:26:42.091226 - Exception occurred for symbol: INIL. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:26:42.122229 - Exception occurred for symbol: EPCL. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:26:42.124228 - Exception occurred for symbol: SYS. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:26:42.144844 - Exception occurred for symbol: PKGP. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:26:42.153849 - Exception occurred for symbol: PABC. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:26:42.159848 - Exception occurred for symbol: GLAXO. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:26:42.162843 - Exception occurred for symbol: PIBTL. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:26:42.281907 - Exception occurred for symbol: TGL. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:26:42.304907 - Exception occurred for symbol: PIOC. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:26:42.319844 - Exception occurred for symbol: KTML. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:26:42.337915 - Exception occurred for symbol: BNWM. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:26:43.073903 - Exception occurred for symbol: NRL. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:29:35.137124 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2024-01-02 01:29:37.860660 - Exception occurred for symbol: KTML. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:29:37.975627 - Exception occurred for symbol: BNWM. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:29:38.011624 - Exception occurred for symbol: INIL. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:29:38.014623 - Exception occurred for symbol: KEL. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:29:38.052623 - Exception occurred for symbol: CHCC. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:29:38.096621 - Exception occurred for symbol: ISL. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:29:38.117623 - Exception occurred for symbol: LUCK. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:29:38.152622 - Exception occurred for symbol: GLAXO. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:29:38.189625 - Exception occurred for symbol: MTL. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:29:38.192624 - Exception occurred for symbol: LOTCHEM. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:29:38.199622 - Exception occurred for symbol: FFBL. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:29:38.205622 - Exception occurred for symbol: PIBTL. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:29:38.217622 - Exception occurred for symbol: DGKC. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:29:38.232622 - Exception occurred for symbol: MLCF. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:29:38.293621 - Exception occurred for symbol: MUGHAL. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:29:38.338622 - Exception occurred for symbol: THALL. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:29:38.346621 - Exception occurred for symbol: SYS. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:29:38.355623 - Exception occurred for symbol: NRL. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:29:38.365624 - Exception occurred for symbol: KOHC. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:29:38.427622 - Exception occurred for symbol: PABC. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:29:38.430626 - Exception occurred for symbol: EPCL. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:29:38.449624 - Exception occurred for symbol: SHFA. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:29:38.457621 - Exception occurred for symbol: PAEL. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:29:38.463626 - Exception occurred for symbol: SEARL. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:29:38.470624 - Exception occurred for symbol: PIOC. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:29:38.481622 - Exception occurred for symbol: NML. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:29:38.514622 - Exception occurred for symbol: PPL. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:29:38.544620 - Exception occurred for symbol: PSEL. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:29:38.549622 - Exception occurred for symbol: UNITY. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:29:39.335288 - Exception occurred for symbol: PKGP. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:29:39.349350 - Exception occurred for symbol: TGL. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:31:15.326172 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2024-01-02 01:31:18.554233 - Exception occurred for symbol: FFBL. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:31:18.591212 - Exception occurred for symbol: CHCC. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:31:18.596169 - Exception occurred for symbol: ISL. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:31:18.677210 - Exception occurred for symbol: DGKC. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:31:18.680208 - Exception occurred for symbol: MLCF. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:31:18.701169 - Exception occurred for symbol: UNITY. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:31:18.757245 - Exception occurred for symbol: TGL. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:31:18.788248 - Exception occurred for symbol: PSEL. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:31:18.817247 - Exception occurred for symbol: PAEL. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:31:18.885243 - Exception occurred for symbol: BNWM. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:31:18.894245 - Exception occurred for symbol: NRL. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:31:18.907252 - Exception occurred for symbol: PABC. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:31:18.910249 - Exception occurred for symbol: PKGP. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:31:18.913252 - Exception occurred for symbol: THALL. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:31:18.966247 - Exception occurred for symbol: LUCK. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:31:18.973245 - Exception occurred for symbol: SHFA. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:31:18.978246 - Exception occurred for symbol: NML. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:31:18.982245 - Exception occurred for symbol: EPCL. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:31:18.987245 - Exception occurred for symbol: KTML. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:31:19.001247 - Exception occurred for symbol: INIL. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:31:19.004251 - Exception occurred for symbol: MTL. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:31:19.017250 - Exception occurred for symbol: MUGHAL. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:31:19.020255 - Exception occurred for symbol: GLAXO. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:31:19.028244 - Exception occurred for symbol: PPL. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:31:19.038245 - Exception occurred for symbol: KOHC. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:31:19.046247 - Exception occurred for symbol: PIBTL. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:31:19.048244 - Exception occurred for symbol: SYS. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:31:19.056244 - Exception occurred for symbol: SEARL. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:31:19.078251 - Exception occurred for symbol: LOTCHEM. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:31:19.277130 - Exception occurred for symbol: PIOC. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:31:19.387146 - Exception occurred for symbol: KEL. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:32:08.766767 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2024-01-02 01:32:11.152833 - Exception occurred for symbol: DGKC. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:32:11.209767 - Exception occurred for symbol: TGL. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:32:11.282768 - Exception occurred for symbol: EPCL. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:32:11.295769 - Exception occurred for symbol: BNWM. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:32:11.468766 - Exception occurred for symbol: THALL. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:32:11.530769 - Exception occurred for symbol: SHFA. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:32:11.575766 - Exception occurred for symbol: PKGP. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:32:11.587766 - Exception occurred for symbol: NRL. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:32:11.594766 - Exception occurred for symbol: GLAXO. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:32:11.605805 - Exception occurred for symbol: NML. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:32:11.636817 - Exception occurred for symbol: PABC. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:32:11.639767 - Exception occurred for symbol: LOTCHEM. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:32:11.643880 - Exception occurred for symbol: CHCC. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:32:11.646809 - Exception occurred for symbol: LUCK. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:32:11.650766 - Exception occurred for symbol: FFBL. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:32:11.673806 - Exception occurred for symbol: SYS. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:32:11.721765 - Exception occurred for symbol: PPL. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:32:11.729768 - Exception occurred for symbol: MUGHAL. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:32:11.733775 - Exception occurred for symbol: KTML. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:32:11.805432 - Exception occurred for symbol: PIOC. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:32:11.819434 - Exception occurred for symbol: KOHC. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:32:11.841436 - Exception occurred for symbol: MLCF. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:32:11.848434 - Exception occurred for symbol: UNITY. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:32:11.910432 - Exception occurred for symbol: SEARL. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:32:12.105433 - Exception occurred for symbol: PIBTL. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:32:12.526495 - Exception occurred for symbol: INIL. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:32:12.594242 - Exception occurred for symbol: PAEL. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:32:12.760242 - Exception occurred for symbol: MTL. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:32:12.823210 - Exception occurred for symbol: PSEL. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:32:12.906213 - Exception occurred for symbol: KEL. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:32:15.153303 - Exception occurred for symbol: ISL. Error Message: unsupported operand type(s) for +: 'float' and 'NoneType'
+ERROR:root:2024-01-02 01:39:26.845803 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2024-01-02 01:45:07.161710 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2024-01-02 01:48:26.888912 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2024-01-02 01:56:05.049332 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2024-01-02 02:03:02.976532 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2024-01-02 02:03:07.329160 - Exception occurred for symbol: LOTCHEM. Error Message: Can't access TradingView's API. HTTP status code: 502. Check for invalid symbol, exchange, or indicators.
+ERROR:root:2024-01-02 02:03:07.357158 - Exception occurred for symbol: NML. Error Message: Can't access TradingView's API. HTTP status code: 502. Check for invalid symbol, exchange, or indicators.
+ERROR:root:2024-01-02 02:03:07.358161 - Exception occurred for symbol: POML. Error Message: Can't access TradingView's API. HTTP status code: 502. Check for invalid symbol, exchange, or indicators.
+ERROR:root:2024-01-02 03:06:11.677036 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2024-01-02 03:09:44.699213 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2024-01-02 03:13:26.016246 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.

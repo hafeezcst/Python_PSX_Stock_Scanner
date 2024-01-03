@@ -2,7 +2,7 @@
 
 
 a = Analysis(
-    ['PythonTechnicalScanner', 'V2.0.py'],
+    ['PSX_Screener_H_D_W_M.py'],
     pathex=[],
     binaries=[],
     datas=[],
@@ -21,7 +21,7 @@ exe = EXE(
     a.binaries,
     a.datas,
     [],
-    name='PythonTechnicalScanner',
+    name='PSX_Screener_H_D_W_M',
     debug=False,
     bootloader_ignore_signals=False,
     strip=False,

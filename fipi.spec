@@ -2,7 +2,7 @@
 
 
 a = Analysis(
-    ['PythonTechnicalScanner', 'V2.0.py'],
+    ['fipi.py'],
     pathex=[],
     binaries=[],
     datas=[],
@@ -21,7 +21,7 @@ exe = EXE(
     a.binaries,
     a.datas,
     [],
-    name='PythonTechnicalScanner',
+    name='fipi',
     debug=False,
     bootloader_ignore_signals=False,
     strip=False,

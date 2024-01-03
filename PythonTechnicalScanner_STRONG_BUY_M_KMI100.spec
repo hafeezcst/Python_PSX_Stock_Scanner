@@ -2,7 +2,7 @@
 
 
 a = Analysis(
-    ['PythonTechnicalScanner', 'V2.0.py'],
+    ['PythonTechnicalScanner_STRONG_BUY_M_KMI100.py'],
     pathex=[],
     binaries=[],
     datas=[],
@@ -21,7 +21,7 @@ exe = EXE(
     a.binaries,
     a.datas,
     [],
-    name='PythonTechnicalScanner',
+    name='PythonTechnicalScanner_STRONG_BUY_M_KMI100',
     debug=False,
     bootloader_ignore_signals=False,
     strip=False,

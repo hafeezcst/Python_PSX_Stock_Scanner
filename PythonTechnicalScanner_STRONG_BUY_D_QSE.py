@@ -4,6 +4,7 @@ import os
 from threading import Thread
 import datetime
 from concurrent.futures import ThreadPoolExecutor
+from flask import current_app
 import openpyxl
 from tradingview_ta import TA_Handler, Interval
 import pandas as pd
@@ -171,36 +172,6 @@ def send_email(subject, body, attachment_path=None) :
         # Disconnect from the SMTP server
         server.quit ( )
 
-
-def run_analysis_daily() :
-    while True :
-        p_datetime = datetime.datetime.now ( )
-        print ( f"Technical Analysis Date and Time: {current_datetime}" )
-        
-        analyzed_data.clear ( )
-        
-        # Calculate the time difference until the next day
-        next_day = current_datetime + datetime.timedelta ( days=1 )
-        time_difference = next_day.replace ( hour=7, minute=00, second=0, microsecond=0 ) - current_datetime
-        print ( f"Time until the next day: {time_difference}" )
-        
-        # Sleep for the calculated time difference
-        time.sleep ( time_difference.total_seconds ( ) )
-        
-        # Filter symbols with a "STRONG_BUY" recommendation
-        strong_buy_symbols = [ data for data in analyzed_data if data [ 2 ] == "STRONG_BUY" ]
-        
-        # Send email if there are strong buy symbols
-        if strong_buy_symbols :
-            subject = "Daily Strong Buy Recommendations"
-            body = "\n".join (
-                [ f"{symbol}: {recommendation}" for _, symbol, recommendation, *_ in strong_buy_symbols ] )
-            
-            send_email ( subject, body )
-            
-            # Sleep for 24 hours- 86400 seconds
-        time.sleep ( 86400 )
-
 def main() :
     # Set the analysis type
     analysis_type = "D"  # Default selection
@@ -214,7 +185,7 @@ def main() :
     base_url_finance = "https://www.tradingview.com/symbols/QSE-"  # Set the base URL
     base_url_tech = "https://www.tradingview.com/symbols/QSE-"  # Set the base URL
     # Set default analysis type to "M" if the user presses Enter without entering a choice
-    current_datetime = datetime.datetime.now ( ).strftime("%m:%d:%Y %H:%M:%S")  # Include time
+    current_datetime = datetime.datetime.now ( )
     count = 1
     
     # Create a thread pool
@@ -377,9 +348,9 @@ def main() :
         buy_symbols = df_buy
         # Filter the symbols for the current date
         today_Strong_buy = recommended_symbols [
-            recommended_symbols [ 'Date and Time' ] == datetime.datetime.now ( ).strftime ( "%m:%d:%Y" ) ]
+            recommended_symbols [ 'Date and Time' ] == datetime.datetime.now ( ).date ( ) ]
         today_buy= buy_symbols [
-            buy_symbols [ 'Date and Time' ] == datetime.datetime.now ( ).strftime ( "%m:%d:%Y" ) ]
+            buy_symbols [ 'Date and Time' ] == datetime.datetime.now ( ).date ( ) ]
         # Sort the data by recommendation 
         subject = f"{analysis_type}-{symbol_selection}- {recommendation_filter}-Technical_Analysis_"
         # body    = f"Technical Analysis for {current_date} is attached."
@@ -396,8 +367,9 @@ def main() :
 
 if __name__ == "__main__":
     analyzed_data = [ ]  # Moved analyzed_data outside the loop to persist data across runs
-    # Schedule the daily analysis to run continuously
-    Thread ( target=run_analysis_daily, daemon=True ).start ( )
+    strong_buy_symbols = [ ]  # Moved strong_buy_symbols outside the loop to persist data across runs
+    buy_symbols = [ ]  # Moved buy_symbols outside the loop to persist data across runs
+
     
     # Run the main analysis
     main ( )

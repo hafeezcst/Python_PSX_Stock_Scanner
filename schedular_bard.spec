@@ -2,7 +2,7 @@
 
 
 a = Analysis(
-    ['PythonTechnicalScanner', 'V2.0.py'],
+    ['schedular_bard.py'],
     pathex=[],
     binaries=[],
     datas=[],
@@ -21,7 +21,7 @@ exe = EXE(
     a.binaries,
     a.datas,
     [],
-    name='PythonTechnicalScanner',
+    name='schedular_bard',
     debug=False,
     bootloader_ignore_signals=False,
     strip=False,

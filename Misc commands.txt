@@ -1,2 +1,17 @@
 convert the python script to exe
-    pyinstaller --onefile PythonTechnicalScanner.py
+    pyinstaller --onefile PythonTechnicalScanner V1.0
+    pyinstaller --onefile PythonTechnicalScanner V2.0
+    pyinstaller --onefile PythonTechnicalScanner_STRONG_BUY_1H_KMI100.py
+    pyinstaller --onefile PythonTechnicalScanner_STRONG_BUY_D_KMI100.py
+    pyinstaller --onefile PythonTechnicalScanner_STRONG_BUY_W_KMI100.py
+    pyinstaller --onefile PythonTechnicalScanner_STRONG_BUY_M_KMI100.py
+    pyinstaller --onefile PSX_Screener_H_D_W_M.py
+    
+
+    
+
+
+
+
+
+
