@@ -15,7 +15,7 @@ logging.basicConfig ( filename='analysis_log.txt', level=logging.ERROR )
 
 def main():
     analysis_type = input (
-        "Select analysis type (M for Monthly, W for Weekly, D for Daily,4H for 4Hourly, press Enter for default D): " ).upper ( )
+        "Select analysis type (M for Monthly, W for Weekly, D for Daily,H for Hourly, press Enter for default D): " ).upper ( )
     
     if not analysis_type:
         time.sleep ( 2 )  # Delay for 5 seconds
@@ -43,9 +43,9 @@ def main():
     volume_threshold = 1000000  # Filter by this volume threshold 1 mission
     min_volume = 50000  # Filter by thids volume threshold
     ao_threshold: int = 0  # Filter by this AO threshold
-    base_url_charts = "https://www.tradingview.com/chart/ZMYE714n/?symbol=PSX%3A"  # Set the base URL
-    base_url_finance = "https://www.tradingview.com/symbols/PSX-"  # Set the base URL
-    base_url_tech = "https://www.tradingview.com/symbols/PSX-"  # Set the base URL
+    base_url_charts = "https://www.tradingview.com/chart/ZMYE714n/?symbol=QSE%3A"  # Set the base URL
+    base_url_finance = "https://www.tradingview.com/symbols/QSE-"  # Set the base URL
+    base_url_tech = "https://www.tradingview.com/symbols/QSE-"  # Set the base URL
     # Set default analysis type to "M" if the user presses Enter without entering a choice
     current_datetime = datetime.datetime.now ( )  # Include time
     count = 1
@@ -60,13 +60,13 @@ def main():
             f"Select symbol List ({', '.join ( symbol_options )}), press Enter for default List: " ).upper ( )
         
         if not symbol_selection:
-            time.sleep ( 5 )  # Delay for 5 seconds
+            time.sleep ( 2 )  # Delay for 5 seconds
             symbol_selection = "QSE"  # Default selection
             print ( f"Selected symbol List: {symbol_selection}" )
         while symbol_selection not in symbol_options :
             print ( "Invalid symbol selection. Please try again." )
             symbol_selection = input (
-                f"Select symbol ({', '.join ( symbol_options )}), press Enter for default QSE: " ).upper ( )
+                f"Select symbol ({', '.join ( symbol_options )}), press Enter for default {symbol_selection} " ).upper ( )
         
         if symbol_selection == "KMI30":
             psx_symbols = KMI30
@@ -74,10 +74,10 @@ def main():
             psx_symbols = KMI100
         elif symbol_selection == "MYLIST":
             psx_symbols = MYLIST
+        elif symbol_selection == "QSE":
+            psx_symbols = QSE
         elif symbol_selection == "CUSTUM": 
             psx_symbols = CUSTUM
-        elif symbol_selection == "QSE": 
-            psx_symbols = QSE    
         else :
             psx_symbols = KMIALL
         
@@ -219,11 +219,9 @@ def main():
                             'Last RSI', 'AO', '%Change(D)','Support','Resistance',
                             'Charts', 'Financials', 'Technicals' ] ).drop_duplicates(subset=subset_columns,keep='last')  
     # Write the data to an Excel file
-    portofolio,cash=simulate_trading(df_strong_buy,df_sell,df_all)  
-    print(f"Portfolio: {portofolio}, Cash: {cash}")
     
     # Define the database connection URL
-    database_url = f'sqlite:///{symbol_selection}_{analysis_type}_data.db'
+    database_url = f'sqlite:///{analysis_type}_data.db'
 
     # Create a database engine
     engine = sqlalchemy.create_engine(database_url)
@@ -240,7 +238,11 @@ def main():
 
     # Save the Excel file
     with pd.ExcelWriter(excel_file_path, engine='xlsxwriter') as writer:
-        # Write DataFrames to Excel sheets
+        df_all = df_all.drop_duplicates(subset=subset_columns, keep='last')
+        df_strong_buy = df_strong_buy.drop_duplicates(subset=subset_columns, keep='last')
+        df_buy = df_buy.drop_duplicates(subset=subset_columns, keep='last')
+        df_sell = df_sell.drop_duplicates(subset=subset_columns, keep='last')
+
         df_all.to_excel(writer, sheet_name='All Symbols', index=False)
         df_strong_buy.to_excel(writer, sheet_name='Recommended_Symbols', index=False)
         df_buy.to_excel(writer, sheet_name='Buy_Symbols', index=False)
@@ -296,12 +298,12 @@ def main():
         buy_symbols = df_buy
         # Filter the symbols for the current date
         # Filter the symbols for the current date
-        today_date = datetime.datetime.now().date()
-        today_Strong_buy = recommended_symbols[recommended_symbols['Date and Time'].dt.date == today_date] if not recommended_symbols.empty else pd.DataFrame()
-        today_buy = buy_symbols[buy_symbols['Date and Time'].dt.date == today_date] if not buy_symbols.empty else pd.DataFrame()
+        today_Strong_buy = recommended_symbols [
+            recommended_symbols [ 'Date and Time' ].dt.date == datetime.datetime.now ( ).date ( ) ]
+        today_buy = buy_symbols [
+            buy_symbols [ 'Date and Time' ].dt.date == datetime.datetime.now ( ).date ( ) ]
         # Sort the data by recommendation 
         subject = f"{analysis_type}-{symbol_selection}- {recommendation_filter}-Technical_Analysis_"
-        # body    = f"Technical Analysis for {current_date} is attached."
         # body    = f"Technical Analysis for {current_date} is attached."
         # Concatenate the two DataFrames
         combined_df = pd.concat ( [ today_Strong_buy, today_buy ] )

@@ -1,30 +1,20 @@
-from convert_excel_to_lists import CUSTUM, KMIALL, KMI100, KMI30, MYLIST, QSE
-from analysis_functions import analyze_symbol
-from email_functions import send_email
-import pandas as pd
-import sqlalchemy
+from PSX_Stock_Scanner.convert_excel_to_lists import CUSTUM, KMIALL, KMI100, KMI30, MYLIST, QSE
+from PSX_Stock_Scanner.analysis_functions import analyze_symbol
+from PSX_Stock_Scanner.email_functions import send_email
 import time
 import os
 import logging
-import datetime
+import pandas as pd
 from concurrent.futures import ThreadPoolExecutor
-# Set up logging
-logging.basicConfig(filename='analysis_log.txt', level=logging.ERROR)
-
-# Global constants
-VOLUME_THRESHOLD = 1000000
-MIN_VOLUME = 50000
-AO_THRESHOLD = 0
-BASE_URL_CHARTS = "https://www.tradingview.com/chart/ZMYE714n/?symbol=PSX%3A"
-BASE_URL_FINANCE = "https://www.tradingview.com/symbols/PSX-"
-BASE_URL_TECH = "https://www.tradingview.com/symbols/PSX-"
+import datetime
+import sqlalchemy
 
 # Configure logging
 logging.basicConfig ( filename='analysis_log.txt', level=logging.ERROR )
 
 def main():
     analysis_type = input (
-        "Select analysis type (M for Monthly, W for Weekly, D for Daily,H for Hourly, press Enter for default D): " ).upper ( )
+        "Select analysis type (M for Monthly, W for Weekly, D for Daily,4H for 4Hourly, press Enter for default D): " ).upper ( )
     
     if not analysis_type:
         time.sleep ( 2 )  # Delay for 5 seconds
@@ -66,16 +56,16 @@ def main():
         symbol_options = [ "KMIALL", "KMI100", "KMI30", "MYLIST", "QSE" ,"CUSTUM"]
         
         symbol_selection = input (
-            f"Select symbol List ({', '.join ( symbol_options )}), press Enter for default List KMIALL: " ).upper ( )
+            f"Select symbol List ({', '.join ( symbol_options )}), press Enter for default List: " ).upper ( )
         
         if not symbol_selection:
             time.sleep ( 2 )  # Delay for 5 seconds
-            symbol_selection = "KMIALL"  # Default selection
+            symbol_selection = "KMI100"  # Default selection
             print ( f"Selected symbol List: {symbol_selection}" )
         while symbol_selection not in symbol_options :
             print ( "Invalid symbol selection. Please try again." )
             symbol_selection = input (
-                f"Select symbol ({', '.join ( symbol_options )}), press Enter for default{symbol_selection}: " ).upper ( )
+                f"Select symbol ({', '.join ( symbol_options )}), press Enter for default QSE: " ).upper ( )
         
         if symbol_selection == "KMI30":
             psx_symbols = KMI30
@@ -93,10 +83,10 @@ def main():
             for symbol in psx_symbols ]
         
         # Process completed tasks
-        analyzed_data       = [ ]  # list to store all analyzed data
-        strong_buy_symbols  = [ ]  # List to store symbols with a "STRONG_BUY" recommendation
-        buy_symbols         = [ ]  # List to store symbols with a "BUY" recommendation
-        sell_symbols        = [ ]  # List to store symbols with a "SELL" recommendation
+        analyzed_data = [ ]  # list to store all analyzed data
+        strong_buy_symbols = [ ]  # List to store symbols with a "STRONG_BUY" recommendation
+        buy_symbols = [ ]  # List to store symbols with a "BUY" recommendation
+        sell_symbols = [ ]  # List to store symbols with a "SELL" recommendation
 
         for future in futures:
             result = future.result ( )
@@ -124,7 +114,6 @@ def main():
                         current_datetime, symbol, summary, Close, Sell_Signal, Neutral_Signal, Buy_Signal, Volume,
                         ADX, RSI, RSI_Last, AO, Change,average_support,average_resistance, base_url_charts, base_url_finance, base_url_tech
                     ])
-                        
                 # Check if the recommendation is "fixed buy" and the volume is greater than the threshold
                     if summary == "BUY" and Volume > volume_threshold and AO > ao_threshold :
                         buy_symbols.append ([
@@ -142,6 +131,7 @@ def main():
                 
         # Set the file name with the analysis date as a postfix
         excel_file_path = f"{analysis_type}-Advance_Technical_Analysis_{symbol_selection}_{recommendation_filter}.xlsx"
+
     # Check if the file exists
     if os.path.exists ( excel_file_path ) :
         print ( f"Reading data from {excel_file_path}" )
@@ -227,10 +217,9 @@ def main():
                             'Last RSI', 'AO', '%Change(D)','Support','Resistance',
                             'Charts', 'Financials', 'Technicals' ] ).drop_duplicates(subset=subset_columns,keep='last')  
     # Write the data to an Excel file
-
     
     # Define the database connection URL
-    database_url = f'sqlite:///{symbol_selection}_{analysis_type}_data.db'
+    database_url = f'sqlite:///{analysis_type}_data.db'
 
     # Create a database engine
     engine = sqlalchemy.create_engine(database_url)
@@ -248,16 +237,10 @@ def main():
     # Save the Excel file
     with pd.ExcelWriter(excel_file_path, engine='xlsxwriter') as writer:
         # Write DataFrames to Excel sheets
-        df_all          = df_all.drop_duplicates(subset=subset_columns, keep='last')
-        df_strong_buy   = df_strong_buy.drop_duplicates(subset=subset_columns, keep='last')
-        df_buy          = df_buy.drop_duplicates(subset=subset_columns, keep='last')
-        df_sell         = df_sell.drop_duplicates(subset=subset_columns, keep='last')
-
         df_all.to_excel(writer, sheet_name='All Symbols', index=False)
         df_strong_buy.to_excel(writer, sheet_name='Recommended_Symbols', index=False)
         df_buy.to_excel(writer, sheet_name='Buy_Symbols', index=False)
         df_sell.to_excel(writer, sheet_name='Sell_Symbols', index=False)
-        
 
         # Get the workbook and the worksheet objects
         workbook = writer.book
@@ -288,7 +271,6 @@ def main():
         worksheet_sell.conditional_format ( 'A2:Q1000', {'type' : 'formula',
                                                         'criteria' : 'AND($K2<50, $L2<0)',
                                                         'format' : highlight_format_bearish} )
-        # Save the Excel file
         print ( f"Data exported to {excel_file_path}" )
         # Wait until the file size stabilizes (e.g., for 5 seconds)
         initial_size = os.path.getsize ( excel_file_path )
@@ -306,21 +288,21 @@ def main():
         time.sleep ( 3 )
         # send email
         # Assuming the correct DataFrame is named df_strong_buy:
-        recommended_symbols = df_strong_buy.sort_values(by='Date and Time', ascending=False)
-        buy_symbols         = df_buy.sort_values(by='Date and Time', ascending=False)
+        recommended_symbols = df_strong_buy
+        buy_symbols = df_buy
         # Filter the symbols for the current date
         # Filter the symbols for the current date
-        today_date          = datetime.datetime.now().date()
-        today_Strong_buy    = recommended_symbols[recommended_symbols['Date and Time'].dt.date == today_date] if not recommended_symbols.empty else pd.DataFrame()
-        today_buy           = buy_symbols[buy_symbols['Date and Time'].dt.date == today_date] if not buy_symbols.empty else pd.DataFrame()
+        today_Strong_buy = recommended_symbols [
+            recommended_symbols [ 'Date and Time' ].dt.date == datetime.datetime.now ( ).date ( ) ]
+        today_buy = buy_symbols [
+            buy_symbols [ 'Date and Time' ].dt.date == datetime.datetime.now ( ).date ( ) ]
         # Sort the data by recommendation 
         subject = f"{analysis_type}-{symbol_selection}- {recommendation_filter}-Technical_Analysis_"
-        # body    = f"Technical Analysis for {current_date} is attached."
         # body    = f"Technical Analysis for {current_date} is attached."
         # Concatenate the two DataFrames
         combined_df = pd.concat ( [ today_Strong_buy, today_buy ] )
         # Convert the concatenated DataFrame to a string
-        body = combined_df.to_string ( index=True )
+        body = combined_df.to_string ( index=False )
         attachment_path = excel_file_path
         send_email ( subject, body, attachment_path )
         # Sort the Excel file by symbol and date and time
@@ -329,12 +311,10 @@ def main():
         # Wait for 5 seconds before running the analysis again
         time.sleep ( 5 )  # Adjust the delay as needed
 
-
 if __name__ == "__main__":
     analyzed_data = [ ]  # Moved analyzed_data outside the loop to persist data across runs
     strong_buy_symbols = [ ]  # Moved strong_buy_symbols outside the loop to persist data across runs
     buy_symbols = [ ]  # Moved buy_symbols outside the loop to persist data across runs
-# Call the simulate_trading function
-
-# Run the main analysis
-main()
+    
+    # Run the main analysis
+    main ( )
