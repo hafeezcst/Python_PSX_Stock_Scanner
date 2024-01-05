@@ -57,16 +57,16 @@ def main():
         symbol_options = [ "KMIALL", "KMI100", "KMI30", "MYLIST", "QSE" ,"CUSTUM"]
         
         symbol_selection = input (
-            f"Select symbol List ({', '.join ( symbol_options )}), press Enter for default List: " ).upper ( )
+            f"Select symbol List ({', '.join ( symbol_options )}), press Enter for default List KMIALL: " ).upper ( )
         
         if not symbol_selection:
-            time.sleep ( 5 )  # Delay for 5 seconds
-            symbol_selection = "QSE"  # Default selection
+            time.sleep ( 2 )  # Delay for 5 seconds
+            symbol_selection = "KMIALL"  # Default selection
             print ( f"Selected symbol List: {symbol_selection}" )
         while symbol_selection not in symbol_options :
             print ( "Invalid symbol selection. Please try again." )
             symbol_selection = input (
-                f"Select symbol ({', '.join ( symbol_options )}), press Enter for default QSE: " ).upper ( )
+                f"Select symbol ({', '.join ( symbol_options )}), press Enter for default{symbol_selection}: " ).upper ( )
         
         if symbol_selection == "KMI30":
             psx_symbols = KMI30
@@ -76,8 +76,6 @@ def main():
             psx_symbols = MYLIST
         elif symbol_selection == "CUSTUM": 
             psx_symbols = CUSTUM
-        elif symbol_selection == "QSE": 
-            psx_symbols = QSE    
         else :
             psx_symbols = KMIALL
         
@@ -117,6 +115,7 @@ def main():
                         current_datetime, symbol, summary, Close, Sell_Signal, Neutral_Signal, Buy_Signal, Volume,
                         ADX, RSI, RSI_Last, AO, Change,average_support,average_resistance, base_url_charts, base_url_finance, base_url_tech
                     ])
+                        
                 # Check if the recommendation is "fixed buy" and the volume is greater than the threshold
                     if summary == "BUY" and Volume > volume_threshold and AO > ao_threshold :
                         buy_symbols.append ([
@@ -219,6 +218,7 @@ def main():
                             'Last RSI', 'AO', '%Change(D)','Support','Resistance',
                             'Charts', 'Financials', 'Technicals' ] ).drop_duplicates(subset=subset_columns,keep='last')  
     # Write the data to an Excel file
+
     
     # Define the database connection URL
     database_url = f'sqlite:///{symbol_selection}_{analysis_type}_data.db'
@@ -239,10 +239,16 @@ def main():
     # Save the Excel file
     with pd.ExcelWriter(excel_file_path, engine='xlsxwriter') as writer:
         # Write DataFrames to Excel sheets
+        df_all = df_all.drop_duplicates(subset=subset_columns, keep='last')
+        df_strong_buy = df_strong_buy.drop_duplicates(subset=subset_columns, keep='last')
+        df_buy = df_buy.drop_duplicates(subset=subset_columns, keep='last')
+        df_sell = df_sell.drop_duplicates(subset=subset_columns, keep='last')
+
         df_all.to_excel(writer, sheet_name='All Symbols', index=False)
         df_strong_buy.to_excel(writer, sheet_name='Recommended_Symbols', index=False)
         df_buy.to_excel(writer, sheet_name='Buy_Symbols', index=False)
         df_sell.to_excel(writer, sheet_name='Sell_Symbols', index=False)
+        
 
         # Get the workbook and the worksheet objects
         workbook = writer.book
@@ -290,8 +296,8 @@ def main():
         time.sleep ( 3 )
         # send email
         # Assuming the correct DataFrame is named df_strong_buy:
-        recommended_symbols = df_strong_buy
-        buy_symbols = df_buy
+        recommended_symbols = df_strong_buy.sort_values(by='Date and Time', ascending=False)
+        buy_symbols = df_buy.sort_values(by='Date and Time', ascending=False)
         # Filter the symbols for the current date
         # Filter the symbols for the current date
         today_date = datetime.datetime.now().date()
@@ -313,12 +319,12 @@ def main():
         # Wait for 5 seconds before running the analysis again
         time.sleep ( 5 )  # Adjust the delay as needed
 
+
 if __name__ == "__main__":
     analyzed_data = [ ]  # Moved analyzed_data outside the loop to persist data across runs
     strong_buy_symbols = [ ]  # Moved strong_buy_symbols outside the loop to persist data across runs
     buy_symbols = [ ]  # Moved buy_symbols outside the loop to persist data across runs
-    
-    # Call the simulate_trading function
+# Call the simulate_trading function
 
-    # Run the main analysis
-    main ( )
+# Run the main analysis
+main()

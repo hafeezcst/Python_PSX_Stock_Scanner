@@ -60,8 +60,8 @@ def main():
             f"Select symbol List ({', '.join ( symbol_options )}), press Enter for default List: " ).upper ( )
         
         if not symbol_selection:
-            time.sleep ( 2 )  # Delay for 5 seconds
-            symbol_selection = "KMI100"  # Default selection
+            time.sleep ( 5 )  # Delay for 5 seconds
+            symbol_selection = "QSE"  # Default selection
             print ( f"Selected symbol List: {symbol_selection}" )
         while symbol_selection not in symbol_options :
             print ( "Invalid symbol selection. Please try again." )
@@ -76,6 +76,8 @@ def main():
             psx_symbols = MYLIST
         elif symbol_selection == "CUSTUM": 
             psx_symbols = CUSTUM
+        elif symbol_selection == "QSE": 
+            psx_symbols = QSE    
         else :
             psx_symbols = KMIALL
         
@@ -217,6 +219,8 @@ def main():
                             'Last RSI', 'AO', '%Change(D)','Support','Resistance',
                             'Charts', 'Financials', 'Technicals' ] ).drop_duplicates(subset=subset_columns,keep='last')  
     # Write the data to an Excel file
+    portofolio,cash=simulate_trading(df_strong_buy,df_sell,df_all)  
+    print(f"Portfolio: {portofolio}, Cash: {cash}")
     
     # Define the database connection URL
     database_url = f'sqlite:///{symbol_selection}_{analysis_type}_data.db'
@@ -292,12 +296,12 @@ def main():
         buy_symbols = df_buy
         # Filter the symbols for the current date
         # Filter the symbols for the current date
-        today_Strong_buy = recommended_symbols [
-            recommended_symbols [ 'Date and Time' ].dt.date == datetime.datetime.now ( ).date ( ) ]
-        today_buy = buy_symbols [
-            buy_symbols [ 'Date and Time' ].dt.date == datetime.datetime.now ( ).date ( ) ]
+        today_date = datetime.datetime.now().date()
+        today_Strong_buy = recommended_symbols[recommended_symbols['Date and Time'].dt.date == today_date] if not recommended_symbols.empty else pd.DataFrame()
+        today_buy = buy_symbols[buy_symbols['Date and Time'].dt.date == today_date] if not buy_symbols.empty else pd.DataFrame()
         # Sort the data by recommendation 
         subject = f"{analysis_type}-{symbol_selection}- {recommendation_filter}-Technical_Analysis_"
+        # body    = f"Technical Analysis for {current_date} is attached."
         # body    = f"Technical Analysis for {current_date} is attached."
         # Concatenate the two DataFrames
         combined_df = pd.concat ( [ today_Strong_buy, today_buy ] )
