@@ -1,0 +1,13 @@
+ERROR:root:2024-01-06 22:18:12.058346 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2024-01-06 22:18:12.173349 - Exception occurred for symbol: HPL. Error Message: Exchange or symbol not found.
+ERROR:root:2024-01-06 22:20:25.627634 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2024-01-06 22:20:26.161630 - Exception occurred for symbol: HPL. Error Message: Exchange or symbol not found.
+ERROR:root:2024-01-06 22:22:13.019075 - Exception occurred for symbol: HPL. Error Message: Exchange or symbol not found.
+ERROR:root:2024-01-06 22:22:13.064078 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2024-01-06 22:44:49.071957 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2024-01-06 22:44:49.338957 - Exception occurred for symbol: HPL. Error Message: Exchange or symbol not found.
+ERROR:root:2024-01-06 22:47:23.873257 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2024-01-06 22:47:24.362256 - Exception occurred for symbol: HPL. Error Message: Exchange or symbol not found.
+ERROR:root:2024-01-06 22:47:25.042257 - Exception occurred for symbol: GWLC. Error Message: Can't access TradingView's API. HTTP status code: 502. Check for invalid symbol, exchange, or indicators.
+ERROR:root:2024-01-06 22:47:25.046261 - Exception occurred for symbol: ENGRO. Error Message: Can't access TradingView's API. HTTP status code: 502. Check for invalid symbol, exchange, or indicators.
+ERROR:root:2024-01-06 22:47:25.052259 - Exception occurred for symbol: ATLH. Error Message: Can't access TradingView's API. HTTP status code: 502. Check for invalid symbol, exchange, or indicators.
