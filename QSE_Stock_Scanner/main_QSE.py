@@ -15,7 +15,7 @@ from concurrent.futures import ThreadPoolExecutor
 logging.basicConfig(filename='analysis_log.txt', level=logging.ERROR)
 
 # Global constants
-# Set the volume threshold to 1,000,00
+# Set the volume threshold to 1,000,000
 VOLUME_THRESHOLD = 1000000
 
 # Set the minimum volume to 50,000
@@ -113,9 +113,6 @@ def main():
             # Set psx_symbols to the value of MYLIST
             psx_symbols = MYLIST
         # Else, if symbol_selection is "CUSTUM"
-        elif symbol_selection == "CUSTUM":
-            # Set psx_symbols to the value of CUSTUM
-            psx_symbols = CUSTUM
         elif symbol_selection == "QSE":
             # Set psx_symbols to the value of CUSTUM
             psx_symbols = QSE
@@ -182,9 +179,9 @@ def main():
                 count += 1
 
                 # If Volume and AO are not None
-                if Volume is not None and AO is not None:
+                if symbol in ["ALLSHR", "KSE30", "KSE100","GNRI"] or (Volume is not None and AO is not None):
                     # If Volume is greater than min_volume
-                    if Volume > MIN_VOLUME:
+                    if symbol in ["ALLSHR", "KSE30", "KSE100","GNRI"] or Volume > MIN_VOLUME:
                         # Append the result to the analyzed_data list
                         analyzed_data.append([
                             current_datetime, symbol, summary, Close, Sell_Signal, Neutral_Signal, Buy_Signal, Volume,
@@ -192,14 +189,14 @@ def main():
                         ])
                 
                 # Check if the recommendation is "user defined" and the volume is greater than the threshold
-                    if summary == recommendation_filter and Volume > VOLUME_THRESHOLD and AO > AO_THRESHOLD :
+                    if symbol in ["ALLSHR", "KSE30", "KSE100","GNRI"] or (summary == recommendation_filter and Volume > VOLUME_THRESHOLD and AO > AO_THRESHOLD) :
                         strong_buy_symbols.append ([
                         current_datetime, symbol, summary, Close, Sell_Signal, Neutral_Signal, Buy_Signal, Volume,
                         ADX, RSI, RSI_Last, AO, Change,average_support,average_resistance, BASE_URL_CHARTS, BASE_URL_FINANCE, BASE_URL_TECH
                     ])
                         
                 # Check if the recommendation is "fixed buy" and the volume is greater than the threshold
-                    if summary == "BUY" and Volume>MIN_VOLUME and AO > AO_THRESHOLD :
+                    if symbol in ["ALLSHR", "KSE30", "KSE100","GNRI"] or (summary == "BUY" and Volume>MIN_VOLUME and AO > AO_THRESHOLD) :
                         buy_symbols.append ([
                         current_datetime, symbol, summary, Close, Sell_Signal, Neutral_Signal, Buy_Signal, Volume,
                         ADX, RSI, RSI_Last, AO, Change,average_support,average_resistance, BASE_URL_CHARTS, BASE_URL_FINANCE, BASE_URL_TECH
@@ -350,7 +347,7 @@ def main():
 
         # Write df_sell to an Excel sheet named 'Sell_Symbols', without the index
         df_sell.to_excel(writer, sheet_name='Sell_Symbols', index=False)
-
+        
 
         # Get the worksheet named 'All Symbols'
         worksheet_all = writer.sheets['All Symbols']
@@ -419,7 +416,7 @@ def main():
         # body    = f"Technical Analysis for {current_date} is attached."
         # body    = f"Technical Analysis for {current_date} is attached."
         # Concatenate the two DataFrames
-        combined_df = pd.concat ( [ today_Strong_buy, today_buy ] )
+        combined_df = pd.concat([today_Strong_buy, today_buy])
         # Convert the concatenated DataFrame to a string
         body = combined_df.to_string ( index=False ,justify='left',col_space=10,header=True,na_rep='NaN',formatters=None,sparsify=None)
         attachment_path = excel_file_path

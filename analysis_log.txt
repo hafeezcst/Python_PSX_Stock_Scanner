@@ -1607,3 +1607,46 @@ ERROR:root:2024-01-06 23:25:28.918483 - Exception occurred for symbol: HPL. Erro
 ERROR:root:2024-01-06 23:25:29.331483 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
 ERROR:root:2024-01-07 22:40:28.414286 - Exception occurred for symbol: HPL. Error Message: Exchange or symbol not found.
 ERROR:root:2024-01-07 22:40:28.541284 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2024-01-08 00:08:56.837862 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2024-01-08 00:08:57.013820 - Exception occurred for symbol: HPL. Error Message: Exchange or symbol not found.
+ERROR:root:2024-01-08 00:14:58.149917 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2024-01-08 00:14:58.315911 - Exception occurred for symbol: HPL. Error Message: Exchange or symbol not found.
+ERROR:root:2024-01-08 00:22:01.303633 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2024-01-08 00:22:01.414634 - Exception occurred for symbol: HPL. Error Message: Exchange or symbol not found.
+ERROR:root:2024-01-08 00:25:36.954918 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2024-01-08 00:27:14.019199 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2024-01-08 00:27:14.080199 - Exception occurred for symbol: HPL. Error Message: Exchange or symbol not found.
+ERROR:root:2024-01-08 00:39:03.068272 - Exception occurred for symbol: HPL. Error Message: Exchange or symbol not found.
+ERROR:root:2024-01-08 00:39:23.579273 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2024-01-08 00:46:06.439576 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2024-01-08 00:46:06.561576 - Exception occurred for symbol: HPL. Error Message: Exchange or symbol not found.
+ERROR:root:2024-01-08 00:56:14.407794 - Exception occurred for symbol: HPL. Error Message: Exchange or symbol not found.
+ERROR:root:2024-01-08 00:56:15.758479 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2024-01-08 00:58:18.831553 - Exception occurred for symbol: HPL. Error Message: Exchange or symbol not found.
+ERROR:root:2024-01-08 00:58:19.565555 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2024-01-08 01:01:11.564018 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2024-01-08 01:01:11.900016 - Exception occurred for symbol: HPL. Error Message: Exchange or symbol not found.
+ERROR:root:2024-01-08 01:04:50.448161 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2024-01-08 01:04:50.911156 - Exception occurred for symbol: HPL. Error Message: Exchange or symbol not found.
+ERROR:root:2024-01-08 01:12:21.702374 - Exception occurred for symbol: ACPL. Error Message: Can't access TradingView's API. HTTP status code: 502. Check for invalid symbol, exchange, or indicators.
+ERROR:root:2024-01-08 01:12:21.703378 - Exception occurred for symbol: KSE100. Error Message: Can't access TradingView's API. HTTP status code: 502. Check for invalid symbol, exchange, or indicators.
+ERROR:root:2024-01-08 01:12:21.705373 - Exception occurred for symbol: WAVES. Error Message: Can't access TradingView's API. HTTP status code: 502. Check for invalid symbol, exchange, or indicators.
+ERROR:root:2024-01-08 01:12:21.721376 - Exception occurred for symbol: BWCL. Error Message: Can't access TradingView's API. HTTP status code: 502. Check for invalid symbol, exchange, or indicators.
+ERROR:root:2024-01-08 01:12:21.725372 - Exception occurred for symbol: SHSML. Error Message: Can't access TradingView's API. HTTP status code: 502. Check for invalid symbol, exchange, or indicators.
+ERROR:root:2024-01-08 01:12:21.744378 - Exception occurred for symbol: OBOY. Error Message: Can't access TradingView's API. HTTP status code: 502. Check for invalid symbol, exchange, or indicators.
+ERROR:root:2024-01-08 01:12:21.776375 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2024-01-08 01:12:22.405386 - Exception occurred for symbol: HPL. Error Message: Exchange or symbol not found.
+ERROR:root:2024-01-08 01:14:19.041002 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2024-01-08 01:14:19.472988 - Exception occurred for symbol: HPL. Error Message: Exchange or symbol not found.
+ERROR:root:2024-01-08 01:15:47.124604 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2024-01-08 01:15:47.726612 - Exception occurred for symbol: HPL. Error Message: Exchange or symbol not found.
+ERROR:root:2024-01-08 01:17:58.382094 - Exception occurred for symbol: HPL. Error Message: Exchange or symbol not found.
+ERROR:root:2024-01-08 01:17:58.513098 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2024-01-08 01:20:32.816699 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2024-01-08 01:20:32.978701 - Exception occurred for symbol: HPL. Error Message: Exchange or symbol not found.
+ERROR:root:2024-01-08 01:22:53.213902 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2024-01-08 01:22:53.286945 - Exception occurred for symbol: HPL. Error Message: Exchange or symbol not found.
+ERROR:root:2024-01-08 01:31:44.139453 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2024-01-08 01:31:44.145453 - Exception occurred for symbol: HPL. Error Message: Exchange or symbol not found.
+ERROR:root:2024-01-08 02:31:14.012186 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2024-01-08 02:31:14.655186 - Exception occurred for symbol: HPL. Error Message: Exchange or symbol not found.

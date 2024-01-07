@@ -2,7 +2,7 @@ import datetime
 from tradingview_ta import TA_Handler, Interval
 import logging
 
-def analyze_symbol(symbol, analysis_type, base_url_charts, base_url_finance, base_url_tech) :
+def analyze_symbol(symbol, analysis_type,screener_selection,exchange_selection,base_url_charts, base_url_finance, base_url_tech) :
     """
     Analyzes a stock symbol using technical analysis indicators and returns the analysis results.
 
@@ -35,17 +35,19 @@ def analyze_symbol(symbol, analysis_type, base_url_charts, base_url_finance, bas
     """
     
     try :
+        screener = screener_selection
+        exchange = exchange_selection
         if analysis_type == "M" :
-            analysis = TA_Handler ( symbol=symbol, screener="PAKISTAN", exchange="PSX",
-                                    interval=Interval.INTERVAL_1_MONTH )
+            analysis = TA_Handler(symbol=symbol, screener=screener, exchange=exchange,
+                                  interval=Interval.INTERVAL_1_MONTH)
         elif analysis_type == "W" :
-            analysis = TA_Handler ( symbol=symbol, screener="PAKISTAN", exchange="PSX",
+            analysis = TA_Handler ( symbol=symbol, screener=screener, exchange=exchange,
                                     interval=Interval.INTERVAL_1_WEEK )
         elif analysis_type == "D" :
-            analysis = TA_Handler ( symbol=symbol, screener="PAKISTAN", exchange="PSX",
+            analysis = TA_Handler ( symbol=symbol, screener=screener, exchange=exchange,
                                     interval=Interval.INTERVAL_1_DAY )
         elif analysis_type == "H" :
-            analysis = TA_Handler ( symbol=symbol, screener="PAKISTAN", exchange="PSX",
+            analysis = TA_Handler ( symbol=symbol, screener=screener, exchange=exchange,
                                     interval=Interval.INTERVAL_1_HOUR )
         
         if 'analysis' in locals ( ) and analysis is not None and analysis.get_analysis ( ) is not None :

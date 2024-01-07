@@ -32,18 +32,42 @@ def main():
     analysis_type = input(
         "Select analysis type (M for Monthly, W for Weekly, D for Daily,H for Hourly, press Enter for default D): "
     ).upper()
-
     # If the user didn't provide any input
     if not analysis_type:
         # Wait for 2 seconds
         time.sleep(2)
-        
         # Set the analysis type to "D" by default
         analysis_type = "D"
-        
         # Print the selected analysis type
         print(f"Selected analysis type: {analysis_type}")
-    
+
+     # Ask the user to select the analysis type and convert the input to uppercase
+    country_selection = input("Select analysis type (P for Pakistan, Q for Qatar, press Enter for default PAKISTAN):").upper()
+    # If the user didn't provide any input
+    if country_selection=="P":
+        # Wait for 2 seconds
+        time.sleep(2)
+        # Set the analysis type to "D" by default
+        screener_selection,exchange_selection = "PAKISTAN","PSX"
+        BASE_URL_CHARTS = f"https://www.tradingview.com/chart/ZMYE714n/?symbol=PSX%3A"
+        BASE_URL_FINANCE = f"https://www.tradingview.com/symbols/PSX-"
+        BASE_URL_TECH = f"https://www.tradingview.com/symbols/PSX-"
+        # Print the selected analysis type
+        print(f"Selected country : {screener_selection}")
+        print(f"Selected exchange: {exchange_selection}")
+    elif country_selection=="Q":
+        # Wait for 2 seconds
+        time.sleep(2)
+        # Set the analysis type to "D" by default
+        screener_selection,exchange_selection = "QATAR","QSE"
+        BASE_URL_CHARTS = f"https://www.tradingview.com/chart/ZMYE714n/?symbol=QSE%3A"
+        BASE_URL_FINANCE = f"https://www.tradingview.com/symbols/QSE-"
+        BASE_URL_TECH = f"https://www.tradingview.com/symbols/QSE-"
+        # Print the selected analysis type
+        print(f"Selected country : {screener_selection}")
+        print(f"Selected exchange: {exchange_selection}")
+
+
     # If the analysis type is not valid
     if analysis_type not in ["M", "W", "D", "H"]:
         # Raise a ValueError with a message
@@ -91,10 +115,15 @@ def main():
         symbol_selection = input (
             f"Select symbol List ({', '.join ( symbol_options )}), press Enter for default List KMIALL: " ).upper ( )
         
-        if not symbol_selection:
+        if not symbol_selection and country_selection=="P":
             time.sleep ( 2 )  # Delay for 5 seconds
             symbol_selection = "KMIALL"  # Default selection
             print ( f"Selected symbol List: {symbol_selection}" )
+        elif not symbol_selection and country_selection=="Q":
+            time.sleep ( 2 )
+            symbol_selection = "QSE"  # Default selection
+            print ( f"Selected symbol List: {symbol_selection}" )
+        # While the symbol_selection is not valid
         while symbol_selection not in symbol_options :
             print ( "Invalid symbol selection. Please try again." )
             symbol_selection = input (
@@ -116,14 +145,14 @@ def main():
         elif symbol_selection == "CUSTUM":
             # Set psx_symbols to the value of CUSTUM
             psx_symbols = CUSTUM
+        elif symbol_selection == "QSE":
+            # Set psx_symbols to the value of CUSTUM
+            psx_symbols = QSE
         # Else, if symbol_selection is anything else
         else:
             # Set psx_symbols to the value of KMIALL
             psx_symbols = KMIALL
         # Define the base URLs        
-        BASE_URL_CHARTS = "https://www.tradingview.com/chart/ZMYE714n/?symbol=PSX%3A"
-        BASE_URL_FINANCE = "https://www.tradingview.com/symbols/PSX-"
-        BASE_URL_TECH = "https://www.tradingview.com/symbols/PSX-"
 
         # For each symbol in psx_symbols
         futures = [
@@ -132,6 +161,8 @@ def main():
                 analyze_symbol,  # The function to execute
                 symbol,  # The symbol to analyze
                 analysis_type,  # The type of analysis to perform
+                screener_selection,  # The screener to use
+                exchange_selection,  # The exchange to use
                 BASE_URL_CHARTS,  # The base URL for chart data
                 BASE_URL_FINANCE,  # The base URL for financial data
                 BASE_URL_TECH  # The base URL for technical data
@@ -179,9 +210,9 @@ def main():
                 count += 1
 
                 # If Volume and AO are not None
-                if Volume is not None and AO is not None:
+                if symbol in ["ALLSHR", "KSE30", "KSE100","GNRI"] or (Volume is not None and AO is not None):
                     # If Volume is greater than min_volume
-                    if Volume > MIN_VOLUME:
+                    if symbol in ["ALLSHR", "KSE30", "KSE100","GNRI"] or Volume > MIN_VOLUME:
                         # Append the result to the analyzed_data list
                         analyzed_data.append([
                             current_datetime, symbol, summary, Close, Sell_Signal, Neutral_Signal, Buy_Signal, Volume,
@@ -189,14 +220,14 @@ def main():
                         ])
                 
                 # Check if the recommendation is "user defined" and the volume is greater than the threshold
-                    if summary == recommendation_filter and Volume > VOLUME_THRESHOLD and AO > AO_THRESHOLD :
+                    if symbol in ["ALLSHR", "KSE30", "KSE100","GNRI"] or (summary == recommendation_filter and Volume > VOLUME_THRESHOLD and AO > AO_THRESHOLD) :
                         strong_buy_symbols.append ([
                         current_datetime, symbol, summary, Close, Sell_Signal, Neutral_Signal, Buy_Signal, Volume,
                         ADX, RSI, RSI_Last, AO, Change,average_support,average_resistance, BASE_URL_CHARTS, BASE_URL_FINANCE, BASE_URL_TECH
                     ])
                         
                 # Check if the recommendation is "fixed buy" and the volume is greater than the threshold
-                    if summary == "BUY" and Volume>MIN_VOLUME and AO > AO_THRESHOLD :
+                    if symbol in ["ALLSHR", "KSE30", "KSE100","GNRI"] or (summary == "BUY" and Volume>MIN_VOLUME and AO > AO_THRESHOLD) :
                         buy_symbols.append ([
                         current_datetime, symbol, summary, Close, Sell_Signal, Neutral_Signal, Buy_Signal, Volume,
                         ADX, RSI, RSI_Last, AO, Change,average_support,average_resistance, BASE_URL_CHARTS, BASE_URL_FINANCE, BASE_URL_TECH
@@ -347,7 +378,7 @@ def main():
 
         # Write df_sell to an Excel sheet named 'Sell_Symbols', without the index
         df_sell.to_excel(writer, sheet_name='Sell_Symbols', index=False)
-
+        
 
         # Get the worksheet named 'All Symbols'
         worksheet_all = writer.sheets['All Symbols']
@@ -416,7 +447,7 @@ def main():
         # body    = f"Technical Analysis for {current_date} is attached."
         # body    = f"Technical Analysis for {current_date} is attached."
         # Concatenate the two DataFrames
-        combined_df = pd.concat ( [ today_Strong_buy, today_buy ] )
+        combined_df = pd.concat([today_Strong_buy, today_buy])
         # Convert the concatenated DataFrame to a string
         body = combined_df.to_string ( index=False ,justify='left',col_space=10,header=True,na_rep='NaN',formatters=None,sparsify=None)
         attachment_path = excel_file_path
@@ -426,7 +457,6 @@ def main():
         os.system ( f'start excel.exe "{excel_file_path}"' )
         # Wait for 5 seconds before running the analysis again
         time.sleep ( 5 )  # Adjust the delay as needed
-
 
 # If this script is the main module (i.e., it's not being imported by another script)
 if __name__ == "__main__":
