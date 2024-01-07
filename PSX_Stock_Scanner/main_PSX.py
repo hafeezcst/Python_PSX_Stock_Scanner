@@ -15,18 +15,14 @@ from concurrent.futures import ThreadPoolExecutor
 logging.basicConfig(filename='analysis_log.txt', level=logging.ERROR)
 
 # Global constants
-# Set the volume threshold to 1,000,00
-VOLUME_THRESHOLD = 100000
+# Set the volume threshold to 1,000,000
+VOLUME_THRESHOLD = 1000000
 
 # Set the minimum volume to 50,000
-MIN_VOLUME = 5000
+MIN_VOLUME = 50000
 
 # Set the AO threshold to 0
 AO_THRESHOLD = 0
-
-BASE_URL_CHARTS = "https://www.tradingview.com/chart/ZMYE714n/?symbol=PSX%3A"
-BASE_URL_FINANCE = "https://www.tradingview.com/symbols/PSX-"
-BASE_URL_TECH = "https://www.tradingview.com/symbols/PSX-"
 
 # Configure logging
 logging.basicConfig ( filename='analysis_log.txt', level=logging.ERROR )
@@ -81,18 +77,7 @@ def main():
         recommendation_filter = input(
             f"Select recommendation filter ({', '.join(recommendation_options)}): "
         ).upper()
-    
-    volume_threshold = 500000  # Filter by this volume threshold 1 mission
-    min_volume = 5000  # Filter by thids volume threshold
-    ao_threshold: int = 0  # Filter by this AO threshold
-    # Set the base URL for chart data
-    base_url_charts = "https://www.tradingview.com/chart/ZMYE714n/?symbol=PSX%3A"
 
-    # Set the base URL for financial data
-    base_url_finance = "https://www.tradingview.com/symbols/PSX-"
-
-    # Set the base URL for technical data
-    base_url_tech = "https://www.tradingview.com/symbols/PSX-"
     # Set default analysis type to "M" if the user presses Enter without entering a choice
     current_datetime = datetime.datetime.now ( )  # Include time
     count = 1
@@ -135,7 +120,11 @@ def main():
         else:
             # Set psx_symbols to the value of KMIALL
             psx_symbols = KMIALL
-        
+        # Define the base URLs        
+        BASE_URL_CHARTS = "https://www.tradingview.com/chart/ZMYE714n/?symbol=PSX%3A"
+        BASE_URL_FINANCE = "https://www.tradingview.com/symbols/PSX-"
+        BASE_URL_TECH = "https://www.tradingview.com/symbols/PSX-"
+
         # For each symbol in psx_symbols
         futures = [
             # Submit a task to the executor to analyze the symbol
@@ -143,9 +132,9 @@ def main():
                 analyze_symbol,  # The function to execute
                 symbol,  # The symbol to analyze
                 analysis_type,  # The type of analysis to perform
-                base_url_charts,  # The base URL for chart data
-                base_url_finance,  # The base URL for financial data
-                base_url_tech  # The base URL for technical data
+                BASE_URL_CHARTS,  # The base URL for chart data
+                BASE_URL_FINANCE,  # The base URL for financial data
+                BASE_URL_TECH  # The base URL for technical data
             )
             for symbol in psx_symbols  # The list of symbols to analyze
         ]
@@ -169,7 +158,7 @@ def main():
             # If the result is not None
             if result:
                 # Unpack the result into multiple variables
-                symbol, summary, Close, Sell_Signal, Neutral_Signal, Buy_Signal, Volume, ADX, RSI, RSI_Last, AO, Change,average_support, average_resistance, base_url_charts, base_url_finance, base_url_tech = result
+                symbol, summary, Close, Sell_Signal, Neutral_Signal, Buy_Signal, Volume, ADX, RSI, RSI_Last, AO, Change,average_support, average_resistance, BASE_URL_CHARTS, BASE_URL_FINANCE, BASE_URL_TECH = result
 
                 # Print the count and symbol
                 print(f"{count}:  Symbol: {symbol}")
@@ -192,31 +181,31 @@ def main():
                 # If Volume and AO are not None
                 if Volume is not None and AO is not None:
                     # If Volume is greater than min_volume
-                    if Volume > min_volume:
+                    if Volume > MIN_VOLUME:
                         # Append the result to the analyzed_data list
                         analyzed_data.append([
                             current_datetime, symbol, summary, Close, Sell_Signal, Neutral_Signal, Buy_Signal, Volume,
-                            ADX, RSI, RSI_Last, AO, Change,average_support,average_resistance, base_url_charts, base_url_finance, base_url_tech
+                            ADX, RSI, RSI_Last, AO, Change,average_support,average_resistance, BASE_URL_CHARTS, BASE_URL_FINANCE, BASE_URL_TECH
                         ])
                 
                 # Check if the recommendation is "user defined" and the volume is greater than the threshold
-                    if summary == recommendation_filter and Volume > volume_threshold and AO > ao_threshold :
+                    if summary == recommendation_filter and Volume > VOLUME_THRESHOLD and AO > AO_THRESHOLD :
                         strong_buy_symbols.append ([
                         current_datetime, symbol, summary, Close, Sell_Signal, Neutral_Signal, Buy_Signal, Volume,
-                        ADX, RSI, RSI_Last, AO, Change,average_support,average_resistance, base_url_charts, base_url_finance, base_url_tech
+                        ADX, RSI, RSI_Last, AO, Change,average_support,average_resistance, BASE_URL_CHARTS, BASE_URL_FINANCE, BASE_URL_TECH
                     ])
                         
                 # Check if the recommendation is "fixed buy" and the volume is greater than the threshold
-                    if summary == "BUY" and Volume>min_volume and AO > ao_threshold :
+                    if summary == "BUY" and Volume>MIN_VOLUME and AO > AO_THRESHOLD :
                         buy_symbols.append ([
                         current_datetime, symbol, summary, Close, Sell_Signal, Neutral_Signal, Buy_Signal, Volume,
-                        ADX, RSI, RSI_Last, AO, Change,average_support,average_resistance, base_url_charts, base_url_finance, base_url_tech
+                        ADX, RSI, RSI_Last, AO, Change,average_support,average_resistance, BASE_URL_CHARTS, BASE_URL_FINANCE, BASE_URL_TECH
                     ])
                 # Check if the recommendation is "fixed buy" and the volume is greater than the threshold
-                    if summary == "SELL"  and AO < ao_threshold :
+                    if summary == "SELL"  and AO < AO_THRESHOLD :
                         sell_symbols.append ([
                         current_datetime, symbol, summary, Close, Sell_Signal, Neutral_Signal, Buy_Signal, Volume,
-                        ADX, RSI, RSI_Last, AO, Change,average_support,average_resistance, base_url_charts, base_url_finance, base_url_tech
+                        ADX, RSI, RSI_Last, AO, Change,average_support,average_resistance, BASE_URL_CHARTS, BASE_URL_FINANCE, BASE_URL_TECH
                     ])
                 else:
                     print("Volume or AO is None, skipping comparison")
