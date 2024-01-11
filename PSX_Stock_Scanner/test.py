@@ -1,20 +1,24 @@
-symbol = "AAPL"  # Replace "AAPL" with the desired symbol
+import matplotlib.pyplot as plt
 
-from tradingview_ta import TA_Handler, Interval
-
-analysis = TA_Handler(symbol="OGDC", screener="PAKISTAN", exchange="PSX",
-                      interval=Interval.INTERVAL_1_MONTH)
-
-analysis = analysis.get_analysis()
-
-print(analysis.moving_averages['RECOMMENDATION'])
-compute=(analysis.oscillators['COMPUTE'])
-for i in compute:
-    print(i)
-print(compute[i])
+from tradingview_ta import TA_Handler, Interval, Exchange
 
 
-print(analysis.oscillators['RECOMMENDATION'])
-print(analysis.indicators['RSI'])
-print(analysis.summary["RECOMMENDATION"])
+Handler = TA_Handler(
+    symbol="OGDC",
+    screener="PAKISTAN",
+    exchange="PSX",
+    interval=Interval.INTERVAL_1_DAY,
+)
 
+indicator = Handler.get_analysis().indicators
+movaverages= Handler.get_analysis().moving_averages
+oscillators= Handler.get_analysis().oscillators
+summary= Handler.get_analysis().summary
+
+print(indicator)
+print()
+print(movaverages)
+print()
+print(oscillators)
+print()
+print(summary)
