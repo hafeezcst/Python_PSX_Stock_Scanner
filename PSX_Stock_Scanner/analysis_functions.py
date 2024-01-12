@@ -62,7 +62,9 @@ def analyze_symbol(symbol, analysis_type,screener_selection,exchange_selection,b
                 neutral_signal = summary [ 'NEUTRAL' ]
                 rsi = indicators [ 'RSI' ]
                 rsi_last = indicators [ 'RSI[1]' ]
+                high = indicators [ 'high' ]
                 close = indicators [ 'close' ]
+                low = indicators [ 'low' ]
                 volume = indicators [ 'volume' ]
                 ao = indicators [ 'AO' ]
                 change = indicators [ 'change' ]
@@ -92,7 +94,7 @@ def analyze_symbol(symbol, analysis_type,screener_selection,exchange_selection,b
                 financials = f"{base_url_finance}{symbol}/financials-overview/"
                 technicals = f"{base_url_tech}{symbol}/technicals/"
                 
-                return symbol, summary, close, sell_signal, neutral_signal, buy_signal, volume, adx, rsi, rsi_last, ao, change,average_support, average_resistance, charts, financials, technicals
+                return symbol, summary, close, sell_signal, neutral_signal, buy_signal,volume, adx, rsi, rsi_last, ao, change,average_support, average_resistance, charts, financials, technicals
     
     except Exception as e:
         error_message = f"Exception occurred for symbol: {symbol}. Error Message: {e}"

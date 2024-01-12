@@ -1896,3 +1896,14 @@ ERROR:root:2024-01-10 20:42:51.685616 - Exception occurred for symbol: DCR. Erro
 ERROR:root:2024-01-10 20:42:52.561617 - Exception occurred for symbol: HPL. Error Message: Exchange or symbol not found.
 ERROR:root:2024-01-11 00:31:27.206241 - Exception occurred for symbol: HPL. Error Message: Exchange or symbol not found.
 ERROR:root:2024-01-11 00:31:27.314244 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2024-01-11 22:21:43.052316 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2024-01-11 22:21:43.531316 - Exception occurred for symbol: HPL. Error Message: Exchange or symbol not found.
+ERROR:root:2024-01-11 23:10:47.037806 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2024-01-11 23:10:47.308847 - Exception occurred for symbol: HPL. Error Message: Exchange or symbol not found.
+ERROR:root:2024-01-11 23:18:55.132548 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2024-01-11 23:18:55.788546 - Exception occurred for symbol: HPL. Error Message: Exchange or symbol not found.
+ERROR:root:2024-01-11 23:23:29.418913 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2024-01-11 23:23:30.369916 - Exception occurred for symbol: HPL. Error Message: Exchange or symbol not found.
+ERROR:root:2024-01-12 12:04:35.146370 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2024-01-12 16:44:32.198124 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2024-01-12 16:44:33.269125 - Exception occurred for symbol: HPL. Error Message: Exchange or symbol not found.

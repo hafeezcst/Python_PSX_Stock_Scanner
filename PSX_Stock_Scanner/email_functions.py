@@ -18,7 +18,7 @@ def send_email(subject, body, attachment_path=None) :
     """
     # Email configuration
     sender_email = "hafeezcst@gmail.com"  # Replace with your email address
-    receiver_emails = [ "hafeezcst@gmail.com", "ammarhafeez3495@gmail.com",
+    receiver_emails = [ "hafeezcst@gmail.com","ammarhafeez3495@gmail.com",
                         "amok3495@gmail.com" ]  # Replace with the recipient's email addresses
     # receiver_email = ", ".join(receiver_emails)
     smtp_server = "smtp.gmail.com"  # Replace with your SMTP server (e.g., smtp.gmail.com for Gmail)
