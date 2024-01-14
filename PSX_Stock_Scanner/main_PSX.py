@@ -30,19 +30,17 @@ MIN_VOLUME = 50000
 # Set the AO threshold to 0
 AO_THRESHOLD = 0
 
-# Configure logging
-logging.basicConfig ( filename='analysis_log.txt', level=logging.ERROR )
 
 def main():
    
     # Ask the user to select the analysis type and convert the input to uppercase
     analysis_type = get_analysis_type()
-
-     # Ask the user to select the analysis type and convert the input to uppercase
+    print(f"Selected analysis type: {analysis_type}")
+    # Ask the user to select the analysis type and convert the input to uppercase
     country_selection = input("Select analysis type (P for Pakistan, Q for Qatar, press Enter for default PAKISTAN):").upper()
     # If the user didn't provide any input
     #set default country to PAKISTAN
-    country_selection = "P" if not country_selection else country_selection
+    country_selection = "P" if country_selection == "" else country_selection
     if country_selection=="P":
         # Wait for 2 seconds
         time.sleep(2)
@@ -75,11 +73,12 @@ def main():
     count = 1
     
     # Create a thread pool
-    with ThreadPoolExecutor ( max_workers=500 ) as executor :  # Adjust max_workers as needed
+    with ThreadPoolExecutor ( max_workers=6 ) as executor :  # Adjust max_workers as needed
         # Submit tasks to the thread pool
         # Ask the user to select the symbol list and convert the input to uppercase    
         symbol_selection = get_symbol_selection ( )
-        # If the user didn't provide any input
+        if symbol_selection != "KMIALL":
+            print ( f"Selected symbol List: {symbol_selection}" )
         # If symbol_selection is "KMI30"
         if symbol_selection == "KMI30":
             # Set psx_symbols to the value of KMI30
@@ -123,13 +122,10 @@ def main():
         
         # Initialize an empty list to store all analyzed data
         analyzed_data = []
-
         # Initialize an empty list to store symbols with a "STRONG_BUY" recommendation
         strong_buy_symbols = []
-
         # Initialize an empty list to store symbols with a "BUY" recommendation
         buy_symbols = []
-
         # Initialize an empty list to store symbols with a "SELL" recommendation
         sell_symbols = []
         # Initialize an empty list to store symbols with a "AO" recommendation
@@ -164,45 +160,48 @@ def main():
                 count += 1
 
                 # If Volume and AO are not None
-                if symbol in ["ALLSHR", "KSE30", "KSE100","GNRI"] or (Volume is not None and AO is not None):
+                
                     # If Volume is greater than min_volume
-                    if symbol in ["ALLSHR", "KSE30", "KSE100","GNRI"] or Volume > MIN_VOLUME:
+                if symbol not in ["KMI30", "KMI100", "ALLSHR","GNRI"] and Volume is not None and Volume > MIN_VOLUME:
                         # Append the result to the analyzed_data list
                         analyzed_data.append([
+                        current_datetime, symbol, summary, Close, Sell_Signal, Neutral_Signal, Buy_Signal, Volume,
+                        ADX, RSI, RSI_Last, AO, Change,average_support,average_resistance, BASE_URL_CHARTS, BASE_URL_FINANCE, BASE_URL_TECH
+                        ])
+                else:
+                    # Append the result to the analyzed_data list
+                        analyzed_data.append([
+                        current_datetime, symbol, summary, Close, Sell_Signal, Neutral_Signal, Buy_Signal, Volume,
+                        ADX, RSI, RSI_Last, AO, Change,average_support,average_resistance, BASE_URL_CHARTS, BASE_URL_FINANCE, BASE_URL_TECH
+                    ])
+                # Check if the recommendation is "user defined" and the volume is greater than the threshold
+                if (summary == recommendation_filter and Volume is not None and Volume > VOLUME_THRESHOLD) and AO > AO_THRESHOLD or (symbol in ["KSE30", "KSE100", "ALLSHR","GNRI"]):
+                            strong_buy_symbols.append ([
                             current_datetime, symbol, summary, Close, Sell_Signal, Neutral_Signal, Buy_Signal, Volume,
                             ADX, RSI, RSI_Last, AO, Change,average_support,average_resistance, BASE_URL_CHARTS, BASE_URL_FINANCE, BASE_URL_TECH
-                        ])
-                
-                # Check if the recommendation is "user defined" and the volume is greater than the threshold
-                    if symbol in ["ALLSHR", "KSE30", "KSE100","GNRI"] or (summary == recommendation_filter and Volume > VOLUME_THRESHOLD and AO > AO_THRESHOLD) :
-                        strong_buy_symbols.append ([
-                        current_datetime, symbol, summary, Close, Sell_Signal, Neutral_Signal, Buy_Signal, Volume,
-                        ADX, RSI, RSI_Last, AO, Change,average_support,average_resistance, BASE_URL_CHARTS, BASE_URL_FINANCE, BASE_URL_TECH
                     ])
-                        
+                            
                 # Check if the recommendation is "fixed buy" and the volume is greater than the threshold
-                    if symbol in ["ALLSHR", "KSE30", "KSE100","GNRI"] or (summary == "BUY" and Volume>MIN_VOLUME and AO > AO_THRESHOLD) :
-                        buy_symbols.append ([
-                        current_datetime, symbol, summary, Close, Sell_Signal, Neutral_Signal, Buy_Signal, Volume,
-                        ADX, RSI, RSI_Last, AO, Change,average_support,average_resistance, BASE_URL_CHARTS, BASE_URL_FINANCE, BASE_URL_TECH
+                if summary == "BUY" and Volume is not None and Volume>MIN_VOLUME and AO > AO_THRESHOLD :
+                            buy_symbols.append ([
+                            current_datetime, symbol, summary, Close, Sell_Signal, Neutral_Signal, Buy_Signal, Volume,
+                            ADX, RSI, RSI_Last, AO, Change,average_support,average_resistance, BASE_URL_CHARTS, BASE_URL_FINANCE, BASE_URL_TECH
                     ])
                 # Check if the recommendation is "fixed buy" and the volume is greater than the threshold
-                    if summary == "SELL"  and AO < AO_THRESHOLD :
-                        sell_symbols.append ([
-                        current_datetime, symbol, summary, Close, Sell_Signal, Neutral_Signal, Buy_Signal, Volume,
-                        ADX, RSI, RSI_Last, AO, Change,average_support,average_resistance, BASE_URL_CHARTS, BASE_URL_FINANCE, BASE_URL_TECH
+                if summary == "SELL"  and AO < AO_THRESHOLD :
+                            sell_symbols.append ([
+                            current_datetime, symbol, summary, Close, Sell_Signal, Neutral_Signal, Buy_Signal, Volume,
+                            ADX, RSI, RSI_Last, AO, Change,average_support,average_resistance, BASE_URL_CHARTS, BASE_URL_FINANCE, BASE_URL_TECH
                     ])
                  # Check if the recommendation is "fixed buy" and the volume is greater than the threshold
-                    if summary in ["STRONG_BUY", "BUY", "NEUTRAL", "SELL", "STRONG_SELL"] and AO > AO_THRESHOLD :
-                        AO_symbols.append ([
-                        current_datetime, symbol, summary, Close, Sell_Signal, Neutral_Signal, Buy_Signal, Volume,
-                        ADX, RSI, RSI_Last, AO, Change,average_support,average_resistance, BASE_URL_CHARTS, BASE_URL_FINANCE, BASE_URL_TECH
+                if summary in ["STRONG_BUY", "BUY", "NEUTRAL", "SELL", "STRONG_SELL"] and AO > AO_THRESHOLD :
+                            AO_symbols.append ([
+                            current_datetime, symbol, summary, Close, Sell_Signal, Neutral_Signal, Buy_Signal, Volume,
+                            ADX, RSI, RSI_Last, AO, Change,average_support,average_resistance, BASE_URL_CHARTS, BASE_URL_FINANCE, BASE_URL_TECH
                     ])
-                else:
-                    print("Volume or AO is None, skipping comparison")
-                
+                               
         # Set the file name with the analysis date as a postfix
-        excel_file_path = f"{analysis_type}-Advance_Technical_Analysis_{symbol_selection}_{recommendation_filter}.xlsx"
+                excel_file_path = f"{analysis_type}-Advance_Technical_Analysis_{symbol_selection}_{recommendation_filter}.xlsx"
     # Define a list of column names
         subset_columns = [
             'Date and Time',  # The date and time of the analysis
@@ -248,9 +247,11 @@ def main():
                     with pd.ExcelFile(excel_file_path) as xls:
                         if 'All Symbols' in xls.sheet_names:
                             df_all_symbols = pd.read_excel(excel_file_path, sheet_name='All Symbols')
+                        else:
                             df_all_symbols = pd.DataFrame(columns=subset_columns)
                         if 'Recommended_Symbols' in xls.sheet_names:
                             df_strong_buy_symbols = pd.read_excel(excel_file_path, sheet_name='Recommended_Symbols')
+                        else:
                             df_strong_buy_symbols = pd.DataFrame(columns=subset_columns)
                         if 'Buy_Symbols' in xls.sheet_names:
                             df_buy_symbols = pd.read_excel(excel_file_path, sheet_name='Buy_Symbols')
@@ -488,14 +489,15 @@ def main():
        
          # Calculate the suggested number of shares to purchase
         investment_amount = 4000000
-        num_shares = len(today_Strong_buy)-3
+        num_shares = len(today_Strong_buy[today_Strong_buy['Volume'] > 0])
         if num_shares > 0:
             investment_amount_per_share = round(investment_amount / num_shares)
             suggested_shares = today_Strong_buy.apply(lambda row: round(investment_amount_per_share / row[f'{analysis_type} Close']) if row['Volume'] > 0 else 0, axis=1)
         else:
             suggested_shares = pd.Series()
         
-        today_Strong_buy['Suggested Shares'] = suggested_shares
+        today_Strong_buy = today_Strong_buy.copy()
+        today_Strong_buy.loc[:, 'Suggested Shares'] = suggested_shares
 
         # Convert the filtered data to a string
         
@@ -510,13 +512,7 @@ def main():
         subprocess.Popen([excel_file_path], shell=True)
         # Wait for 5 seconds before running the analysis again
         time.sleep(5)  # Adjust the delay as needed
-        #today_buy           = buy_symbols[buy_symbols['Date and Time'].dt.date == today_date] if not buy_symbols.empty else pd.DataFrame()
-        # Sort the data by recommendation 
-        # Sort the Excel file by symbol and date and time
-        # Open the file using the default program associated with Excel files
-        subprocess.Popen([excel_file_path], shell=True)
-        # Wait for 5 seconds before running the analysis again
-        time.sleep ( 5 )  # Adjust the delay as needed     
+        #today_buy= buy_symbols[buy_symbols['Date and Time'].dt.date == today_date] if not buy_symbols.empty else pd.DataFrame()      
 
 # If this script is the main module (i.e., it's not being imported by another script)
 if __name__ == "__main__":
