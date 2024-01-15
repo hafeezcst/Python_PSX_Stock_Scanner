@@ -470,7 +470,7 @@ def main():
         rule_neutral = Rule(type="expression", dxf=dxf_neutral)
         rule_neutral.formula = ["$J1>50"] and ["$L1>0"]
         # Create a rule Exit
-        rule_exit = Rule(type="expression", dxf=dxf_neutral)
+        rule_exit = Rule(type="expression", dxf=dxf_exit)
         rule_exit.formula =  ["$E1>7"]
 
         # Add the rule to the worksheet
