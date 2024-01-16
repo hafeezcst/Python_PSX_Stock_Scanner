@@ -46,23 +46,7 @@ def send_email(subject, body, attachment_path=None) :
             "Content-Disposition",
             f"attachment; filename= {os.path.basename ( attachment_path )}",
         )
-        message.attach ( part )
-    
-    try :
-        # Connect to the SMTP server
-        server = smtplib.SMTP ( smtp_server, smtp_port )
-        server.starttls ( )
-        server.login ( username, password )
-        
-        # Send the email
-        server.sendmail ( sender_email, receiver_emails, message.as_string ( ) )
-        print ( "Email sent successfully" )
-    
-    except Exception as e :
-        error_message = f"Error sending email: {e}"
-        logging.error ( f"{datetime.datetime.now ( )} - {error_message}" )
-        print ( error_message )
-    server = None
+        message.attach ( part ) 
     try:
         # Connect to the SMTP server
         server = smtplib.SMTP(smtp_server, smtp_port)
