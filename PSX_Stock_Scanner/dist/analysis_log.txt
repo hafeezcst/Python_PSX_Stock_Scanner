@@ -56,3 +56,9 @@ ERROR:root:2024-01-13 23:21:15.276024 - Exception occurred for symbol: CRTM. Err
 ERROR:root:2024-01-13 23:21:16.216018 - Exception occurred for symbol: CSAP. Error Message: ('Connection aborted.', TimeoutError(10060, 'A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond', None, 10060, None))
 ERROR:root:2024-01-13 23:21:17.145024 - Exception occurred for symbol: CTM. Error Message: ('Connection aborted.', TimeoutError(10060, 'A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond', None, 10060, None))
 ERROR:root:2024-01-13 23:21:25.168079 - Exception occurred for symbol: DAAG. Error Message: ('Connection aborted.', TimeoutError(10060, 'A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond', None, 10060, None))
+ERROR:root:2024-01-18 06:31:21.637095 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2024-01-18 06:31:27.927100 - Exception occurred for symbol: HPL. Error Message: Exchange or symbol not found.
+ERROR:root:2024-01-18 07:09:45.030796 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2024-01-18 07:09:51.548931 - Exception occurred for symbol: HPL. Error Message: Exchange or symbol not found.
+ERROR:root:2024-01-18 07:17:46.744442 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2024-01-18 07:17:53.046137 - Exception occurred for symbol: HPL. Error Message: Exchange or symbol not found.

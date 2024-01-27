@@ -120,15 +120,8 @@ def main():
         ]
 
         # Initialize an empty list to store all analyzed data
-        analyzed_data = []
-        # Initialize an empty list to store symbols with a "STRONG_BUY" recommendation
-        strong_buy_symbols = []
-        # Initialize an empty list to store symbols with a "BUY" recommendation
-        buy_symbols = []
-        # Initialize an empty list to store symbols with a "SELL" recommendation
-        sell_symbols = []
-        # Initialize an empty list to store symbols with a "AO" recommendation
-        AO_symbols = []
+        # Initialize an empty list to store symbols with a "SELL" 
+        # recommendation
         # For each future in the list of futures
 
         for future in futures:
@@ -186,6 +179,7 @@ def main():
                         BASE_URL_FINANCE, BASE_URL_TECH
                     ])
 
+                # Check if the recommendation is "fixed buy" and the volume is greater than the threshold
                 # Check if the recommendation is "fixed buy" and the volume is greater than the threshold
                 if summary == "BUY" and Volume is not None and Volume > MIN_VOLUME and AO > AO_THRESHOLD:
                     buy_symbols.append([
@@ -552,3 +546,4 @@ if __name__ == "__main__":
     buy_symbols = []
     # Call the main function to run the main analysis
     main()
+

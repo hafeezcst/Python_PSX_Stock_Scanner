@@ -1,3 +1,13 @@
 {
-    "files.autoSave": "afterDelay"
+    "files.autoSave": "afterDelay",
+    "cSpell.words": [
+        "ALLSHR",
+        "CUSTUM",
+        "GNRI",
+        "KMIALL",
+        "MYLIST",
+        "openpyxl",
+        "sqlalchemy"
+    ],
+    "wolf.disableHotModeWarning": true
 }

@@ -2016,3 +2016,64 @@ ERROR:root:2024-01-14 23:39:28.061157 - Exception occurred for symbol: HPL. Erro
 ERROR:root:2024-01-15 00:25:27.865456 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
 ERROR:root:2024-01-15 00:25:44.228359 - Exception occurred for symbol: HPL. Error Message: Exchange or symbol not found.
 ERROR:root:2024-01-15 00:28:42.585221 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2024-01-16 00:12:16.355113 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2024-01-16 00:12:39.273402 - Exception occurred for symbol: HPL. Error Message: Exchange or symbol not found.
+ERROR:root:2024-01-16 00:53:10.990897 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2024-01-16 00:53:26.571783 - Exception occurred for symbol: HPL. Error Message: Exchange or symbol not found.
+ERROR:root:2024-01-16 01:03:01.610171 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2024-01-16 01:03:16.859248 - Exception occurred for symbol: HPL. Error Message: Exchange or symbol not found.
+ERROR:root:2024-01-16 01:24:58.355565 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2024-01-16 01:25:15.270820 - Exception occurred for symbol: HPL. Error Message: Exchange or symbol not found.
+ERROR:root:2024-01-16 22:22:24.676220 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2024-01-16 22:22:40.684077 - Exception occurred for symbol: HPL. Error Message: Exchange or symbol not found.
+ERROR:root:2024-01-18 06:06:41.848539 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2024-01-18 06:06:48.036429 - Exception occurred for symbol: HPL. Error Message: Exchange or symbol not found.
+ERROR:root:2024-01-18 06:11:43.629481 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2024-01-18 06:11:50.323770 - Exception occurred for symbol: HPL. Error Message: Exchange or symbol not found.
+ERROR:root:2024-01-18 06:12:23.572452 - Error sending email: Connection unexpectedly closed: [WinError 10054] An existing connection was forcibly closed by the remote host
+ERROR:root:2024-01-18 06:15:02.864962 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2024-01-18 06:15:10.267509 - Exception occurred for symbol: HPL. Error Message: Exchange or symbol not found.
+ERROR:root:2024-01-18 06:15:43.896816 - Error sending email: Connection unexpectedly closed: [WinError 10054] An existing connection was forcibly closed by the remote host
+ERROR:root:2024-01-18 06:23:49.083595 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2024-01-18 06:23:55.774195 - Exception occurred for symbol: HPL. Error Message: Exchange or symbol not found.
+ERROR:root:2024-01-18 06:24:30.444691 - Error sending email: Connection unexpectedly closed: [WinError 10054] An existing connection was forcibly closed by the remote host
+ERROR:root:2024-01-18 06:24:30.693002 - Error sending email: Connection unexpectedly closed: [WinError 10054] An existing connection was forcibly closed by the remote host
+ERROR:root:2024-01-18 08:34:46.849921 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2024-01-18 08:34:54.028529 - Exception occurred for symbol: HPL. Error Message: Exchange or symbol not found.
+ERROR:root:2024-01-18 08:35:28.891014 - Error sending email: Connection unexpectedly closed: [WinError 10054] An existing connection was forcibly closed by the remote host
+ERROR:root:2024-01-18 19:45:16.023423 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2024-01-18 19:45:21.949632 - Exception occurred for symbol: HPL. Error Message: Exchange or symbol not found.
+ERROR:root:2024-01-18 19:45:58.727024 - Error sending email: Connection unexpectedly closed: [WinError 10054] An existing connection was forcibly closed by the remote host
+ERROR:root:2024-01-18 20:03:28.362508 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2024-01-18 20:03:34.679621 - Exception occurred for symbol: HPL. Error Message: Exchange or symbol not found.
+ERROR:root:2024-01-18 20:04:09.972929 - Error sending email: Connection unexpectedly closed: [WinError 10054] An existing connection was forcibly closed by the remote host
+ERROR:root:2024-01-18 20:04:10.218652 - Error sending email: Connection unexpectedly closed: [WinError 10054] An existing connection was forcibly closed by the remote host
+ERROR:root:2024-01-18 20:09:57.402910 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2024-01-18 20:10:03.953066 - Exception occurred for symbol: HPL. Error Message: Exchange or symbol not found.
+ERROR:root:2024-01-18 20:10:41.485891 - Error sending email: Connection unexpectedly closed: [WinError 10054] An existing connection was forcibly closed by the remote host
+ERROR:root:2024-01-18 20:10:41.741528 - Error sending email: Connection unexpectedly closed: [WinError 10054] An existing connection was forcibly closed by the remote host
+ERROR:root:2024-01-18 20:55:02.728340 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2024-01-18 20:55:20.431738 - Exception occurred for symbol: HPL. Error Message: Exchange or symbol not found.
+ERROR:root:2024-01-20 20:35:20.609015 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2024-01-20 20:35:26.902202 - Exception occurred for symbol: HPL. Error Message: Exchange or symbol not found.
+ERROR:root:2024-01-22 06:22:21.922189 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2024-01-22 06:22:28.501700 - Exception occurred for symbol: HPL. Error Message: Exchange or symbol not found.
+ERROR:root:2024-01-22 22:04:37.634801 - Exception occurred for symbol: ADAMS. Error Message: HTTPSConnectionPool(host='scanner.tradingview.com', port=443): Max retries exceeded with url: /pakistan/scan (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x000001CAB961F5E0>: Failed to resolve 'scanner.tradingview.com' ([Errno 11001] getaddrinfo failed)"))
+ERROR:root:2024-01-22 22:04:42.843215 - Exception occurred for symbol: AGIL. Error Message: HTTPSConnectionPool(host='scanner.tradingview.com', port=443): Max retries exceeded with url: /pakistan/scan (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x000001CAB961FA00>: Failed to resolve 'scanner.tradingview.com' ([Errno 11001] getaddrinfo failed)"))
+ERROR:root:2024-01-22 22:04:53.872663 - Exception occurred for symbol: AGHA. Error Message: HTTPSConnectionPool(host='scanner.tradingview.com', port=443): Max retries exceeded with url: /pakistan/scan (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x000001CAB961FBB0>: Failed to resolve 'scanner.tradingview.com' ([Errno 11001] getaddrinfo failed)"))
+ERROR:root:2024-01-22 22:06:13.978360 - Exception occurred for symbol: AHTM. Error Message: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+ERROR:root:2024-01-22 22:06:24.060471 - Exception occurred for symbol: AKGL. Error Message: HTTPSConnectionPool(host='scanner.tradingview.com', port=443): Max retries exceeded with url: /pakistan/scan (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x000001CAB95E06A0>: Failed to resolve 'scanner.tradingview.com' ([Errno 11001] getaddrinfo failed)"))
+ERROR:root:2024-01-22 22:06:34.370199 - Exception occurred for symbol: AGTL. Error Message: ('Connection aborted.', ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None))
+ERROR:root:2024-01-22 22:08:14.356459 - Exception occurred for symbol: APL. Error Message: ('Connection aborted.', ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None))
+ERROR:root:2024-01-22 22:08:15.532772 - Exception occurred for symbol: AGP. Error Message: ('Connection aborted.', ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None))
+ERROR:root:2024-01-22 22:08:16.683014 - Exception occurred for symbol: ACPL. Error Message: ('Connection aborted.', ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None))
+ERROR:root:2024-01-22 22:08:17.521955 - Exception occurred for symbol: ALNRS. Error Message: ('Connection aborted.', ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None))
+ERROR:root:2024-01-22 22:08:25.408434 - Exception occurred for symbol: ARCTM. Error Message: HTTPSConnectionPool(host='scanner.tradingview.com', port=443): Max retries exceeded with url: /pakistan/scan (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x000001CAB95EB490>: Failed to resolve 'scanner.tradingview.com' ([Errno 11001] getaddrinfo failed)"))
+ERROR:root:2024-01-22 23:04:33.205400 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2024-01-22 23:04:40.147809 - Exception occurred for symbol: HPL. Error Message: Exchange or symbol not found.
+ERROR:root:2024-01-23 23:38:46.930397 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2024-01-23 23:38:52.926411 - Exception occurred for symbol: HPL. Error Message: Exchange or symbol not found.
+ERROR:root:2024-01-25 02:26:25.271177 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2024-01-25 02:26:32.508497 - Exception occurred for symbol: HPL. Error Message: Exchange or symbol not found.
+ERROR:root:2024-01-26 08:34:17.799302 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2024-01-26 08:34:25.551475 - Exception occurred for symbol: HPL. Error Message: Exchange or symbol not found.
