@@ -2,11 +2,11 @@ import time
 def get_symbol_selection():
     symbol_options = ["KMIALL", "KMI100", "KMI30", "MYLIST", "QSE", "CUSTUM"]
     
-    symbol_selection = input(f"Select symbol List ({', '.join(symbol_options)}), press Enter for default List KMIALL or QSE: ").upper()
+    symbol_selection = input(f"Select symbol List ({', '.join(symbol_options)}), press Enter for default List KMI100 or QSE: ").upper()
     
     if not symbol_selection:
         time.sleep(2)
-        symbol_selection = "KMIALL"
+        symbol_selection = "KMI100"
         print(f"Selected symbol List: {symbol_selection}")
 
     while symbol_selection not in symbol_options:

@@ -123,6 +123,8 @@ class DataReader:
                 return True
     # Add more conditions for other frequencies if needed
         return False
+    
+
 ##############################################################################################################   
     def simulate_trading_base(self, data, investment=30000000, transaction_cost_per_share=0.00):
         cash = investment
@@ -130,9 +132,9 @@ class DataReader:
         trading_log = []
         purchase_price_per_share = 0  # Track purchase price for profit/loss calculation
         for date, row in data.iterrows():
-            buy_condition_base = row['RSI_14'] > 50
+            buy_condition_RSI = row['RSI_14'] > 50
         # Check buy conditions
-            if buy_condition_base:
+            if buy_condition_RSI:
                 if cash > row['Close']:
                     # Buy as many shares as possible with available cash
                     shares_bought = (cash - transaction_cost_per_share) // row['Close']
@@ -156,7 +158,7 @@ class DataReader:
                 shares = 0
 
         print(f"Final Cash base: {final_cash_out_RSI}")
-        print(f"Final Profit RSI>14 %: {(((final_cash_out_RSI-3000000)/30000000)*100)-100}")
+        print(f"Final Profit RSI>14 %: {(((final_cash_out_RSI-investment)/investment)*100)-100}")
         
         return pd.DataFrame(trading_log, columns=['Date', 'Action', 'Shares', 'Price', 'Cash', 'Shares_Held', 'Profit_Loss'])
 
@@ -194,7 +196,7 @@ class DataReader:
                 shares = 0
 
         print(f"Final Cash S1: {final_cash_out_S1}")
-        print(f"Final Profit ['RSI_14'] > 50 and ['AO'] > 0 %: {(((final_cash_out_S1-3000000)/30000000)*100)-100}") 
+        print(f"Final Profit ['RSI_14'] > 50 and ['AO'] > 0 %: {(((final_cash_out_S1-investment)/investment)*100)-100}") 
         return pd.DataFrame(trading_log, columns=['Date', 'Action', 'Shares', 'Price', 'Cash', 'Shares_Held', 'Profit_Loss'])
 
     def simulate_trading_S2(self, data, investment=30000000, transaction_cost_per_share=0.00):
@@ -282,8 +284,11 @@ class DataReader:
                     shares = 0  # Reset shares to zero after selling
 
         print(f"Final Cash S3: {final_cash_out_S3}")
-        print(f"Final Profit row['RSI_14'] > row['RSI_14_Avg'] and row['AO'] > 0 %: {(((final_cash_out_S3-3000000)/30000000)*100)-100}")    
+        print(f"Final Profit row['RSI_14'] > row['RSI_14_Avg'] and row['AO'] > 0 %: {(((final_cash_out_S3-investment)/investment)*100)-100}")    
         return pd.DataFrame(trading_log, columns=['Date', 'Action', 'Shares', 'Price', 'Cash', 'Shares_Held', 'Profit_Loss'])
+    
+    # Add your is_dividend_date method and any other necessary methods here
+
     def preprocess(self, data: list) -> pd.DataFrame:
         # concatenate each frame to a single dataframe
         data = pd.concat(data)
@@ -339,7 +344,7 @@ if __name__ == "__main__":
     # Get all symbols from PSX
         #symbols = data_reader.tickers()
         #get symbols from excel file nams psxsybbols.xlsx and save in symbols and sheet names kmiall
-    symbols = pd.read_excel('psxsymbols.xlsx', sheet_name='KMIALL')
+    symbols = pd.read_excel('psxsymbols.xlsx', sheet_name='MYLIST')
 # Get the symbol names from the 'Symbol' column
     symbols = symbols.iloc[:, 0].tolist()
 # Use the symbols in your code
@@ -353,14 +358,13 @@ for symbol in symbols:
     data = data_reader.stocks(symbol, start_date, end_date)
             # Calculate the trading log
     trading_log = data_reader.simulate_trading_base(data)  # for base case analysis only  
-            # Calculate the trading log with conditions - row['RSI_14'] > 50 and row['AO'] > 0
+            # Calculate the trading log with conditions - row['RSI_14'] > 50 and row['AO'] > 0    
     trading_log_S1 = data_reader.simulate_trading_S1(data) 
             # Calculate the trading log with conditions - row['RSI_14'] > 50 and row['AO'] > 0 and row['Close'] > row['MA_30']
     trading_log_S2 = data_reader.simulate_trading_S2(data)
             # Calculate the trading log with conditions - row['RSI_14'] > 50 and row['AO'] > 0 and row['Close'] > row['MA_30']
     trading_log_S3 = data_reader.simulate_trading_S3(data)
-            # Save the data to an excel file
-            # Create a new file  in folder Strategy Analysis           
+            # Calculate the trading log with conditions - row['RSI_14'] > 50 and row['AO'] > 0 and row['Close'] > row['MA_30']              # Create a new file  in folder Strategy Analysis           
     folder_path = os.path.join(os.getcwd(), 'Strategy Analysis')
     file_path = os.path.join(folder_path, f"{symbol}.xlsx")
             # Delete the file if it already exists
@@ -368,17 +372,17 @@ for symbol in symbols:
         os.remove(file_path)
             # Create a new file
     with pd.ExcelWriter(file_path, engine='openpyxl') as writer:
-                # Write each dataframe to a different worksheet
-                data.to_excel(writer, sheet_name=f'{symbol}')
-                # Write the trading log to a different worksheet
-                trading_log.to_excel(writer, sheet_name=f'{symbol}-Trading Log')
-                # Write the trading log to a different worksheet
-                trading_log_S1.to_excel(writer, sheet_name=f'{symbol}-Trading Log S1')
-                # Write the trading log to a different worksheet
-                trading_log_S2.to_excel(writer, sheet_name=f'{symbol}-Trading Log S2')
-                # Write the trading log to a different worksheet
-                trading_log_S3.to_excel(writer, sheet_name=f'{symbol}-Trading Log S3')
-                # Save the file
+            # Write each dataframe to a different worksheet
+            data.to_excel(writer, sheet_name=f'{symbol}')
+            # Write the trading log to a different worksheet
+            trading_log.to_excel(writer, sheet_name=f'{symbol}-Trading Log')
+            # Write the trading log to a different worksheet
+            trading_log_S1.to_excel(writer, sheet_name=f'{symbol}-Trading Log S1')
+            # Write the trading log to a different worksheet
+            trading_log_S2.to_excel(writer, sheet_name=f'{symbol}-Trading Log S2')
+            # Write the trading log to a different worksheet
+            trading_log_S3.to_excel(writer, sheet_name=f'{symbol}-Trading Log S3')
+            
                
 
 
