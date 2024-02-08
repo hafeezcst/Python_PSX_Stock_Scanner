@@ -2355,3 +2355,8 @@ ERROR:root:2024-01-30 19:40:41.675848 - Exception occurred for symbol: 1. Error 
 ERROR:root:2024-01-30 19:40:41.675848 - Exception occurred for symbol: 0. Error Message: Exchange or symbol not found.
 ERROR:root:2024-01-30 19:40:41.675848 - Exception occurred for symbol: I. Error Message: Exchange or symbol not found.
 ERROR:root:2024-01-30 19:40:41.702518 - Exception occurred for symbol: M. Error Message: Exchange or symbol not found.
+ERROR:root:2024-01-31 19:39:18.383662 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2024-02-02 08:39:04.348464 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2024-02-03 23:18:18.218572 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2024-02-06 23:44:46.817476 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2024-02-08 10:30:54.421232 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
