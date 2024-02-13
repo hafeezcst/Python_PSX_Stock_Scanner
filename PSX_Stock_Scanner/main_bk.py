@@ -1,47 +1,51 @@
+import datetime
+import logging
+import os
 import subprocess
-from get_symbol_selection import get_symbol_selection
-from get_recommendation_filter import get_recommendation_filter
-from convert_excel_to_lists import CUSTUM, KMIALL, KMI100, KMI30, MYLIST, QSE
-from analysis_functions import analyze_symbol
-from openpyxl.styles import PatternFill
-from openpyxl.styles.differential import DifferentialStyle
-from openpyxl.formatting.rule import Rule
-from email_functions import send_email
-from get_analysis_type import get_analysis_type
+import time
+from concurrent.futures import ThreadPoolExecutor
 import pandas as pd
 import sqlalchemy
-import time
-import os
-import logging
-import datetime
-from concurrent.futures import ThreadPoolExecutor
+from openpyxl.formatting.rule import Rule
 from openpyxl.styles import Font
+from openpyxl.styles import PatternFill
+from openpyxl.styles.differential import DifferentialStyle
+
+from analysis_functions import analyze_symbol
+from convert_excel_to_lists import CUSTUM, KMIALL, KMI100, KMI30, MYLIST, QSE
+from email_functions import send_email
+from get_analysis_type import get_analysis_type
+from get_recommendation_filter import get_recommendation_filter
+from get_symbol_selection import get_symbol_selection
 
 # Set up logging
 logging.basicConfig(filename='analysis_log.txt', level=logging.ERROR)
 
 # Global constants
 # Set the volume threshold to 1,000,000
-VOLUME_THRESHOLD = 1000000
-
-# Set the minimum volume to 50,000
-MIN_VOLUME = 50000
-
+VOLUME_THRESHOLD = 100000
+# Set the minimum volume to 50,00
+MIN_VOLUME = 5000
 # Set the AO threshold to 0
 AO_THRESHOLD = 0
-
+# Set the RSI threshold to 50
+RSI_THRESHOLD = 50
 
 def main():
     # Ask the user to select the analysis type and convert the input to uppercase
     analysis_type = get_analysis_type()
-    print(f"Selected analysis type: {analysis_type}")
+    # If the user didn't provide any input
+    # set default analysis type to "D"
+    if analysis_type != "D":
+        # Print the selected analysis type
+        print(f"Selected analysis type: {analysis_type}")
     # Ask the user to select the analysis type and convert the input to uppercase
     country_selection = input(
         "Select analysis type (P for Pakistan, Q for Qatar, press Enter for default PAKISTAN):").upper()
     # If the user didn't provide any input
     # set default country to PAKISTAN
     country_selection = "P" if country_selection == "" else country_selection
-    if country_selection == "P":
+    if country_selection == "P":  
         # Wait for 2 seconds
         time.sleep(2)
         # Set the analysis type to "D" by default
@@ -72,11 +76,12 @@ def main():
     count = 1
 
     # Create a thread pool
-    with ThreadPoolExecutor(max_workers=6) as executor:  # Adjust max_workers as needed
+    # Adjust max_workers as needed
+    with ThreadPoolExecutor(max_workers=6) as executor:
         # Submit tasks to the thread pool
-        # Ask the user to select the symbol list and convert the input to uppercase    
+        # Ask the user to select the symbol list and convert the input to uppercase
         symbol_selection = get_symbol_selection()
-        if symbol_selection != "KMIALL":
+        if symbol_selection != "KMI100":
             print(f"Selected symbol List: {symbol_selection}")
         # If symbol_selection is "KMI30"
         if symbol_selection == "KMI30":
@@ -101,7 +106,7 @@ def main():
         else:
             # Set psx_symbols to the value of KMIALL
             psx_symbols = KMIALL
-        # Define the base URLs        
+        # Define the base URLs
 
         # For each symbol in psx_symbols
         futures = [
@@ -139,30 +144,22 @@ def main():
             if result:
                 # Unpack the result into multiple variables
                 symbol, summary, Close, Sell_Signal, Neutral_Signal, Buy_Signal, Volume, ADX, RSI, RSI_Last, AO, Change, average_support, average_resistance, BASE_URL_CHARTS, BASE_URL_FINANCE, BASE_URL_TECH = result
-
                 # Print the count and symbol
                 print(f"{count}:  Symbol: {symbol}")
-
                 # Get the 'RECOMMENDATION' from the summary
                 summary = summary.get('RECOMMENDATION')
-
                 # Print the summary
                 print(summary)
-
                 # Print various details about the symbol
                 print(
                     f"{analysis_type} Sell_Signal:{Sell_Signal},Neutral_Signal:{Neutral_Signal},Buy_Signal:{Buy_Signal},CLOSE: {Close} Volume: {Volume} ADX:{ADX} RSI: {RSI} LAST RSI: {RSI_Last} AO: {AO} %Change(D): {Change}")
-
                 # Print an empty line
                 print()
-
                 # Increment the count
                 count += 1
-
                 # If Volume and AO are not None
-
                 # If Volume is greater than min_volume
-                if symbol not in ["KMI30", "KMI100", "ALLSHR", "GNRI"] and Volume is not None and Volume > MIN_VOLUME:
+                if symbol not in ["KMI30", "KMI100", "ALLSHR","GNRI"] and Volume is not None and Volume > MIN_VOLUME:
                     # Append the result to the analyzed_data list
                     analyzed_data.append([
                         current_datetime, symbol, summary, Close, Sell_Signal, Neutral_Signal, Buy_Signal, Volume,
@@ -177,8 +174,7 @@ def main():
                         BASE_URL_FINANCE, BASE_URL_TECH
                     ])
                 # Check if the recommendation is "user defined" and the volume is greater than the threshold
-                if (
-                        summary == recommendation_filter and Volume is not None and Volume > VOLUME_THRESHOLD) and AO > AO_THRESHOLD or (
+                if (summary == recommendation_filter and Volume is not None and Volume > VOLUME_THRESHOLD) and AO > AO_THRESHOLD and RSI > RSI_THRESHOLD or (
                         symbol in ["KSE30", "KSE100", "ALLSHR", "GNRI"]):
                     strong_buy_symbols.append([
                         current_datetime, symbol, summary, Close, Sell_Signal, Neutral_Signal, Buy_Signal, Volume,
@@ -215,7 +211,8 @@ def main():
             'Date and Time',  # The date and time of the analysis
             'Symbol',  # The symbol of the stock
             'Summary',  # The summary of the analysis
-            f'{analysis_type} Close',  # The closing price, with the analysis type as a prefix
+            # The closing price, with the analysis type as a prefix
+            f'{analysis_type} Close',
             'Sell',  # The sell signal
             'Neutral',  # The neutral signal
             'Buy',  # The buy signal
@@ -231,7 +228,8 @@ def main():
         subset_columns_drop = [
             'Symbol',  # The symbol of the stock
             'Summary',  # The summary of the analysis
-            f'{analysis_type} Close',  # The closing price, with the analysis type as a prefix
+            # The closing price, with the analysis type as a prefix
+            f'{analysis_type} Close',
             'Sell',  # The sell signal
             'Neutral',  # The neutral signal
             'Buy',  # The buy signal
@@ -248,31 +246,41 @@ def main():
     if os.path.exists(excel_file_path):
         print(f"Reading data from {excel_file_path}")
         # Read existing data from the file
-        # Read data from each sheet into separate DataFrames 
+        # Read data from each sheet into separate DataFrames
         while True:
             try:
                 if os.path.exists(excel_file_path):
                     with pd.ExcelFile(excel_file_path) as xls:
                         if 'All Symbols' in xls.sheet_names:
-                            df_all_symbols = pd.read_excel(excel_file_path, sheet_name='All Symbols')
+                            df_all_symbols = pd.read_excel(
+                                excel_file_path, sheet_name='All Symbols')
                         else:
-                            df_all_symbols = pd.DataFrame(columns=subset_columns)
+                            df_all_symbols = pd.DataFrame(
+                                columns=subset_columns)
                         if 'Recommended_Symbols' in xls.sheet_names:
-                            df_strong_buy_symbols = pd.read_excel(excel_file_path, sheet_name='Recommended_Symbols')
+                            df_strong_buy_symbols = pd.read_excel(
+                                excel_file_path, sheet_name='Recommended_Symbols')
                         else:
-                            df_strong_buy_symbols = pd.DataFrame(columns=subset_columns)
+                            df_strong_buy_symbols = pd.DataFrame(
+                                columns=subset_columns)
                         if 'Buy_Symbols' in xls.sheet_names:
-                            df_buy_symbols = pd.read_excel(excel_file_path, sheet_name='Buy_Symbols')
+                            df_buy_symbols = pd.read_excel(
+                                excel_file_path, sheet_name='Buy_Symbols')
                         else:
-                            df_buy_symbols = pd.DataFrame(columns=subset_columns)
+                            df_buy_symbols = pd.DataFrame(
+                                columns=subset_columns)
                         if 'Sell_Symbols' in xls.sheet_names:
-                            df_sell_symbols = pd.read_excel(excel_file_path, sheet_name='Sell_Symbols')
+                            df_sell_symbols = pd.read_excel(
+                                excel_file_path, sheet_name='Sell_Symbols')
                         else:
-                            df_sell_symbols = pd.DataFrame(columns=subset_columns)
+                            df_sell_symbols = pd.DataFrame(
+                                columns=subset_columns)
                         if 'AO_Symbols' in xls.sheet_names:
-                            df_AO_symbols = pd.read_excel(excel_file_path, sheet_name='AO_Symbols')
+                            df_AO_symbols = pd.read_excel(
+                                excel_file_path, sheet_name='AO_Symbols')
                         else:
-                            df_AO_symbols = pd.DataFrame(columns=subset_columns)
+                            df_AO_symbols = pd.DataFrame(
+                                columns=subset_columns)
                 else:
                     df_all_symbols = pd.DataFrame(columns=subset_columns)
                     df_strong_buy_symbols = pd.DataFrame(columns=subset_columns)
@@ -282,95 +290,82 @@ def main():
                 break  # If the file opens successfully, break the loop
             except PermissionError:
                 print(f"Waiting for file to close: {excel_file_path}")
-                time.sleep(5)  # Wait for 5 seconds before trying again            
+                time.sleep(5)  # Wait for 5 seconds before trying again
 
-        # Concatenate the new data with the existing data                           
+        # Concatenate the new data with the existing data
         df_all = pd.concat([df_all_symbols, pd.DataFrame(analyzed_data,
-                                                         columns=['Date and Time', 'Symbol', 'Summary',
-                                                                  f'{analysis_type} Close', 'Sell',
-                                                                  'Neutral', 'Buy', 'Volume', 'ADX', 'RSI',
-                                                                  'Last RSI', 'AO', '%Change(D)', 'Support',
-                                                                  'Resistance',
-                                                                  'Charts', 'Financials',
-                                                                  'Technicals'])]).drop_duplicates(
-            subset=subset_columns_drop, keep='last')
+                columns=['Date and Time', 'Symbol', 'Summary',
+                f'{analysis_type} Close', 'Sell',
+                'Neutral', 'Buy', 'Volume', 'ADX', 'RSI',
+                'Last RSI', 'AO', '%Change(D)', 'Support',
+                'Resistance','Charts', 'Financials',
+                'Technicals'])]).drop_duplicates(subset=subset_columns_drop, keep='last')
 
         df_strong_buy = pd.concat([df_strong_buy_symbols, pd.DataFrame(strong_buy_symbols,
-                                                                       columns=['Date and Time', 'Symbol', 'Summary',
-                                                                                f'{analysis_type} Close', 'Sell',
-                                                                                'Neutral', 'Buy', 'Volume', 'ADX',
-                                                                                'RSI',
-                                                                                'Last RSI', 'AO', '%Change(D)',
-                                                                                'Support', 'Resistance',
-                                                                                'Charts', 'Financials',
-                                                                                'Technicals'])]).drop_duplicates(
-            subset=subset_columns_drop, keep='last')
+                columns=['Date and Time', 'Symbol','Summary',
+                f'{analysis_type} Close', 'Sell',
+                'Neutral', 'Buy', 'Volume', 'ADX',
+                'RSI','Last RSI', 'AO', '%Change(D)',
+                'Support', 'Resistance','Charts', 'Financials',
+                'Technicals'])]).drop_duplicates(subset=subset_columns_drop, keep='last')
 
         df_buy = pd.concat([df_buy_symbols, pd.DataFrame(buy_symbols,
-                                                         columns=['Date and Time', 'Symbol',
-                                                                  'Summary',
-                                                                  f'{analysis_type} Close',
-                                                                  'Sell', 'Neutral', 'Buy',
-                                                                  'Volume', 'ADX', 'RSI',
-                                                                  'Last RSI', 'AO',
-                                                                  '%Change(D)', 'Support', 'Resistance', 'Charts',
-                                                                  'Financials', 'Technicals'])]).drop_duplicates(
-            subset=subset_columns_drop, keep='last')
+                columns=['Date and Time', 'Symbol','Summary',
+                f'{analysis_type} Close','Sell', 'Neutral', 'Buy',
+                'Volume', 'ADX', 'RSI',
+                'Last RSI', 'AO',
+                '%Change(D)', 'Support', 'Resistance', 'Charts',
+                'Financials','Technicals'])]).drop_duplicates(subset=subset_columns_drop, keep='last')
         df_sell = pd.concat([df_sell_symbols, pd.DataFrame(sell_symbols,
-                                                           columns=['Date and Time', 'Symbol',
-                                                                    'Summary',
-                                                                    f'{analysis_type} Close',
-                                                                    'Sell', 'Neutral', 'Buy',
-                                                                    'Volume', 'ADX', 'RSI',
-                                                                    'Last RSI', 'AO',
-                                                                    '%Change(D)', 'Support', 'Resistance', 'Charts',
-                                                                    'Financials', 'Technicals'])]).drop_duplicates(
-            subset=subset_columns_drop, keep='last')
+                columns=['Date and Time', 'Symbol','Summary',
+                f'{analysis_type} Close','Sell', 'Neutral', 'Buy',
+                'Volume', 'ADX', 'RSI',
+                'Last RSI', 'AO','%Change(D)', 'Support', 'Resistance',
+                'Charts','Financials','Technicals'])]).drop_duplicates(subset=subset_columns_drop, keep='last')
         df_AO = pd.concat([df_AO_symbols, pd.DataFrame(AO_symbols,
-                                                       columns=['Date and Time', 'Symbol',
-                                                                'Summary',
-                                                                f'{analysis_type} Close',
-                                                                'Sell', 'Neutral', 'Buy',
-                                                                'Volume', 'ADX', 'RSI',
-                                                                'Last RSI', 'AO',
-                                                                '%Change(D)', 'Support', 'Resistance', 'Charts',
-                                                                'Financials', 'Technicals'])]).drop_duplicates(
-            subset=subset_columns_drop, keep='last')
+                columns=['Date and Time', 'Symbol',
+                'Summary',
+                f'{analysis_type} Close',
+                'Sell', 'Neutral', 'Buy',
+                'Volume', 'ADX', 'RSI',
+                'Last RSI', 'AO',
+                '%Change(D)', 'Support', 'Resistance', 'Charts',
+                'Financials','Technicals'])]).drop_duplicates(subset=subset_columns_drop, keep='last')
     else:
         # Create a new file
         subset_columns = ['Symbol', 'Summary', f'{analysis_type} Close', 'Sell',
                           'Neutral', 'Buy', 'Volume', 'ADX', 'RSI',
                           'Last RSI', 'AO', '%Change(D)', 'Support', 'Resistance']
         df_all = pd.DataFrame(analyzed_data,
-                              columns=['Date and Time', 'Symbol', 'Summary',
-                                       f'{analysis_type} Close', 'Sell', 'Neutral', 'Buy', 'Volume', 'ADX', 'RSI',
-                                       'Last RSI', 'AO', '%Change(D)', 'Support', 'Resistance',
-                                       'Charts', 'Financials', 'Technicals'])
+                columns=['Date and Time', 'Symbol', 'Summary',
+                f'{analysis_type} Close', 'Sell', 'Neutral', 'Buy', 'Volume', 'ADX', 'RSI',
+                'Last RSI', 'AO', '%Change(D)', 'Support', 'Resistance',
+                'Charts', 'Financials', 'Technicals'])
 
         df_strong_buy = pd.DataFrame(strong_buy_symbols,
-                                     columns=['Date and Time', 'Symbol', 'Summary',
-                                              f'{analysis_type} Close', 'Sell',
-                                              'Neutral', 'Buy', 'Volume', 'ADX', 'RSI',
-                                              'Last RSI', 'AO', '%Change(D)', 'Support', 'Resistance',
-                                              'Charts', 'Financials', 'Technicals'])
+                columns=['Date and Time', 'Symbol', 'Summary',
+                f'{analysis_type} Close', 'Sell',
+                'Neutral', 'Buy', 'Volume', 'ADX', 'RSI',
+                'Last RSI', 'AO', '%Change(D)', 'Support', 'Resistance',
+                'Charts', 'Financials', 'Technicals'])
         df_buy = pd.DataFrame(buy_symbols,
-                              columns=['Date and Time', 'Symbol', 'Summary',
-                                       f'{analysis_type} Close', 'Sell',
-                                       'Neutral', 'Buy', 'Volume', 'ADX', 'RSI',
-                                       'Last RSI', 'AO', '%Change(D)', 'Support', 'Resistance',
-                                       'Charts', 'Financials', 'Technicals'])
+                columns=['Date and Time', 'Symbol', 'Summary',
+                f'{analysis_type} Close', 'Sell',
+                'Neutral', 'Buy', 'Volume', 'ADX', 'RSI',
+                'Last RSI', 'AO', '%Change(D)', 'Support', 'Resistance',
+                'Charts', 'Financials', 'Technicals'])
         df_sell = pd.DataFrame(sell_symbols,
-                               columns=['Date and Time', 'Symbol', 'Summary',
-                                        f'{analysis_type} Close', 'Sell',
-                                        'Neutral', 'Buy', 'Volume', 'ADX', 'RSI',
-                                        'Last RSI', 'AO', '%Change(D)', 'Support', 'Resistance',
-                                        'Charts', 'Financials', 'Technicals'])
+                columns=['Date and Time', 'Symbol', 'Summary',
+                f'{analysis_type} Close', 'Sell',
+                'Neutral', 'Buy', 'Volume', 'ADX', 'RSI',
+                'Last RSI', 'AO', '%Change(D)', 'Support', 'Resistance',
+                'Charts', 'Financials', 'Technicals'])
         df_AO = pd.DataFrame(AO_symbols,
-                             columns=['Date and Time', 'Symbol', 'Summary',
-                                      f'{analysis_type} Close', 'Sell',
-                                      'Neutral', 'Buy', 'Volume', 'ADX', 'RSI',
-                                      'Last RSI', 'AO', '%Change(D)', 'Support', 'Resistance',
-                                      'Charts', 'Financials', 'Technicals'])
+                columns=['Date and Time', 'Symbol', 'Summary',
+                f'{analysis_type} Close', 'Sell',
+                'Neutral', 'Buy', 'Volume', 'ADX', 'RSI',
+                'Last RSI', 'AO', '%Change(D)', 'Support', 'Resistance',
+                'Charts', 'Financials', 'Technicals'])
 
     # Define the database connection URL
     # The URL is in the format 'sqlite:///<database_name>.db'
@@ -388,7 +383,8 @@ def main():
         # Write df_all to a SQL table named 'all_symbols'
         df_all.to_sql('all_symbols', engine, if_exists='append', index=False)
         # Write df_strong_buy to a SQL table named 'recommended_symbols'
-        df_strong_buy.to_sql('recommended_symbols', engine, if_exists='append', index=False)
+        df_strong_buy.to_sql('recommended_symbols', engine,
+                             if_exists='append', index=False)
         # Write df_buy to a SQL table named 'buy_symbols'
         df_buy.to_sql('buy_symbols', engine, if_exists='append', index=False)
         # Write df_sell to a SQL table named 'sell_symbols'
@@ -405,7 +401,8 @@ def main():
         # Write df_all to an Excel sheet named 'All Symbols', without the index
         df_all.to_excel(writer, sheet_name='All Symbols', index=False)
         # Write df_strong_buy to an Excel sheet named 'Recommended_Symbols', without the index
-        df_strong_buy.to_excel(writer, sheet_name='Recommended_Symbols', index=False)
+        df_strong_buy.to_excel(
+            writer, sheet_name='Recommended_Symbols', index=False)
         # Write df_buy to an Excel sheet named 'Buy_Symbols', without the index
         df_buy.to_excel(writer, sheet_name='Buy_Symbols', index=False)
         # Write df_sell to an Excel sheet named 'Sell_Symbols', without the index
@@ -434,9 +431,11 @@ def main():
         worksheet_AO.column_dimensions['A'].width = 20
         # Set the column width and format
         # Get the column R range
-        column_J_ranges = [worksheet_all['J'], worksheet_strong_buy['J'], worksheet_buy['J'], worksheet_sell['J'],
+        column_J_ranges = [worksheet_all['J'], worksheet_strong_buy['J'], worksheet_buy['J'],
+                           worksheet_sell['J'],
                            worksheet_AO['J']]
-        column_L_ranges = [worksheet_all['L'], worksheet_strong_buy['L'], worksheet_buy['L'], worksheet_sell['L'],
+        column_L_ranges = [worksheet_all['L'], worksheet_strong_buy['L'], worksheet_buy['L'],
+                           worksheet_sell['L'],
                            worksheet_AO['L']]
 
         # Set the font color to red for all J columns
@@ -450,11 +449,15 @@ def main():
                 cell.font = Font(color="FF0000")
 
         # Create a fill pattern
-        highlight_format_bullish = PatternFill(start_color="75AA74", end_color="75AA74", fill_type="solid")
+        highlight_format_bullish = PatternFill(
+            start_color="75AA74", end_color="75AA74", fill_type="solid")
         # Create a fill pattern
-        highlight_format_bearish = PatternFill(start_color="FFC7CE", end_color="FFC7CE", fill_type="solid")
-        highlight_format_neutral = PatternFill(start_color="98FB98", end_color="98FB98", fill_type="solid")
-        highlight_format_exit = PatternFill(start_color="FFC7CE", end_color="FFC7CE", fill_type="solid")
+        highlight_format_bearish = PatternFill(
+            start_color="FFC7CE", end_color="FFC7CE", fill_type="solid")
+        highlight_format_neutral = PatternFill(
+            start_color="98FB98", end_color="98FB98", fill_type="solid")
+        highlight_format_exit = PatternFill(
+            start_color="FFC7CE", end_color="FFC7CE", fill_type="solid")
         # Create a differential style
         dxf_bullish = DifferentialStyle(fill=highlight_format_bullish)
         dxf_bearish = DifferentialStyle(fill=highlight_format_bearish)
@@ -471,16 +474,16 @@ def main():
         rule_neutral.formula = ["$J1>50"] and ["$L1>0"]
         # Create a rule Exit
         rule_exit = Rule(type="expression", dxf=dxf_exit)
-        rule_exit.formula =  ["$E1>7"]
+        rule_exit.formula = ["$E1>7"]
 
         # Add the rule to the worksheet
         worksheet_all.conditional_formatting.add("A1:R1000", rule_bullish)
         worksheet_all.conditional_formatting.add("E1:E1000", rule_exit)
-        worksheet_strong_buy.conditional_formatting.add("A1:R1000", rule_bullish)
+        worksheet_strong_buy.conditional_formatting.add(
+            "A1:R1000", rule_bullish)
         worksheet_buy.conditional_formatting.add("A1:R1000", rule_bullish)
         worksheet_sell.conditional_formatting.add("A1:R1000", rule_bearish)
         worksheet_AO.conditional_formatting.add("A1:R1000", rule_neutral)
-
 
         # Save the Excel file
         print(f"Data exported to {excel_file_path}")
@@ -501,25 +504,25 @@ def main():
         # send email
         # Assuming the correct DataFrame is named df_strong_buy:
         # Sort df_strong_buy by 'Date and Time' in descending order
-        recommended_symbols = df_strong_buy.sort_values(by='Date and Time', ascending=False)
+        recommended_symbols = df_strong_buy.sort_values(
+            by='Date and Time', ascending=False)
         # Sort df_buy by 'Date and Time' in descending order
         buy_symbols = df_buy.sort_values(by='Date and Time', ascending=False)
         # Filter the symbols for the current date
-        # Filter the symbols for the current date
         today_date = datetime.datetime.now().date()
+        one_hours_ago = datetime.datetime.now() - datetime.timedelta(hours=1)
         today_Strong_buy = recommended_symbols[recommended_symbols[
-                                                   'Date and Time'].dt.date == today_date] if not recommended_symbols.empty else pd.DataFrame()
+            'Date and Time'].dt.date == today_date] if not recommended_symbols.empty else pd.DataFrame()
         # Apply custom column filter
 
         # Calculate the suggested number of shares to purchase
-        investment_amount = 4000000
+        investment_amount = 100000
         num_shares = len(today_Strong_buy[today_Strong_buy['Volume'] > 0])
         if num_shares > 0:
             investment_amount_per_share = round(investment_amount / num_shares)
             suggested_shares = today_Strong_buy.apply(
                 lambda row: round(investment_amount_per_share / row[f'{analysis_type} Close']) if row[
-                                                                                                      'Volume'] > 0 else 0,
-                axis=1)
+                    'Volume'] > 0 else 0,axis=1)
         else:
             suggested_shares = pd.Series()
 
@@ -528,8 +531,8 @@ def main():
 
         # Convert the filtered data to a string
 
-        custom_message = f"Strong Buy Conditions: Volume >1M,,RSI>50, AO >0 and Strong_buy from Trading view.Suggested Shares are calculated based on {investment_amount} investment amount. "
-        body = f"{custom_message}\n\n{today_Strong_buy.to_string(index=True, justify='left', col_space=10, header=True, na_rep='NaN', formatters=None)}"
+        custom_message = f"Strong Buy Conditions: Volume >{VOLUME_THRESHOLD},RSI>50, AO >{AO_THRESHOLD} and{recommendation_filter} from Trading view.Suggested Shares are calculated based on {investment_amount} investment amount. min volume >{MIN_VOLUME} "
+        body = f"{custom_message}\n\n{today_Strong_buy.to_string ( index=True, justify='left', col_space=10)}"
         # Define the subject of the email
         attachment_path = excel_file_path
         subject = f"{analysis_type}-{symbol_selection}- {recommendation_filter}-Technical_Analysis_"
@@ -538,7 +541,6 @@ def main():
         # Open the file using the default program associated with Excel files
         subprocess.Popen([excel_file_path], shell=True)
         # Wait for 5 seconds before running the analysis again
-        time.sleep(5)  # Adjust the delay as needed
         # today_buy= buy_symbols[buy_symbols['Date and Time'].dt.date == today_date] if not buy_symbols.empty else pd.DataFrame()
 
 

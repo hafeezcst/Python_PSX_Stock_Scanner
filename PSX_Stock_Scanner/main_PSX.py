@@ -176,7 +176,7 @@ def main():
                 # Check if the recommendation is "user defined" and the volume is greater than the threshold
                 if (summary == recommendation_filter and Volume is not None and Volume > VOLUME_THRESHOLD) and AO > AO_THRESHOLD and RSI > RSI_THRESHOLD or (
                         symbol in ["KSE30", "KSE100", "ALLSHR", "GNRI"]):
-                    strong_buy_symbols.append([
+                        strong_buy_symbols.append([
                         current_datetime, symbol, summary, Close, Sell_Signal, Neutral_Signal, Buy_Signal, Volume,
                         ADX, RSI, RSI_Last, AO, Change, average_support, average_resistance, BASE_URL_CHARTS,
                         BASE_URL_FINANCE, BASE_URL_TECH
@@ -184,21 +184,21 @@ def main():
 
                 # Check if the recommendation is "fixed buy" and the volume is greater than the threshold
                 if summary == "BUY" and Volume is not None and Volume > MIN_VOLUME and AO > AO_THRESHOLD:
-                    buy_symbols.append([
+                        buy_symbols.append([
                         current_datetime, symbol, summary, Close, Sell_Signal, Neutral_Signal, Buy_Signal, Volume,
                         ADX, RSI, RSI_Last, AO, Change, average_support, average_resistance, BASE_URL_CHARTS,
                         BASE_URL_FINANCE, BASE_URL_TECH
                     ])
                 # Check if the recommendation is "fixed buy" and the volume is greater than the threshold
                 if summary == "SELL" and AO < AO_THRESHOLD:
-                    sell_symbols.append([
+                        sell_symbols.append([
                         current_datetime, symbol, summary, Close, Sell_Signal, Neutral_Signal, Buy_Signal, Volume,
                         ADX, RSI, RSI_Last, AO, Change, average_support, average_resistance, BASE_URL_CHARTS,
                         BASE_URL_FINANCE, BASE_URL_TECH
                     ])
                 # Check if the recommendation is "fixed buy" and the volume is greater than the threshold
                 if summary in ["STRONG_BUY", "BUY", "NEUTRAL", "SELL", "STRONG_SELL"] and AO > AO_THRESHOLD:
-                    AO_symbols.append([
+                        AO_symbols.append([
                         current_datetime, symbol, summary, Close, Sell_Signal, Neutral_Signal, Buy_Signal, Volume,
                         ADX, RSI, RSI_Last, AO, Change, average_support, average_resistance, BASE_URL_CHARTS,
                         BASE_URL_FINANCE, BASE_URL_TECH
@@ -334,8 +334,8 @@ def main():
     else:
         # Create a new file
         subset_columns = ['Symbol', 'Summary', f'{analysis_type} Close', 'Sell',
-                          'Neutral', 'Buy', 'Volume', 'ADX', 'RSI',
-                          'Last RSI', 'AO', '%Change(D)', 'Support', 'Resistance']
+                'Neutral', 'Buy', 'Volume', 'ADX', 'RSI',
+                'Last RSI', 'AO', '%Change(D)', 'Support', 'Resistance']
         df_all = pd.DataFrame(analyzed_data,
                 columns=['Date and Time', 'Symbol', 'Summary',
                 f'{analysis_type} Close', 'Sell', 'Neutral', 'Buy', 'Volume', 'ADX', 'RSI',
