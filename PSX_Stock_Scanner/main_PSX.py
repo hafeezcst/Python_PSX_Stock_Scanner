@@ -516,7 +516,7 @@ def main():
         # Apply custom column filter
 
         # Calculate the suggested number of shares to purchase
-        investment_amount = 100000
+        investment_amount = 1000000
         num_shares = len(today_Strong_buy[today_Strong_buy['Volume'] > 0])
         if num_shares > 0:
             investment_amount_per_share = round(investment_amount / num_shares)

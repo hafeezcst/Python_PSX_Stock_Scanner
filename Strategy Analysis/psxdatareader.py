@@ -126,15 +126,15 @@ class DataReader:
     
 
 ##############################################################################################################   
-    def simulate_trading_base(self, data, investment=30000000, transaction_cost_per_share=0.00):
+    def simulate_trading_S0(self, data, investment=30000000, transaction_cost_per_share=0.00):
         cash = investment
         shares = 0
         trading_log = []
         purchase_price_per_share = 0  # Track purchase price for profit/loss calculation
         for date, row in data.iterrows():
-            buy_condition_RSI = row['RSI_14'] > 50
+            buy_condition_S0 = row['RSI_14'] > 50
         # Check buy conditions
-            if buy_condition_RSI:
+            if buy_condition_S0:
                 if cash > row['Close']:
                     # Buy as many shares as possible with available cash
                     shares_bought = (cash - transaction_cost_per_share) // row['Close']
@@ -153,12 +153,12 @@ class DataReader:
                 profit_loss = total_proceeds - (shares * purchase_price_per_share) - transaction_costs
             # Sell all shares
                 cash += total_proceeds - transaction_costs
-                final_cash_out_RSI = cash  # Update final cash out on each sell
+                final_cash_out_S0 = cash  # Update final cash out on each sell
                 trading_log.append((date, 'Sell', shares, row['Close'], cash, 0, profit_loss))
                 shares = 0
 
-        print(f"Final Cash base: {final_cash_out_RSI}")
-        print(f"Final Profit RSI>14 %: {(((final_cash_out_RSI-investment)/investment)*100)-100}")
+        print(f"Final Cash S0: {final_cash_out_S0}")
+        print(f"Final Profit S0 %: {(((final_cash_out_S0-investment)/investment)*100)-100}")
         
         return pd.DataFrame(trading_log, columns=['Date', 'Action', 'Shares', 'Price', 'Cash', 'Shares_Held', 'Profit_Loss'])
 
@@ -195,8 +195,8 @@ class DataReader:
                 trading_log.append((date, 'Sell', shares, row['Close'], cash, 0, profit_loss))
                 shares = 0
 
-        print(f"Final Cash S1: {final_cash_out_S1}")
-        print(f"Final Profit ['RSI_14'] > 50 and ['AO'] > 0 %: {(((final_cash_out_S1-investment)/investment)*100)-100}") 
+        print(f"Final Cash S1:({final_cash_out_S1})")
+        print(f"Final Profit S1 %: {(((final_cash_out_S1-investment)/investment)*100)-100}") 
         return pd.DataFrame(trading_log, columns=['Date', 'Action', 'Shares', 'Price', 'Cash', 'Shares_Held', 'Profit_Loss'])
 
     def simulate_trading_S2(self, data, investment=30000000, transaction_cost_per_share=0.00):
@@ -231,9 +231,9 @@ class DataReader:
                 shares = 0
 
         print(f"Final Cash S2: {final_cash_out_S2}")
-        print(f"Final Profit ['RSI_14'] > 50 and ['AO'] > 0 and row['Close'] > ['MA_30'] %: {(((final_cash_out_S2-3000000)/30000000)*100)-100}") 
+        print(f"Final Profit S2 %: {(((final_cash_out_S2-3000000)/30000000)*100)-100}") 
         return pd.DataFrame(trading_log, columns=['Date', 'Action', 'Shares', 'Price', 'Cash', 'Shares_Held', 'Profit_Loss'])
-        
+          
     def simulate_trading_S3(self, data, investment=30000000, transaction_cost_per_share=0.00):
         cash = investment
         shares = 0
@@ -273,7 +273,7 @@ class DataReader:
                 profit_loss_per_share = current_price - purchase_price_per_share
                 profit_loss_percent = (profit_loss_per_share / purchase_price_per_share) * 100
             # Sell if profit is more than 10% or loss is more than 5%
-                if profit_loss_percent > 20 or profit_loss_percent < -10:
+                if profit_loss_percent > 20 or profit_loss_percent > -10:
                 # Calculate profit or loss
                     total_proceeds = shares * current_price
                     transaction_costs = shares * transaction_cost_per_share
@@ -284,7 +284,7 @@ class DataReader:
                     shares = 0  # Reset shares to zero after selling
 
         print(f"Final Cash S3: {final_cash_out_S3}")
-        print(f"Final Profit row['RSI_14'] > row['RSI_14_Avg'] and row['AO'] > 0 %: {(((final_cash_out_S3-investment)/investment)*100)-100}")    
+        print(f"Final Profit S3 %: {(((final_cash_out_S3-investment)/investment)*100)-100}")    
         return pd.DataFrame(trading_log, columns=['Date', 'Action', 'Shares', 'Price', 'Cash', 'Shares_Held', 'Profit_Loss'])
     
     # Add your is_dividend_date method and any other necessary methods here
@@ -357,13 +357,17 @@ for symbol in symbols:
             # Get the data for each symbol
     data = data_reader.stocks(symbol, start_date, end_date)
             # Calculate the trading log
-    trading_log = data_reader.simulate_trading_base(data)  # for base case analysis only  
+    trading_log = data_reader.simulate_trading_S0(data)  # for base case analysis only  
+  
             # Calculate the trading log with conditions - row['RSI_14'] > 50 and row['AO'] > 0    
-    trading_log_S1 = data_reader.simulate_trading_S1(data) 
+    trading_log_S1 = data_reader.simulate_trading_S1(data)
+ 
             # Calculate the trading log with conditions - row['RSI_14'] > 50 and row['AO'] > 0 and row['Close'] > row['MA_30']
     trading_log_S2 = data_reader.simulate_trading_S2(data)
+   
             # Calculate the trading log with conditions - row['RSI_14'] > 50 and row['AO'] > 0 and row['Close'] > row['MA_30']
     trading_log_S3 = data_reader.simulate_trading_S3(data)
+    
             # Calculate the trading log with conditions - row['RSI_14'] > 50 and row['AO'] > 0 and row['Close'] > row['MA_30']              # Create a new file  in folder Strategy Analysis           
     folder_path = os.path.join(os.getcwd(), 'Strategy Analysis')
     file_path = os.path.join(folder_path, f"{symbol}.xlsx")

@@ -2366,3 +2366,5 @@ ERROR:root:2024-02-13 13:34:03.192175 - Exception occurred for symbol: K. Error 
 ERROR:root:2024-02-13 13:34:03.211175 - Exception occurred for symbol: 1. Error Message: Exchange or symbol not found.
 ERROR:root:2024-02-13 13:34:03.211175 - Exception occurred for symbol: I. Error Message: Exchange or symbol not found.
 ERROR:root:2024-02-13 13:34:03.212174 - Exception occurred for symbol: 0. Error Message: Exchange or symbol not found.
+ERROR:root:2024-02-16 10:37:23.769053 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2024-02-16 10:51:58.576051 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
