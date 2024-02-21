@@ -552,5 +552,22 @@ if __name__ == "__main__":
     strong_buy_symbols = []
     # Initialize an empty list to store symbols with a "BUY" recommendation
     buy_symbols = []
-    # Call the main function to run the main analysis
+    # Call the main function to run the main analysis for psx
     main()
+    # Print a message to indicate that the analysis is complete
+    print("PSX Analysis complete")
+    # Wait for 5 seconds before exiting the program
+    time.sleep(5)
+     # Call the main function to run the main analysis for qse
+    main()
+    # Print a message to indicate that the analysis is complete
+    print("QSE Analysis complete")
+    # Wait for 5 seconds before exiting the program
+    time.sleep(5)
+    # Print a message to indicate that the analysis is complete
+    print("All Analysis complete")
+    # Wait for 5 seconds before exiting the program
+    time.sleep(5)
+    # Exit the program
+
+
