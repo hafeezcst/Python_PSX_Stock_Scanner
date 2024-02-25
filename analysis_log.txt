@@ -2370,3 +2370,11 @@ ERROR:root:2024-02-16 10:37:23.769053 - Exception occurred for symbol: DCR. Erro
 ERROR:root:2024-02-16 10:51:58.576051 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
 ERROR:root:2024-02-21 21:58:11.390986 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
 ERROR:root:2024-02-21 22:13:10.207579 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2024-02-24 20:00:56.226654 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2024-02-25 23:56:35.833542 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2024-02-26 00:26:02.243864 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2024-02-26 00:32:14.828543 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2024-02-26 00:35:51.322155 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2024-02-26 00:41:06.884402 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2024-02-26 00:45:03.310877 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2024-02-26 00:48:14.484658 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
