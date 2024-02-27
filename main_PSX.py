@@ -17,6 +17,7 @@ from email_functions import send_email
 from get_analysis_type import get_analysis_type
 from get_recommendation_filter import get_recommendation_filter
 from get_symbol_selection import get_symbol_selection
+import datetime
 
 # Set up logging
 logging.basicConfig(filename='analysis_log.txt', level=logging.ERROR)
@@ -33,18 +34,19 @@ RSI_THRESHOLD = 50
 
 def main():
     # Ask the user to select the analysis type and convert the input to uppercase
-    analysis_type = get_analysis_type()
-    # If the user didn't provide any input
+   #analysis_type = get_analysis_type()
+         # If the user didn't provide any input
     # set default analysis type to "D"
+    analysis_type = "D" 
     if analysis_type != "D":
         # Print the selected analysis type
         print(f"Selected analysis type: {analysis_type}")
     # Ask the user to select the analysis type and convert the input to uppercase
-    country_selection = input(
-        "Select analysis type (P for Pakistan, Q for Qatar, press Enter for default PAKISTAN):").upper()
+    #country_selection = input("Select analysis type (P for Pakistan, Q for Qatar, press Enter for default PAKISTAN):").upper()
     # If the user didn't provide any input
+
     # set default country to PAKISTAN
-    country_selection = "P" if country_selection == "" else country_selection
+    #country_selection = "P" 
     if country_selection == "P":  
         # Wait for 2 seconds
         time.sleep(2)
@@ -69,9 +71,10 @@ def main():
         print(f"Selected exchange: {exchange_selection}")
 
     # Ask the user to select a recommendation filter and convert the input to uppercase
-    recommendation_filter = get_recommendation_filter()
+   # recommendation_filter = get_recommendation_filter()
 
     # Set default analysis type to "M" if the user presses Enter without entering a choice
+    recommendation_filter = "STRONG_BUY"
     current_datetime = datetime.datetime.now()  # Include time
     count = 1
 
@@ -80,7 +83,13 @@ def main():
     with ThreadPoolExecutor(max_workers=6) as executor:
         # Submit tasks to the thread pool
         # Ask the user to select the symbol list and convert the input to uppercase
-        symbol_selection = get_symbol_selection()
+       # symbol_selection = get_symbol_selection()
+        # Set default symbol list to "KMIALL" if the user presses Enter without entering a choice
+        if country_selection == "P":
+            symbol_selection = "KMI100"
+        else:
+            symbol_selection = "QSE"
+
         if symbol_selection != "KMI100":
             print(f"Selected symbol List: {symbol_selection}")
         # If symbol_selection is "KMI30"
@@ -539,7 +548,7 @@ def main():
         send_email(subject, body, attachment_path)
         # Sort the Excel file by symbol and date and time
         # Open the file using the default program associated with Excel files
-        subprocess.Popen([excel_file_path], shell=True)
+        #subprocess.Popen([excel_file_path], shell=True)
         # Wait for 5 seconds before running the analysis again
         # today_buy= buy_symbols[buy_symbols['Date and Time'].dt.date == today_date] if not buy_symbols.empty else pd.DataFrame()
 
@@ -553,12 +562,50 @@ if __name__ == "__main__":
     # Initialize an empty list to store symbols with a "BUY" recommendation
     buy_symbols = []
     # Call the main function to run the main analysis for psx
+     # set default country to PAKISTAN
+    # Get the current day of the week
+    current_day = datetime.datetime.now().weekday()
+
+    # Get the current day of the month
+    current_month_day = datetime.datetime.now().day
+
+    # Set the default analysis type to "D"
+    analysis_type = "D"
+
+    # If today is Saturday, set the analysis type to "W"
+    if current_day == 5:
+        analysis_type = "W"
+
+    # If today is the 1st of the month, set the analysis type to "M"
+    if current_month_day == 1:
+        analysis_type = "M"
+    country_selection = "P" 
+    # Call the main function to run the analysis
     main()
     # Print a message to indicate that the analysis is complete
     print("PSX Analysis complete")
     # Wait for 5 seconds before exiting the program
     time.sleep(5)
      # Call the main function to run the main analysis for qse
+     # set default country to PAKISTAN
+    # Get the current day of the week
+    current_day = datetime.datetime.now().weekday()
+
+    # Get the current day of the month
+    current_month_day = datetime.datetime.now().day
+
+    # Set the default analysis type to "D"
+    analysis_type = "D"
+
+    # If today is Saturday, set the analysis type to "W"
+    if current_day == 5:
+        analysis_type = "W"
+
+    # If today is the 1st of the month, set the analysis type to "M"
+    if current_month_day == 1:
+        analysis_type = "M"
+
+    country_selection = "Q" 
     main()
     # Print a message to indicate that the analysis is complete
     print("QSE Analysis complete")
