@@ -2451,3 +2451,11 @@ ERROR:root:2024-02-27 18:33:17.321743 - Exception occurred for symbol: KSE30. Er
 ERROR:root:2024-02-27 18:33:17.735798 - Exception occurred for symbol: KSE100. Error Message: Exchange or symbol not found.
 ERROR:root:2024-02-27 18:36:29.312590 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
 ERROR:root:2024-02-27 19:01:49.882562 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2024-03-03 22:25:22.859831 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2024-03-03 22:27:23.399533 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2024-03-03 22:32:56.292275 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2024-03-03 22:38:59.718312 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2024-03-03 22:51:14.802631 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2024-03-06 01:23:43.667520 - Exception occurred for symbol: DCR. Error Message: Exchange or symbol not found.
+ERROR:root:2024-03-06 01:24:20.167408 - Exception occurred for symbol: MZNPETF. Error Message: Exchange or symbol not found.
+ERROR:root:2024-03-06 01:24:33.121104 - Exception occurred for symbol: PTCA. Error Message: Exchange or symbol not found.

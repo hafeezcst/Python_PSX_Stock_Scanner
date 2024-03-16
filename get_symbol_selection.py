@@ -1,6 +1,6 @@
 import time
 def get_symbol_selection():
-    symbol_options = ["KMIALL", "KMI100", "KMI30", "MYLIST", "QSE", "CUSTUM"]
+    symbol_options = ["KMIALL", "KMI100", "KMI30", "MYLIST", "QSE", "CRYPTO","CUSTUM"]
     
     symbol_selection = input(f"Select symbol List ({', '.join(symbol_options)}), press Enter for default List KMI100 or QSE: ").upper()
     

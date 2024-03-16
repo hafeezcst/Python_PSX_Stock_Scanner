@@ -5,7 +5,7 @@ def get_recommendation_filter():
     recommendation_filter = input(f"Select recommendation filter ({', '.join(recommendation_options)}): ").upper()
     
     if not recommendation_filter:
-        time.sleep(5)
+        time.sleep(2)
         recommendation_filter = "STRONG_BUY"
         print(f"Selected recommendation filter: {recommendation_filter}")
 

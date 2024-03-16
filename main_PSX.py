@@ -104,6 +104,9 @@ def main():
         elif symbol_selection == "MYLIST":
             # Set psx_symbols to the value of MYLIST
             psx_symbols = MYLIST
+        elif symbol_selection == "CRYPTO":
+            # Set psx_symbols to the value of CRYPTO
+            psx_symbols = CRYPTO    
         # Else, if symbol_selection is "CUSTUM"
         elif symbol_selection == "CUSTUM":
             # Set psx_symbols to the value of CUSTUM
@@ -170,7 +173,8 @@ def main():
                 # If Volume is greater than min_volume
                 if symbol not in ["KMI30", "KMI100", "ALLSHR","GNRI"] and Volume is not None and Volume > MIN_VOLUME:
                     # Append the result to the analyzed_data list
-                    analyzed_data.append([
+                    analyzed_data.append(
+                    [
                         current_datetime, symbol, summary, Close, Sell_Signal, Neutral_Signal, Buy_Signal, Volume,
                         ADX, RSI, RSI_Last, AO, Change, average_support, average_resistance, BASE_URL_CHARTS,
                         BASE_URL_FINANCE, BASE_URL_TECH
@@ -185,29 +189,33 @@ def main():
                 # Check if the recommendation is "user defined" and the volume is greater than the threshold
                 if (summary == recommendation_filter and Volume is not None and Volume > VOLUME_THRESHOLD) and AO is not None and AO > AO_THRESHOLD and RSI > RSI_THRESHOLD or (
                         symbol in ["KSE30", "KSE100", "ALLSHR", "GNRI"]):
-                        strong_buy_symbols.append([
+                        strong_buy_symbols.append(
+                    [
                         current_datetime, symbol, summary, Close, Sell_Signal, Neutral_Signal, Buy_Signal, Volume,
                         ADX, RSI, RSI_Last, AO, Change, average_support, average_resistance, BASE_URL_CHARTS,
                         BASE_URL_FINANCE, BASE_URL_TECH
                     ])
 
                 # Check if the recommendation is "fixed buy" and the volume is greater than the threshold
-                if summary == "BUY" and Volume is not None and Volume > MIN_VOLUME and AO is not None and AO > AO_THRESHOLD:
-                        buy_symbols.append([
+                if summary == "BUY" and Volume is not None and Volume > MIN_VOLUME and AO is not None and AO > AO_THRESHOLD and RSI > RSI_THRESHOLD:
+                        buy_symbols.append(
+                    [
                         current_datetime, symbol, summary, Close, Sell_Signal, Neutral_Signal, Buy_Signal, Volume,
                         ADX, RSI, RSI_Last, AO, Change, average_support, average_resistance, BASE_URL_CHARTS,
                         BASE_URL_FINANCE, BASE_URL_TECH
                     ])
-                # Check if the recommendation is "fixed buy" and the volume is greater than the threshold
-                if summary == "SELL" and AO is not None and AO < AO_THRESHOLD:
-                        sell_symbols.append([
+                # Check if the recommendation is "fixed sell" and the volume is greater than the threshold
+                if summary == "SELL" and AO is not None and AO < AO_THRESHOLD and RSI < RSI_THRESHOLD and RSI<RSI_THRESHOLD:
+                        sell_symbols.append(
+                    [
                         current_datetime, symbol, summary, Close, Sell_Signal, Neutral_Signal, Buy_Signal, Volume,
                         ADX, RSI, RSI_Last, AO, Change, average_support, average_resistance, BASE_URL_CHARTS,
                         BASE_URL_FINANCE, BASE_URL_TECH
                     ])
-                # Check if the recommendation is "fixed buy" and the volume is greater than the threshold
-                if summary in ["STRONG_BUY", "BUY", "NEUTRAL", "SELL", "STRONG_SELL"] and  AO is not None and AO > AO_THRESHOLD:
-                        AO_symbols.append([
+                # Check if the recommendation is "fixed any" and the volume is greater than the threshold
+                if summary in ["STRONG_BUY", "BUY", "NEUTRAL", "SELL", "STRONG_SELL"] and  AO is not None and AO > AO_THRESHOLD and RSI > RSI_THRESHOLD:
+                        AO_symbols.append(
+                    [
                         current_datetime, symbol, summary, Close, Sell_Signal, Neutral_Signal, Buy_Signal, Volume,
                         ADX, RSI, RSI_Last, AO, Change, average_support, average_resistance, BASE_URL_CHARTS,
                         BASE_URL_FINANCE, BASE_URL_TECH
@@ -380,12 +388,10 @@ def main():
     # The URL is in the format 'sqlite:///<database_name>.db'
     # The database name is a combination of the symbol_selection and analysis_type variables
     database_url = f'sqlite:///{symbol_selection}_{analysis_type}_data.db'
-
     # Create a database engine
     # The engine is an instance of a SQLAlchemy Engine, which is the starting point for any SQLAlchemy application
     # It's the home base for the actual database and its DBAPI, delivered to the SQLAlchemy application through a connection pool and a Dialect
     engine = sqlalchemy.create_engine(database_url)
-
     # Write DataFrames to the database
     # If at least one of the DataFrames is not None
     if df_all is not None or df_strong_buy is not None or df_buy is not None or df_sell is not None:
@@ -512,18 +518,34 @@ def main():
 
         # send email
         # Assuming the correct DataFrame is named df_strong_buy:
-        # Sort df_strong_buy by 'Date and Time' in descending order
-        recommended_symbols = df_strong_buy.sort_values(
-            by='Date and Time', ascending=False)
-        # Sort df_buy by 'Date and Time' in descending order
-        buy_symbols = df_buy.sort_values(by='Date and Time', ascending=False)
-        # Filter the symbols for the current date
+         # Filter the symbols for the current date
         today_date = datetime.datetime.now().date()
-        one_hours_ago = datetime.datetime.now() - datetime.timedelta(hours=1)
-        today_Strong_buy = recommended_symbols[recommended_symbols[
-            'Date and Time'].dt.date == today_date] if not recommended_symbols.empty else pd.DataFrame()
+        # Sort df_strong_buy by 'Date and Time' in descending order
+        recommended_symbols = df_strong_buy.sort_values(by='Date and Time', ascending=False)
+        # Filter the symbols for the current date
+        today_Strong_buy = recommended_symbols[recommended_symbols['Date and Time'].dt.date == today_date] if not recommended_symbols.empty else pd.DataFrame()
+        #send csv file
+        today_Strong_buy.to_csv(f"{analysis_type}-Recomndations_{symbol_selection}_SB_AO_BUY_Sell.csv", mode='a', index=False, header=not os.path.exists(f"{analysis_type}-Recomndations_{symbol_selection}_SB_AO_BUY_Sell.csv"))
+        with open(f"{analysis_type}-Recomndations_{symbol_selection}_SB_AO_BUY_Sell.csv", 'a') as file:
+            file.write('Today_Strong_buy --- date and time: ' + str(datetime.datetime.now()) + '\n')
+       #sort the buy symbols by date and time
+        buy_symbols = df_AO.sort_values(by='Date and Time', ascending=False)
+        # Filter the symbols for the current date
+        today_buy= buy_symbols[buy_symbols['Date and Time'].dt.date == today_date] if not buy_symbols.empty else pd.DataFrame()
+        #send csv file
+        today_buy.to_csv(f"{analysis_type}-Recomndations_{symbol_selection}_SB_AO_BUY_Sell.csv", mode='a', index=False, header=not os.path.exists(f"{analysis_type}-Recomndations_{symbol_selection}_SB_AO_BUY_Sell.csv"))
+        with open(f"{analysis_type}-Recomndations_{symbol_selection}_SB_AO_BUY_Sell.csv", 'a') as file:
+            file.write('Today_buy --- date and time: ' + str(datetime.datetime.now()) + '\n')   
+        # sort the sell symbols by date and time
+        sell_symbols = df_sell.sort_values(by='Date and Time', ascending=False)
+        # Filter the symbols for the current date
+        today_sell = sell_symbols[sell_symbols['Date and Time'].dt.date == today_date] if not sell_symbols.empty else pd.DataFrame()
+        #send csv file
+        today_sell.to_csv(f"{analysis_type}-Recomndations_{symbol_selection}_SB_AO_BUY_Sell.csv", mode='a', index=False, header=not os.path.exists(f"{analysis_type}-Recomndations_{symbol_selection}_SB_AO_BUY_Sell.csv"))
+        with open(f"{analysis_type}-Recomndations_{symbol_selection}_SB_AO_BUY_Sell.csv", 'a') as file:
+            file.write('Today_sell --- date and time: ' + str(datetime.datetime.now()) + '\n')  
+        #one_hours_ago = datetime.datetime.now() - datetime.timedelta(hours=1)
         # Apply custom column filter
-
         # Calculate the suggested number of shares to purchase
         investment_amount = 1000000
         num_shares = len(today_Strong_buy[today_Strong_buy['Volume'] > 0])
@@ -537,15 +559,24 @@ def main():
 
         today_Strong_buy = today_Strong_buy.copy()
         today_Strong_buy.loc[:, 'Suggested Shares'] = suggested_shares
-
         # Convert the filtered data to a string
-
-        custom_message = f"Strong Buy Conditions: Volume >{VOLUME_THRESHOLD},RSI>50, AO >{AO_THRESHOLD} and{recommendation_filter} from Trading view.Suggested Shares are calculated based on {investment_amount} investment amount. min volume >{MIN_VOLUME} "
-        body = f"{custom_message}\n\n{today_Strong_buy.to_string ( index=True, justify='left', col_space=10)}"
+        custom_message_strong_buy = f"Strong Buy Conditions: Volume >{VOLUME_THRESHOLD},RSI>{RSI_THRESHOLD}, AO >{AO_THRESHOLD} and{recommendation_filter} from Trading view.Suggested Shares are calculated based on {investment_amount} investment amount. min volume >{MIN_VOLUME} "
+        custom_message_buy = f"Buy Conditions: AO > {AO_THRESHOLD} and Buy from Trading view and RSI>{RSI_THRESHOLD}"
+        custom_message_sell = f"Sell Conditions: AO < {AO_THRESHOLD} and Sell from Trading view and RSI<{RSI_THRESHOLD}"
+        today_Strong_buy_mail = today_Strong_buy.to_string( index=True, justify='left', col_space=10)
+        today_buy_mail = today_buy.to_string( index=True, justify='left', col_space=10)
+        today_sell_mail = today_sell.to_string( index=True, justify='left', col_space=10)
+        # Define the body of the email
+        body = f"\n\n\n{custom_message_sell}\n{today_sell_mail}\n\n\n{custom_message_buy}\n{today_buy_mail}\n\n\n{custom_message_strong_buy}\n{today_Strong_buy_mail}"
+        print(body) 
         # Define the subject of the email
         attachment_path = excel_file_path
         subject = f"{analysis_type}-{symbol_selection}- {recommendation_filter}-Technical_Analysis_"
-        send_email(subject, body, attachment_path)
+       
+        try:
+            send_email(subject, body, attachment_path)
+        except Exception as e:
+            print(f"Error sending email: {str(e)}")
         # Sort the Excel file by symbol and date and time
         # Open the file using the default program associated with Excel files
         #subprocess.Popen([excel_file_path], shell=True)
@@ -596,7 +627,6 @@ if __name__ == "__main__":
 
     # Set the default analysis type to "D"
     analysis_type = "D"
-
     # If today is Saturday, set the analysis type to "W"
     if current_day == 5:
         analysis_type = "W"

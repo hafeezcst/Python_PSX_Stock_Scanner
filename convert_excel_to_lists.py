@@ -6,10 +6,10 @@ def convert_excel_to_lists(file_path):
     wb = openpyxl.load_workbook(file_path)
 
     # Initialize empty lists for data
-    KMIALL, KMI100, KMI30, MYLIST, QSE,CUSTUM = [], [], [], [], [], []
+    KMIALL, KMI100, KMI30, MYLIST, QSE,CRYPTO,CUSTUM = [], [], [], [], [], [],[]
 
     # Loop through each sheet
-    for sheet_name in ("KMIALL", "KMI100", "KMI30", "MYLIST", "QSE","CUSTUM"):
+    for sheet_name in ("KMIALL", "KMI100", "KMI30", "MYLIST", "QSE","CRYPTO","CUSTUM"):
         sheet = wb[sheet_name]
 
         # Assuming data starts at row 2 and column 1 (adjust if needed)
@@ -27,6 +27,8 @@ def convert_excel_to_lists(file_path):
                 MYLIST.append(symbol)
             elif sheet_name == "QSE":
                 QSE.append(symbol)
+            elif sheet_name == "CRYPTO":
+                CRYPTO.append(symbol)
             elif sheet_name == "CUSTUM":
                 CUSTUM.append(symbol)
 
@@ -34,7 +36,7 @@ def convert_excel_to_lists(file_path):
     wb.close()
 
     # Return the extracted lists
-    return KMIALL, KMI100, KMI30, MYLIST, QSE, CUSTUM
+    return KMIALL, KMI100, KMI30, MYLIST, QSE,CRYPTO,CUSTUM
 
 # Call the function and assign the lists to variables
-KMIALL, KMI100, KMI30, MYLIST, QSE, CUSTUM = convert_excel_to_lists("PSXSymbols.xlsx")
+KMIALL, KMI100, KMI30, MYLIST, QSE, CRYPTO, CUSTUM = convert_excel_to_lists("PSXSymbols.xlsx")

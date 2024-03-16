@@ -7,7 +7,7 @@ def get_analysis_type():
         analysis_type = "D"
         print(f"Selected analysis type: {analysis_type}")
 
-    if analysis_type not in ["M", "W", "D", "H"]:
-        raise ValueError("Invalid analysis type. Please select M, W, D, or H")
+    if analysis_type not in ["M", "W", "D", "4H","H"]:
+        raise ValueError("Invalid analysis type. Please select M, W, D, 4H or H.")
     
     return analysis_type

@@ -46,6 +46,9 @@ def analyze_symbol(symbol, analysis_type,screener_selection,exchange_selection,b
         elif analysis_type == "D" :
             analysis = TA_Handler ( symbol=symbol, screener=screener, exchange=exchange,
                                     interval=Interval.INTERVAL_1_DAY )
+        elif analysis_type == "4H" :
+            analysis = TA_Handler ( symbol=symbol, screener=screener, exchange=exchange,
+                                    interval=Interval.INTERVAL_4_HOURS )
         elif analysis_type == "H" :
             analysis = TA_Handler ( symbol=symbol, screener=screener, exchange=exchange,
                                     interval=Interval.INTERVAL_1_HOUR )
