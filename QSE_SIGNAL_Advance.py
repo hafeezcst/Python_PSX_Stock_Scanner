@@ -122,7 +122,7 @@ while True:
                 except Exception as e:
                     print(f"Error sending email: {str(e)}")
                 
-            print("Waiting for 30 minutes before starting the next analysis...")
+            print("Waiting for 240 minutes before starting the next analysis...")
             time.sleep(14400)  # 1800 seconds = 30 minutes
             print("Countdown finished. Starting the next analysis...")
         else:
