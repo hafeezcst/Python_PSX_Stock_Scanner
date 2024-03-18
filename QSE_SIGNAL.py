@@ -10,7 +10,7 @@ symbol_selection = [
 
 all_time_frames = [
     #Interval.INTERVAL_5_MINUTES,
-    Interval.INTERVAL_15_MINUTES,
+    #Interval.INTERVAL_15_MINUTES,
     Interval.INTERVAL_1_HOUR,
     Interval.INTERVAL_4_HOURS,
     Interval.INTERVAL_1_DAY,
@@ -57,11 +57,11 @@ while True:
                 except Exception as e:
                     print(f"Error for {symbol} - {time_frame}:", e)
 
-            if strong_buy_count >= 4 or strong_sell_count >= 4:
+            if strong_buy_count >= 4 or strong_sell_count >= 2:
                 recommendation = "Strong Buy" if strong_buy_count >= 4 else "Strong Sell"
                 body = f"At least 3 time frames {recommendation} for {symbol} @ {close}. Recommendations (1H-4H-1D-1W-1M): {all_time_frames_recommendations} RSI: {all_time_frames_rsi} AO: {all_time_frames_ao} Volumne: {all_time_frames_volumne}"
                 print(body)
-                subject = f"{symbol}-QSE-Technical_Analysis"
+                subject = f"{symbol}-{recommendation} QSE-Technical_Analysis"
                 try:
                     # Send email
                     send_email(subject, body)

@@ -18,7 +18,7 @@ def send_email(subject, body, attachment_path=None) :
     """
     # Email configuration
     sender_email = "hafeezcst@gmail.com"  # Replace with your email address
-    receiver_emails = ["hafeezcst@gmail.com","tahir_inspection@yahoo.com","amok3495@gmail.com" ]  # Replace with the recipient's email addresses
+    receiver_emails = ["hafeezcst@gmail.com","amok3495@gmail.com" ]  # Replace with the recipient's email addresses
     # receiver_email = ", ".join(receiver_emails)
     smtp_server = "smtp.gmail.com"  # Replace with your SMTP server (e.g., smtp.gmail.com for Gmail)
     smtp_port = 587  # Replace with your SMTP port (587 is the default for TLS)
