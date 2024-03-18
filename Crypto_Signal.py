@@ -7,8 +7,7 @@ from Create_crypto_list import create_crypto_list
 symbol_selection = create_crypto_list()
 
 all_time_frames = [
-
-  
+ 
     Interval.INTERVAL_15_MINUTES,
     Interval.INTERVAL_1_HOUR,
     Interval.INTERVAL_4_HOURS,
@@ -29,6 +28,7 @@ while True:
             all_time_frames_high = []
             all_time_frames_close = []
             all_time_frames_low = []
+            all_time_frames_rsi_last = []  # Added to store the last RSI value      
             
 
             print(f"Analyzing {symbol}...")
@@ -47,6 +47,8 @@ while True:
                     indicators = analysis.get_analysis().indicators
                     rsi = indicators['RSI']
                     all_time_frames_rsi.append(rsi)
+                    rsi_last = indicators['RSI[1]']  # Added to store the last RSI value    
+                    all_time_frames_rsi_last.append(rsi_last)
                     high = indicators['high']
                     all_time_frames_high.append(high)
                     close = indicators['close']
@@ -59,11 +61,11 @@ while True:
                     all_time_frames_volume.append(volume)
                     ao = indicators['AO']
                     all_time_frames_ao.append(ao)
-                    if summary in ('STRONG_BUY', 'BUY', 'NEUTRAL',"SELL") and ao > 0 and rsi > 50:
+                    if summary in ('STRONG_BUY', 'BUY', 'NEUTRAL',"SELL") and ao > 0 and rsi > 50 and rsi   > rsi_last:
                             strong_buy_count += 1
                     elif summary in ('STRONG_SELL','SELL',"NEUTRAL") and ao < 0 and rsi < 50:
                             strong_sell_count += 1
-                    time.sleep(1)  # Wait for 1 secon
+                    time.sleep(10)  # Wait for 1 secon
                 except Exception as e:
                     print(f"Error for {symbol} - {time_frame}:", e)
 
@@ -84,8 +86,8 @@ while True:
                 except Exception as e:
                     print(f"Error sending email: {str(e)}")
                     
-        print("Waiting for 30 minutes before starting the next analysis...")
-        countdown = 1800  # Set the countdown time in seconds
+        print("Waiting for 60 minutes before starting the next analysis...")
+        countdown = 3600  # Set the countdown time in seconds
         while countdown > 0:
             minutes = countdown // 60
             seconds = countdown % 60

@@ -33,6 +33,7 @@ def save_daily_report(data):
 symbol_selection = get_symbol_selection()
 
 all_time_frames = [
+    Interval.INTERVAL_4_HOURS,
     Interval.INTERVAL_1_DAY,
     Interval.INTERVAL_1_WEEK,
     Interval.INTERVAL_1_MONTH,
@@ -76,14 +77,15 @@ while True:
                         all_time_frames_volume.append(volume)
                         ao = indicators['AO']
                         all_time_frames_ao.append(ao)
-                        if summary in ('STRONG_BUY', 'BUY', 'NEUTRAL') and ao > 0 and volume > 50000 and rsi > rsi_last and rsi > 50: # Added to compare the last RSI value
+                        if summary in ('STRONG_BUY', 'BUY', 'NEUTRAL',"SELL") and ao > 0 and rsi > 50 and rsi   > rsi_last:
                             strong_buy_count += 1
-                        elif summary in ('STRONG_SELL','SELL') and ao < 0 and rsi < rsi_last and rsi < 50: # Added to compare the last RSI value
+                        elif summary in ('STRONG_SELL','SELL',"NEUTRAL") and ao < 0 and rsi < 50:
                             strong_sell_count += 1
+                        time.sleep(10)  # Wait for 10 secon
                     except Exception as e:
                         print(f"Error for {symbol} - {time_frame}:", e)
 
-                if strong_buy_count >= 3 or strong_sell_count >= 1:
+                if strong_buy_count >= 4 or strong_sell_count >= 1:
                     recommendation = "Strong Buy" if strong_buy_count >= 3 else "Strong Sell"
                     analysis_data.append({
                         'Date': datetime.now().strftime('%Y-%m-%d'),
