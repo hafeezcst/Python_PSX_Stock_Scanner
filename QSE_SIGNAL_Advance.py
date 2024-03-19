@@ -95,6 +95,7 @@ while True:
                         'Symbol': symbol,
                         'Recommendation': recommendation,
                         'Close Price': close,
+                        'time_frame':{},  # Added to store the time frames used for analysis
                         'Recommendations': all_time_frames_recommendations,  # Fixed quotation marks and added key/value pair
                         'Change': all_time_frames_change,
                         'RSI': all_time_frames_rsi,
