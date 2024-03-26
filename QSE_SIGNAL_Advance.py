@@ -2,7 +2,9 @@ import time
 from datetime import datetime
 from tradingview_ta import TA_Handler, Interval
 from email_functions import send_email
+from telegram_message import send_telegram_message
 import pandas as pd
+import os
 
 def get_symbol_selection():
     df = pd.read_excel('psxsymbols.xlsx', sheet_name='QSE')
@@ -78,8 +80,10 @@ while True:
                         volume = indicators['volume']
                         all_time_frames_volume.append(volume)
                         ao = indicators['AO']
+                        ao_last = indicators['AO[1]']
+                        ao_diff = ao - ao_last
                         all_time_frames_ao.append(ao)
-                        if summary in ('STRONG_BUY', 'BUY', 'NEUTRAL',"SELL") and ao > 0 and rsi > 50 and rsi   > rsi_last:
+                        if summary in ('STRONG_BUY', 'BUY', 'NEUTRAL') and ao > 0 and rsi > 50:
                             strong_buy_count += 1
                         elif summary in ('STRONG_SELL','SELL',"NEUTRAL") and ao < 0 and rsi < 50:
                             strong_sell_count += 1
@@ -87,7 +91,7 @@ while True:
                     except Exception as e:
                         print(f"Error for {symbol} - {time_frame}:", e)
 
-                if strong_buy_count >= 3 or strong_sell_count >= 1:
+                if strong_buy_count >= 3 or strong_sell_count >= 3:
                     recommendation = "Strong Buy" if strong_buy_count >= 3 else "Strong Sell"
                     analysis_data.append({
                         'Date': datetime.now().strftime('%Y-%m-%d'),
@@ -95,7 +99,7 @@ while True:
                         'Symbol': symbol,
                         'Recommendation': recommendation,
                         'Close Price': close,
-                        'time_frame':{},  # Added to store the time frames used for analysis
+                        'time frame':all_time_frames,  # Added to store the time frames used for analysis
                         'Recommendations': all_time_frames_recommendations,  # Fixed quotation marks and added key/value pair
                         'Change': all_time_frames_change,
                         'RSI': all_time_frames_rsi,
@@ -120,6 +124,7 @@ while True:
                 body = f"Please find attached the daily report for further analysis.\n\n Buy and Hold Scripts:\n {strong_buy_df} \n\n Immediate Sell Scripts: \n {strong_sell_df}"
                 try:
                     send_email(subject, body, attachment_path)
+                    send_telegram_message(body)
                 except Exception as e:
                     print(f"Error sending email: {str(e)}")
                 

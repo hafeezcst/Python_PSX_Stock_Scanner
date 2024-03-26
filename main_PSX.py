@@ -14,6 +14,7 @@ from openpyxl.styles.differential import DifferentialStyle
 from analysis_functions import analyze_symbol
 from convert_excel_to_lists import CUSTUM, KMIALL, KMI100, KMI30, MYLIST, QSE,CRYPTO
 from email_functions import send_email
+from telegram_message import send_telegram_message
 from get_analysis_type import get_analysis_type
 from get_recommendation_filter import get_recommendation_filter
 from get_symbol_selection import get_symbol_selection
@@ -575,6 +576,7 @@ def main():
        
         try:
             send_email(subject, body, attachment_path)
+            send_telegram_message(body)
         except Exception as e:
             print(f"Error sending email: {str(e)}")
         # Sort the Excel file by symbol and date and time

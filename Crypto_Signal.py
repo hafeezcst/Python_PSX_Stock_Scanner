@@ -7,12 +7,10 @@ from Create_crypto_list import create_crypto_list
 symbol_selection = create_crypto_list()
 
 all_time_frames = [
- 
+    Interval.INTERVAL_5_MINUTES,
     Interval.INTERVAL_15_MINUTES,
     Interval.INTERVAL_1_HOUR,
     Interval.INTERVAL_4_HOURS,
-    Interval.INTERVAL_1_DAY,
-  
 ]
 
 while True:
@@ -52,6 +50,8 @@ while True:
                     high = indicators['high']
                     all_time_frames_high.append(high)
                     close = indicators['close']
+                    if symbol == 'PAXGUSDT':
+                        close += 22
                     all_time_frames_close.append(close)
                     low = indicators['low']
                     all_time_frames_low.append(low)
@@ -61,15 +61,15 @@ while True:
                     all_time_frames_volume.append(volume)
                     ao = indicators['AO']
                     all_time_frames_ao.append(ao)
-                    if summary in ('STRONG_BUY', 'BUY', 'NEUTRAL',"SELL") and ao > 0 and rsi > 50 and rsi   > rsi_last:
+                    if summary in ('STRONG_BUY', 'BUY', 'NEUTRAL') and ao > 0 and rsi > 50:
                             strong_buy_count += 1
                     elif summary in ('STRONG_SELL','SELL',"NEUTRAL") and ao < 0 and rsi < 50:
                             strong_sell_count += 1
-                    time.sleep(10)  # Wait for 1 secon
+                    time.sleep(10)  # Wait for 1 second
                 except Exception as e:
                     print(f"Error for {symbol} - {time_frame}:", e)
 
-            if strong_buy_count >= 4 or strong_sell_count >= 1:
+            if strong_buy_count >= 2 or strong_sell_count >= 2:
                 recommendation = "Strong Buy" if strong_buy_count >= 4 else "Strong Sell"
                 timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
                 row_data = [timestamp, symbol, close, all_time_frames_recommendations, all_time_frames_change, all_time_frames_rsi, all_time_frames_ao, all_time_frames_volume]
@@ -77,7 +77,7 @@ while True:
                     writer = csv.writer(file)
                     writer.writerow(row_data)
                 
-                body = f"At least 4 time frames {recommendation} for {symbol} @ {close}. Recommendations {all_time_frames}: \n {all_time_frames_recommendations} \n Change:{all_time_frames_change}\n RSI: {all_time_frames_rsi} \n AO: {all_time_frames_ao} \n Volume: {all_time_frames_volume}"
+                body = f"At least 2 time frames {recommendation} for {symbol} @ {close}. Recommendations: {all_time_frames}: \n {all_time_frames_recommendations} \n Change:{all_time_frames_change}\n RSI: {all_time_frames_rsi} \n AO: {all_time_frames_ao} \n Volume: {all_time_frames_volume}"
                 print(body)
                 subject = f"{symbol}-{recommendation} CRYOTO-Technical_Analysis"
                 try:

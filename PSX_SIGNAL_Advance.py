@@ -2,6 +2,7 @@ import time
 from datetime import datetime
 from tradingview_ta import TA_Handler, Interval
 from email_functions import send_email
+from telegram_message import send_telegram_message
 import pandas as pd
 
 def get_symbol_selection():
@@ -14,7 +15,7 @@ def is_trading_hours():
     current_day = datetime.now().weekday()  # Monday=0, Tuesday=1, ..., Sunday=6
     trading_start_time = datetime.strptime('05:00:00', '%H:%M:%S').time()
     trading_end_time = datetime.strptime('23:30:00', '%H:%M:%S').time()
-    return (current_day in [6, 0, 1, 2, 3]) and (trading_start_time <= current_time <= trading_end_time)
+    return (current_day in [0, 1, 2, 3, 4]) and (trading_start_time <= current_time <= trading_end_time)
 
 def save_daily_report(data):
     today = datetime.now().strftime('%Y-%m-%d')
@@ -77,7 +78,7 @@ while True:
                         all_time_frames_volume.append(volume)
                         ao = indicators['AO']
                         all_time_frames_ao.append(ao)
-                        if summary in ('STRONG_BUY', 'BUY', 'NEUTRAL',"SELL") and ao > 0 and rsi > 50 and rsi   > rsi_last:
+                        if summary in ('STRONG_BUY', 'BUY', 'NEUTRAL') and ao > 0 and rsi > 50:
                             strong_buy_count += 1
                         elif summary in ('STRONG_SELL','SELL',"NEUTRAL") and ao < 0 and rsi < 50:
                             strong_sell_count += 1
@@ -91,6 +92,7 @@ while True:
                         'Date': datetime.now().strftime('%Y-%m-%d'),
                         'Time': datetime.now().strftime('%H:%M:%S'),
                         'Symbol': symbol,
+                        'time frame':all_time_frames,  # Added to store the time frames used for analysis
                         'Recommendation': recommendation,
                         'Close Price': close,
                         'Recommendations': all_time_frames_recommendations,  # Fixed quotation marks and added key/value pair
@@ -116,7 +118,8 @@ while True:
                 report_df = report_df.to_string( index=True, justify='left')
                 body = f"Please find attached the daily report for further analysis.\n\n Buy and Hold Scripts:\n {strong_buy_df} \n\n Immediate Sell Scripts: \n {strong_sell_df}"
                 try:
-                    send_email(subject, body, attachment_path)
+                    #send_email(subject, body, attachment_path)
+                    send_telegram_message(body)
                 except Exception as e:
                     print(f"Error sending email: {str(e)}")
                 

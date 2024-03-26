@@ -10,7 +10,7 @@ def create_crypto_list():
     params = {
         'vs_currency': 'usd',  # Currency to compare against (USD in this case)
         'order': 'market_cap_desc',  # Order by market capitalization
-        'per_page': 10,  # Number of results per page
+        'per_page': 5,  # Number of results per page
         'page': 1,  # Page number
         'price_change_percentage': '24h',  # Get percentage change over the last 24 hours
     }

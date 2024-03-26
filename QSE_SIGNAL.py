@@ -1,12 +1,15 @@
 import time
 from tradingview_ta import TA_Handler, Interval
 from email_functions import send_email
+import pandas as pd
+   
    # Import the send_email function from the email_functions.py file
-symbol_selection = [
-"QNBK","IQCD","QIBK","ORDS","ERES","MARK","DUBK","MPHC","QEWS","QGTS","QFLS","QIIK","QNNS","BRES","QATI","VFQS","QAMC",
-"IGRD","AHCS","DHBK", "GISS","ZHCD","UDCD","MERS","QNCD","BLDN","QIGD","MEZA","GWCS","MCCS","MCGS","QFBQ","QIMD","QISI","QGRI",
-"QLMI","SIIS","AKHI","MRDS","MKDM","WDAM","NLCS","MHAR","QOIS","DBIS","IHGS","FALH","QCFS","QGMD","GNRI",
-]
+def get_symbol_selection():
+    df = pd.read_excel('psxsymbols.xlsx', sheet_name='QSE')
+    symbol_selection = df.iloc[:, 0].tolist()
+    return symbol_selection
+
+symbol_selection = get_symbol_selection()
 
 all_time_frames = [
     #Interval.INTERVAL_5_MINUTES,
@@ -49,6 +52,8 @@ while True:
                     volume = indicators [ 'volume' ]
                     all_time_frames_volumne.append(volume)
                     ao = indicators [ 'AO' ]
+                    ao_last = indicators [ 'AO[1]' ]
+                    ao_diff = ao - ao_last
                     all_time_frames_ao.append(ao)
                     if summary == 'STRONG_BUY':
                         strong_buy_count += 1
