@@ -8,7 +8,7 @@ from telegram_message import send_telegram_message
 symbol_selection = create_crypto_list()
 symbol_selection = ['PAXGUSDT']
 # variales for buy and sell count
-min_strong_buy_count=3
+min_strong_buy_count=2
 min_strong_sell_count=2
 # Time frames for analysis
 all_time_frames = [
@@ -112,9 +112,9 @@ while True:# Infinite loop to keep the script running
                         ao_diff_4_hours = round(ao_diff['4_hours'],4) 
 
                     # Check the conditions for strong buy or strong sell
-                    if summary in ('STRONG_BUY','BUY','NEUTRAL') and ao_diff_15 > 0 and  rsi >= 30:
+                    if summary in ('STRONG_BUY','BUY','NEUTRAL') and ao_diff_15 >= 0 and  rsi >= 30:
                             strong_buy_count += 1
-                    elif summary in ('STRONG_SELL','SELL','NEUTRAL') and ao_diff_5 < 0 and  rsi <= 70:
+                    elif summary in ('STRONG_SELL','SELL','NWUTRAL') and ao_diff_5 <= 0 and  rsi <= 70:
                             strong_sell_count += 1
                     time.sleep(2)  # Wait for 2 second
                 except Exception as e:
@@ -133,7 +133,7 @@ while True:# Infinite loop to keep the script running
                 if recommendation != last_recommendation:
                     timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")  
                     average_ao_diff = round(((ao_diff_5 + ao_diff_15 + ao_diff_1_hour + ao_diff_4_hours) / 4),3) 
-                    message =f"Starting Trading Analysis at -: {timestamp}\n"
+                    message =f"Starting Crypto Analysis at -: {timestamp}\n"
                     message += f"{symbol}: {recommendation} @ Close: {close}\n"
                     message += f"Recommendations:{all_time_frames} - {all_time_frames_recommendations}\n"
                     message += f"RSI: {all_time_frames_rsi}\n"
