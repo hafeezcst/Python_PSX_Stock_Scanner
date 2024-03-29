@@ -27,19 +27,25 @@ logging.basicConfig(filename='analysis_log.txt', level=logging.ERROR)
 # Set the volume threshold to 1,000,000
 VOLUME_THRESHOLD = 100000
 # Set the minimum volume to 50,00
-MIN_VOLUME = 5000
+MIN_VOLUME = 50000
 # Set the AO threshold to 0
 AO_THRESHOLD = 0
 # Set the RSI threshold to 50
-RSI_THRESHOLD = 50
+RSI_THRESHOLD = 30
 
 def main():
     # Ask the user to select the analysis type and convert the input to uppercase
    #analysis_type = get_analysis_type()
          # If the user didn't provide any input
     # set default analysis type to "D"
-    analysis_type = "D" 
+    #analysis_type = "D" 
     if analysis_type != "D":
+        # Print the selected analysis type
+        print(f"Selected analysis type: {analysis_type}")
+    elif analysis_type == "W":
+        # Print the selected analysis type
+        print(f"Selected analysis type: {analysis_type}")
+    else:
         # Print the selected analysis type
         print(f"Selected analysis type: {analysis_type}")
     # Ask the user to select the analysis type and convert the input to uppercase
@@ -188,7 +194,7 @@ def main():
                         BASE_URL_FINANCE, BASE_URL_TECH
                     ])
                 # Check if the recommendation is "user defined" and the volume is greater than the threshold
-                if (summary == recommendation_filter and Volume is not None and Volume > VOLUME_THRESHOLD) and AO is not None and AO > AO_THRESHOLD and RSI > RSI_THRESHOLD or (
+                if (summary in ["STRONG_BUY", "BUY", "NEUTRAL"] and Volume is not None and Volume > VOLUME_THRESHOLD) and AO is not None and AO > AO_THRESHOLD and RSI > RSI_THRESHOLD or (
                         symbol in ["KSE30", "KSE100", "ALLSHR", "GNRI"]):
                         strong_buy_symbols.append(
                     [
@@ -598,20 +604,18 @@ if __name__ == "__main__":
      # set default country to PAKISTAN
     # Get the current day of the week
     current_day = datetime.datetime.now().weekday()
-
     # Get the current day of the month
     current_month_day = datetime.datetime.now().day
-
-    # Set the default analysis type to "D"
-    analysis_type = "D"
-
     # If today is Saturday, set the analysis type to "W"
     if current_day == 5:
         analysis_type = "W"
+    elif current_month_day == 1:
+        analysis_type = "M"
+    else:
+        analysis_type = "D"
 
     # If today is the 1st of the month, set the analysis type to "M"
-    if current_month_day == 1:
-        analysis_type = "M"
+          
     country_selection = "P" 
     # Call the main function to run the analysis
     main()
@@ -627,15 +631,13 @@ if __name__ == "__main__":
     # Get the current day of the month
     current_month_day = datetime.datetime.now().day
 
-    # Set the default analysis type to "D"
-    analysis_type = "D"
     # If today is Saturday, set the analysis type to "W"
     if current_day == 5:
         analysis_type = "W"
-
-    # If today is the 1st of the month, set the analysis type to "M"
-    if current_month_day == 1:
+    elif current_month_day == 1:
         analysis_type = "M"
+    else:
+        analysis_type = "D"
 
     country_selection = "Q" 
     main()

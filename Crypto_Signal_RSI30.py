@@ -6,7 +6,7 @@ from email_functions import send_email
 from Create_crypto_list import create_crypto_list
 from telegram_message import send_telegram_message
 symbol_selection = create_crypto_list()
-symbol_selection = ['PAXGUSDT']
+symbol_selection = ['PAXGUSDT','ETHUSDT','BTCUSDT']
 # variales for buy and sell count
 min_strong_buy_count=3
 min_strong_sell_count=2
@@ -235,7 +235,7 @@ while True:# Infinite loop to keep the script running
                 except Exception as e:
                     print(f"Error sending email: {str(e)}")
                     
-        countdown = 30  # Set the countdown time in seconds (1 minutes)
+        countdown = 60 # Set the countdown time in seconds (1 minutes)
         print(f"Waiting for {countdown} seconds before starting the next analysis...")
         while countdown > 0:
             minutes = countdown // 60
