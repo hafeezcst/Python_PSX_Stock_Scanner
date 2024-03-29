@@ -122,7 +122,7 @@ while True:# Infinite loop to keep the script running
                     # Check the conditions for strong buy or strong sell
                     if summary in ('STRONG_BUY','BUY','NEUTRAL') and ao_diff_30 >= 0 and  rsi >= 30:
                             strong_buy_count += 1
-                    elif summary in ('STRONG_SELL','SELL','NWUTRAL') and ao_diff_15 <= 0 and  rsi <= 70:
+                    elif summary in ('STRONG_SELL','SELL','NEUTRAL') and ao_diff_15 <= 0 and  rsi <= 70:
                             strong_sell_count += 1
                     time.sleep(2)  # Wait for 2 second
                 except Exception as e:

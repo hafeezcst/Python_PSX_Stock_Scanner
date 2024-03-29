@@ -133,7 +133,7 @@ while True:# Infinite loop to keep the script running
                 if recommendation != last_recommendation:
                     timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")  
                     average_ao_diff = round(((ao_diff_5 + ao_diff_15 + ao_diff_1_hour + ao_diff_4_hours) / 4),3) 
-                    message =f"Starting Trading Analysis at -: {timestamp}\n"
+                    message =f"Starting Trading Analysis (from updated logic) at -: {timestamp}\n"
                     message += f"{symbol}: {recommendation} @ Close: {close}\n"
                     message += f"Recommendations:{all_time_frames} - {all_time_frames_recommendations}\n"
                     message += f"RSI: {all_time_frames_rsi}\n"
