@@ -40,7 +40,8 @@ while True:# Infinite loop to keep the script running
             all_time_frames_ao_diff_15 = []  # Added to store the AO difference for 15 minutes time frame
             all_time_frames_ao_diff_1_hour = []  # Added to store the AO difference for 1 hour time frame
             all_time_frames_ao_diff_4_hours = []  # Added to store the AO difference for 4 hours time frame    
-            
+            all_time_frames_macd = []  # Added to store the MACD value
+            all_time_frames_stoch = []  # Added to store the Stoch value
             # Print the symbol being analyzed
             print(f"Analyzing {symbol}...")
             # Loop through all the time frames
@@ -57,24 +58,41 @@ while True:# Infinite loop to keep the script running
                     # Get the analysis summary and store it in the all_time_frames_recommendations list
                     all_time_frames_recommendations.append(summary)
                     indicators = analysis.get_analysis().indicators #indator List avaialble https://pastebin.com/1DjWv2Hd
+                    # Fetch the RSI
                     rsi = round(indicators['RSI'],2)
                     all_time_frames_rsi.append(rsi)
+                    # Fetch the RSI last value
                     rsi_last = round(indicators['RSI[1]'],2)  # Added to store the last RSI value    
                     all_time_frames_rsi_last.append(rsi_last)
+                    # Fetch the high
                     high = indicators['high']
                     all_time_frames_high.append(high)
+                    # Fetch the close
                     close = round(indicators['close'],3)
                     all_time_frames_close.append(close)
+                    # Fetch the low
                     low = indicators['low']
                     all_time_frames_low.append(low)
+                    # Fetch the change
                     change = indicators['change']
                     all_time_frames_change.append(change)
+                    # Fetch the volume
                     volume = indicators['volume']
                     all_time_frames_volume.append(volume)
+                    # Fetch the AO
                     ao = round(indicators['AO'],3)
                     all_time_frames_ao.append(ao)
+                    # Fetch the AO last value
                     ao_last = indicators['AO[1]']  # Added to store the last AO val
                     all_time_frames_ao_last.append(ao_last)
+                    # Fetch the MACD
+                    macd = indicators['MACD.macd']
+                    all_time_frames_macd.append(macd)
+
+                    # Fetch the Stoch
+                    stoch = indicators['Stoch.K']
+                    all_time_frames_stoch.append(stoch)
+                    
                     # Get the support and resistance values
                     fabonacciS1 = indicators['Pivot.M.Fibonacci.S1']
                     fabonacciS2 = indicators['Pivot.M.Fibonacci.S2']
@@ -120,11 +138,10 @@ while True:# Infinite loop to keep the script running
                 except Exception as e:
                     print(f"Error for {symbol} - {time_frame}:", e)
             # Check if the strong buy or strong sell count is greater than or equal to 2
-                    # At the beginning of your script, initialize an empty list to track open trades
+                    # At the beginning of your script, initialize an empty list to track open trades  
                 open_trades = []  # Existing open trades
                 closed_trades_pnl = []  # Store P&L for closed trades
             # Initialize last_recommendation as None at the start of your program
-
 
             if strong_buy_count >= min_strong_buy_count or strong_sell_count >= min_strong_sell_count:
                 recommendation = "Strong Buy" if strong_buy_count >= min_strong_buy_count else "Strong Sell" #recommendation_options = ["STRONG_BUY", "BUY", "NEUTRAL", "SELL", "STRONG_SELL"]

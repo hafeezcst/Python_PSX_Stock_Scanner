@@ -14,8 +14,8 @@ def get_symbol_selection():
 
 symbol_selection = get_symbol_selection()
 # variales for buy and sell count
-min_strong_buy_count=3
-min_strong_sell_count=2
+min_strong_buy_count=5
+min_strong_sell_count=3
 # Time frames for analysis
 all_time_frames = [
     Interval.INTERVAL_5_MINUTES,
@@ -102,10 +102,7 @@ while True:# Infinite loop to keep the script running
                     if time_frame == Interval.INTERVAL_30_MINUTES:
                         ao_diff['30_minutes'] = ao - ao_last
                         ao_diff_30 = round(ao_diff['30_minutes'],4)
-                        fabonacciS1_SL1 = indicators['Pivot.M.Fibonacci.S1']
-                        fabonacciS2_SL2 = indicators['Pivot.M.Fibonacci.S2']
-                        fabonacciR1_TP1 = indicators['Pivot.M.Fibonacci.R1']
-                        fabonacciR2_TP2 = indicators['Pivot.M.Fibonacci.R2']
+                        
                         print(f"AO_DIFF_30: {ao_diff_30}")
                     if time_frame == Interval.INTERVAL_1_HOUR:
                         ao_diff['1_hour'] = ao - ao_last
@@ -114,15 +111,18 @@ while True:# Infinite loop to keep the script running
                     if time_frame == Interval.INTERVAL_2_HOURS:
                         ao_diff['2_hours'] = ao - ao_last
                         ao_diff_2_hour = round(ao_diff['2_hours'],4)
-
+                        fabonacciS1_SL1 = indicators['Pivot.M.Fibonacci.S1']
+                        fabonacciS2_SL2 = indicators['Pivot.M.Fibonacci.S2']
+                        fabonacciR1_TP1 = indicators['Pivot.M.Fibonacci.R1']
+                        fabonacciR2_TP2 = indicators['Pivot.M.Fibonacci.R2']
                     if time_frame == Interval.INTERVAL_4_HOURS:
                         ao_diff['4_hours'] = ao - ao_last
                         ao_diff_4_hours = round(ao_diff['4_hours'],4) 
 
                     # Check the conditions for strong buy or strong sell
-                    if summary in ('STRONG_BUY','BUY','NEUTRAL') and ao_diff_30 >= 0 and  rsi >= 30:
+                    if summary in ('STRONG_BUY','BUY','NEUTRAL') and ao_diff_2_hour > 0 and  rsi >= 30:
                             strong_buy_count += 1
-                    elif summary in ('STRONG_SELL','SELL','NEUTRAL') and ao_diff_15 <= 0 and  rsi <= 70:
+                    elif summary in ('STRONG_SELL','SELL','NEUTRAL') and ao_diff_1_hour < 0 and  rsi <= 70:
                             strong_sell_count += 1
                     time.sleep(2)  # Wait for 2 second
                 except Exception as e:
@@ -145,8 +145,8 @@ while True:# Infinite loop to keep the script running
                     message += f"{symbol}: {recommendation} @ Close: {close}\n"
                     message += f"Recommendations:{all_time_frames} - {all_time_frames_recommendations}\n"
                     message += f"RSI: {all_time_frames_rsi}\n"
-                    message += f"AO_Diff_5: {ao_diff_5}\n"
-                    message += f"AO_Diff_15: {ao_diff_15}\n"
+                    message += f"AO_Diff_2H (Entry): {ao_diff_2_hour}\n"
+                    message += f"AO_Diff_1H (Exit): {ao_diff_1_hour}\n"
                     message += f"Average_AO_Diff: {average_ao_diff}\n"
                     if recommendation == "Strong Buy":
                         message += f"TP1: {fabonacciR1_TP1} and TP2: {fabonacciR2_TP2}\n"
@@ -227,12 +227,12 @@ while True:# Infinite loop to keep the script running
                 except Exception as e:
                     print(f"Error sending email: {str(e)}")
                     
-        countdown = 300  # Set the countdown time in seconds (1 minutes)
+        countdown = 300  # Set the countdown time in seconds (5 minutes)
         print(f"Waiting for {countdown} seconds before starting the next analysis...")
         while countdown > 0:
-            minutes = countdown // 60
-            seconds = countdown % 60
-            print(f"Next Analysis: {minutes} minutes {seconds} seconds")
+            minutes, seconds = divmod(countdown, 60)
+            if countdown % 60 == 0:  # Print the countdown time once every minute
+                print(f"Next Analysis: {minutes} minutes {seconds} seconds")
             time.sleep(1)  # Wait for 1 second
             countdown -= 1
 
