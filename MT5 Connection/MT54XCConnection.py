@@ -5,7 +5,8 @@ Login = 62668  # Replace with your actual login number
 Password = "Allah2meOnly!"  # Replace with your actual password
 Server = "4xCube-MT5"  # Replace with your actual server name
 
-Path = "C:\Program Files\4xCube MT5 Terminal\terminal64.exe"
+Path = Path = "C:/Program Files/4xCube MT5 Terminal/terminal64.exe"
+
 # establish MetaTrader 5 connection to a specified trading account
 if not Mt5.initialize ( login=Login, server=Server, password=Password ):
     print ( "initialize() failed, error code =", Mt5.last_error ( ) )
