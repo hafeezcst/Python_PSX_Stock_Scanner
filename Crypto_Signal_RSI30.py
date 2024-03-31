@@ -6,7 +6,7 @@ from email_functions import send_email
 from Create_crypto_list import create_crypto_list
 from telegram_message import send_telegram_message
 symbol_selection = create_crypto_list()
-symbol_selection = ['PAXGUSDT','ETHUSDT','BTCUSDT']
+symbol_selection = ['PAXGUSDT','ETHUSDT']
 # variales for buy and sell count
 min_strong_buy_count=3
 min_strong_sell_count=2
