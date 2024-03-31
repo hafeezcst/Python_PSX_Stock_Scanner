@@ -14,8 +14,8 @@ def get_symbol_selection():
 
 symbol_selection = get_symbol_selection()
 # variales for buy and sell count
-min_strong_buy_count=3
-min_strong_sell_count=2
+min_strong_buy_count=5
+min_strong_sell_count=3
 # Time frames for analysis
 all_time_frames = [
     Interval.INTERVAL_5_MINUTES,
@@ -26,7 +26,9 @@ all_time_frames = [
     Interval.INTERVAL_4_HOURS,
     Interval.INTERVAL_1_DAY,
 ]
-last_recommendation = None # Initialize last_recommendation as None at the start of your program
+# last recommendatrion for the symbol
+last_recommendations = {}  
+print("Starting PSX Analysis... and last recommendation is at Initialization:", last_recommendations)
 # Create a CSV file and write the header
 while True:# Infinite loop to keep the script running
     try:# Try block to catch any errors
@@ -101,10 +103,7 @@ while True:# Infinite loop to keep the script running
                     if time_frame == Interval.INTERVAL_30_MINUTES:
                         ao_diff['30_minutes'] = ao - ao_last
                         ao_diff_30 = round(ao_diff['30_minutes'],4)
-                        fabonacciS1_SL1 = indicators['Pivot.M.Fibonacci.S1']
-                        fabonacciS2_SL2 = indicators['Pivot.M.Fibonacci.S2']
-                        fabonacciR1_TP1 = indicators['Pivot.M.Fibonacci.R1']
-                        fabonacciR2_TP2 = indicators['Pivot.M.Fibonacci.R2']
+
                         print(f"AO_DIFF_30: {ao_diff_30}")
                     if time_frame == Interval.INTERVAL_1_HOUR:
                         ao_diff['1_hour'] = ao - ao_last
@@ -113,15 +112,18 @@ while True:# Infinite loop to keep the script running
                     if time_frame == Interval.INTERVAL_2_HOURS:
                         ao_diff['2_hours'] = ao - ao_last
                         ao_diff_2_hour = round(ao_diff['2_hours'],4)
-
+                        fabonacciS1_SL1 = indicators['Pivot.M.Fibonacci.S1']
+                        fabonacciS2_SL2 = indicators['Pivot.M.Fibonacci.S2']
+                        fabonacciR1_TP1 = indicators['Pivot.M.Fibonacci.R1']
+                        fabonacciR2_TP2 = indicators['Pivot.M.Fibonacci.R2']
                     if time_frame == Interval.INTERVAL_4_HOURS:
                         ao_diff['4_hours'] = ao - ao_last
                         ao_diff_4_hours = round(ao_diff['4_hours'],4) 
 
                     # Check the conditions for strong buy or strong sell
-                    if summary in ('STRONG_BUY','BUY','NEUTRAL') and ao_diff_30 >= 0 and  rsi >= 30:
+                    if summary in ('STRONG_BUY','BUY','NEUTRAL') and ao_diff_2_hour > 0 and  rsi >= 30:
                             strong_buy_count += 1
-                    elif summary in ('STRONG_SELL','SELL','NWUTRAL') and ao_diff_15 <= 0 and  rsi <= 70:
+                    elif summary in ('STRONG_SELL','SELL','NWUTRAL') and ao_diff_1_hour < 0 and  rsi <= 70:
                             strong_sell_count += 1
                     time.sleep(2)  # Wait for 2 second
                 except Exception as e:
@@ -137,15 +139,16 @@ while True:# Infinite loop to keep the script running
                 recommendation = "Strong Buy" if strong_buy_count >= min_strong_buy_count else "Strong Sell" #recommendation_options = ["STRONG_BUY", "BUY", "NEUTRAL", "SELL", "STRONG_SELL"]
                 print(f"Recommendation for {symbol}: {recommendation}")
                 # Only send a message if the recommendation has changed
-                if recommendation != last_recommendation:
+                if symbol not in last_recommendations or recommendation != last_recommendations[symbol]:
+                    timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")  
                     timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")  
                     average_ao_diff = round(((ao_diff_5 + ao_diff_15 + ao_diff_1_hour + ao_diff_4_hours) / 4),3) 
-                    message =f"Starting Crypto Analysis at -: {timestamp}\n"
+                    message =f"Starting QSE Analysis at -: {timestamp}\n"
                     message += f"{symbol}: {recommendation} @ Close: {close}\n"
                     message += f"Recommendations:{all_time_frames} - {all_time_frames_recommendations}\n"
                     message += f"RSI: {all_time_frames_rsi}\n"
-                    message += f"AO_Diff_5: {ao_diff_5}\n"
-                    message += f"AO_Diff_15: {ao_diff_15}\n"
+                    message += f"AO_Diff_2_Hour: {ao_diff_2_hour}\n"
+                    message += f"AO_Diff_1_Hour: {ao_diff_1_hour}\n"
                     message += f"Average_AO_Diff: {average_ao_diff}\n"
                     if recommendation == "Strong Buy":
                         message += f"TP1: {fabonacciR1_TP1} and TP2: {fabonacciR2_TP2}\n"
@@ -159,9 +162,9 @@ while True:# Infinite loop to keep the script running
                     except Exception as e:
                         print("Error sending Telegram message:", e)  
                 
-                # Update last_recommendation
-                last_recommendation = recommendation     
-                print(f"Last Recommendation: {last_recommendation}")                       
+                # Update the last recommendation for the symbol
+                    last_recommendations[symbol] = recommendation        
+                    print(f"Last Recommendation: {last_recommendations}")                       
                 # Define a function to calculate the P&L for a trade
                 def calculate_pnl(entry_price, exit_price, direction, lot_size):
                     if direction == "BUY":
