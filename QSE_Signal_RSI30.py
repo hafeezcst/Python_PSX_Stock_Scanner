@@ -14,7 +14,7 @@ def get_symbol_selection():
 
 symbol_selection = get_symbol_selection()
 # variales for buy and sell count
-min_strong_buy_count=5
+min_strong_buy_count=4
 min_strong_sell_count=3
 # Time frames for analysis
 all_time_frames = [
@@ -93,32 +93,32 @@ while True:# Infinite loop to keep the script running
                     ao_diff = {}
                     if time_frame == Interval.INTERVAL_5_MINUTES:
                         ao_diff['5_minutes'] = ao - ao_last
-                        ao_diff_5 = round(ao_diff['5_minutes'],4)
+                        ao_diff_5 = round(ao_diff['5_minutes'],3)
 
                     if time_frame == Interval.INTERVAL_15_MINUTES:
                         ao_diff['15_minutes'] = ao - ao_last
-                        ao_diff_15 = round(ao_diff['15_minutes'],4)
+                        ao_diff_15 = round(ao_diff['15_minutes'],3)
                         print(f"AO_DIFF_15: {ao_diff_15}")
                         
                     if time_frame == Interval.INTERVAL_30_MINUTES:
                         ao_diff['30_minutes'] = ao - ao_last
-                        ao_diff_30 = round(ao_diff['30_minutes'],4)
+                        ao_diff_30 = round(ao_diff['30_minutes'],3)
 
                         print(f"AO_DIFF_30: {ao_diff_30}")
                     if time_frame == Interval.INTERVAL_1_HOUR:
                         ao_diff['1_hour'] = ao - ao_last
-                        ao_diff_1_hour = round(ao_diff['1_hour'],4)
+                        ao_diff_1_hour = round(ao_diff['1_hour'],3)
 
                     if time_frame == Interval.INTERVAL_2_HOURS:
                         ao_diff['2_hours'] = ao - ao_last
-                        ao_diff_2_hour = round(ao_diff['2_hours'],4)
+                        ao_diff_2_hour = round(ao_diff['2_hours'],3)
                         fabonacciS1_SL1 = indicators['Pivot.M.Fibonacci.S1']
                         fabonacciS2_SL2 = indicators['Pivot.M.Fibonacci.S2']
                         fabonacciR1_TP1 = indicators['Pivot.M.Fibonacci.R1']
                         fabonacciR2_TP2 = indicators['Pivot.M.Fibonacci.R2']
                     if time_frame == Interval.INTERVAL_4_HOURS:
                         ao_diff['4_hours'] = ao - ao_last
-                        ao_diff_4_hours = round(ao_diff['4_hours'],4) 
+                        ao_diff_4_hours = round(ao_diff['4_hours'],3) 
 
                     # Check the conditions for strong buy or strong sell
                     if summary in ('STRONG_BUY','BUY','NEUTRAL') and ao_diff_2_hour > 0 and  rsi >= 30:
@@ -216,15 +216,13 @@ while True:# Infinite loop to keep the script running
                 with open('Crypto Analysis_Data.csv', 'a', newline='') as file:
                     writer = csv.writer(file)
                     writer.writerow(row_data)
-                body = f"Target-75 PIPs (3-lot Gold) to be achieved in 24 hours\n"
-                body += f"At least {min_strong_buy_count} time frames: AO_DIFF_15M: {ao_diff_15}\n {recommendation} for {symbol} @ {close}. Recommendations: {all_time_frames}: \n {all_time_frames_recommendations} \n Change:{all_time_frames_change}\n RSI: {all_time_frames_rsi} \n AO: {all_time_frames_ao} \n Volume: {all_time_frames_volume}\n"
+                body = f"Target-2.5%  to be achieved in 1 Trading Session\n"
+                body += f"At least {min_strong_buy_count} time frames: AO_DIFF_2H: {ao_diff_2_hour}\n {recommendation} for {symbol} @ {close}. Recommendations: {all_time_frames}: \n {all_time_frames_recommendations} \n Change:{all_time_frames_change}\n RSI: {all_time_frames_rsi} \n AO: {all_time_frames_ao} \n Volume: {all_time_frames_volume}\n"
                 body += f"average_ao_diff: {average_ao_diff}\n"
-                body += f"\n Open Trades: {open_trades}\n Closed Trades P&L: {closed_trades_pnl}\n"
-                body += f"\n Total booked P&L: {booked_pnl}"
-                subject = f"{symbol} - CRYOTO-Technical_Analysis"
+                subject = f"{symbol} - QSE-Daily Technical_Analysis"
                 try:
                     # Send email
-                    #send_email(subject, body)
+                    send_email(subject, body)
                     print("Email sent successfully!")
                 except Exception as e:
                     print(f"Error sending email: {str(e)}")

@@ -5,14 +5,14 @@ from tradingview_ta import TA_Handler, Interval
 from email_functions import send_email
 from Create_crypto_list import create_crypto_list
 from telegram_message import send_telegram_message
-
-
+# create a list of crypto symbols to analyze
 symbol_selection = create_crypto_list ( )
-symbol_selection = ['PAXGUSDT' ]
+# symbol selection for testing
+symbol_selection = ['PAXGUSDT']
+# fixed price difference between the close and the binance (PAXGUSDT) and actual price (XAUUSD)
 PriceDelta=0 # Price difference between the close and the binance and aacual price
 #**************************************************************************************
 # initialize and login to MetaTrader5
-
 
 # variables for buy and sell count
 min_strong_buy_count = 3
@@ -207,8 +207,7 @@ while True :  # Infinite loop to keep the script running
                         return (exit_price - entry_price) * lot_size
                     else :  # direction == "SELL"
                         return (entry_price - exit_price) * lot_size
-                
-                
+                  
                 # Inside your main analysis loop, after determining the signal (strong buy or strong sell)
                 if recommendation == "Strong Buy" :
                     # Check if there is already an open buy trade for this symbol

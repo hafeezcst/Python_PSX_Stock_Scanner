@@ -14,7 +14,7 @@ def get_symbol_selection():
 
 symbol_selection = get_symbol_selection()
 # variales for buy and sell count
-min_strong_buy_count=5
+min_strong_buy_count=4
 min_strong_sell_count=3
 # Time frames for analysis
 all_time_frames = [
@@ -215,12 +215,10 @@ while True:# Infinite loop to keep the script running
                 with open('Crypto Analysis_Data.csv', 'a', newline='') as file:
                     writer = csv.writer(file)
                     writer.writerow(row_data)
-                body = f"Target-75 PIPs (3-lot Gold) to be achieved in 24 hours\n"
-                body += f"At least {min_strong_buy_count} time frames: AO_DIFF_15M: {ao_diff_15}\n {recommendation} for {symbol} @ {close}. Recommendations: {all_time_frames}: \n {all_time_frames_recommendations} \n Change:{all_time_frames_change}\n RSI: {all_time_frames_rsi} \n AO: {all_time_frames_ao} \n Volume: {all_time_frames_volume}\n"
+                body = f"Target-3.5%  to be achieved in 1 day Trading Session\n"
+                body += f"At least {min_strong_buy_count} time frames: AO_DIFF_2H  : {ao_diff_2_hour}\n {recommendation} for {symbol} @ {close}. Recommendations: {all_time_frames}: \n {all_time_frames_recommendations} \n Change:{all_time_frames_change}\n RSI: {all_time_frames_rsi} \n AO: {all_time_frames_ao} \n Volume: {all_time_frames_volume}\n"
                 body += f"average_ao_diff: {average_ao_diff}\n"
-                body += f"\n Open Trades: {open_trades}\n Closed Trades P&L: {closed_trades_pnl}\n"
-                body += f"\n Total booked P&L: {booked_pnl}"
-                subject = f"{symbol} - CRYOTO-Technical_Analysis"
+                subject = f"{symbol} - PSX- Daily Technical_Analysis"
                 try:
                     # Send email
                     #send_email(subject, body)
