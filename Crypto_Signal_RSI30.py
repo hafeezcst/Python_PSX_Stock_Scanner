@@ -140,8 +140,7 @@ while True :  # Infinite loop to keep the script running
                     
                     if time_frame == Interval.INTERVAL_4_HOURS :
                         ao_diff [ '4_hours' ] = ao - ao_last
-                        ao_diff_4_hours = round ( ao_diff [ '4_hours' ], 3 )
-                        
+                        ao_diff_4_hours = round ( ao_diff [ '4_hours' ], 3 )    
                         # Check the conditions for strong buy or strong sell
                     if summary in ('STRONG_BUY', 'BUY') and ao_diff_15 > 0 and rsi >= 30 :
                         strong_buy_count += 1
@@ -155,7 +154,7 @@ while True :  # Infinite loop to keep the script running
                 open_trades = [ ]  # Existing open trades
                 closed_trades_pnl = [ ]  # Store P&L for closed trades
             # Initialize last_recommendation as None at the start of your program
-            
+            # At the beginning of your script, initialize an empty dictionary to store the last recommendation for each symbol
             if strong_buy_count >= min_strong_buy_count or strong_sell_count >= min_strong_sell_count :
                 recommendation = "Strong Buy" if strong_buy_count >= min_strong_buy_count else "Strong Sell"  # recommendation_options = ["STRONG_BUY", "BUY", "NEUTRAL", "SELL", "STRONG_SELL"]
                 print ( f"Recommendation for {symbol}: {recommendation}" )
@@ -163,7 +162,7 @@ while True :  # Infinite loop to keep the script running
                 if symbol not in last_recommendations or recommendation != last_recommendations [ symbol ] :
                     timestamp = datetime.now ( ).strftime ( "%Y-%m-%d %H:%M:%S" )
                     average_ao_diff = round ( ((ao_diff_5 + ao_diff_15 + ao_diff_1_hour + ao_diff_4_hours) / 4), 3 )
-                    message = f"Starting Trading Analysis at -: {timestamp}\n"
+                    message = f"Starting Trading Analysis at -: {timestamp} with Target-75 PIPs (3-lot Gold) to be achieved in 24 hours\n"
                     message += f"{symbol}: {recommendation} @ Close: {close}\n"
                     message += f"Recommendations:{all_time_frames} - {all_time_frames_recommendations}\n"
                     message += f"RSI: {all_time_frames_rsi}\n"
@@ -251,10 +250,17 @@ while True :  # Infinite loop to keep the script running
                     print (
                         f"Current P&L for open {trade [ 'direction' ]} trade for {trade [ 'symbol' ]} is {current_pnl}" )
                 timestamp = datetime.now ( ).strftime ( "%Y-%m-%d %H:%M:%S" )
-                row_data = [ timestamp, symbol, close, all_time_frames_recommendations, all_time_frames_change,
-                             all_time_frames_rsi, all_time_frames_ao, all_time_frames_ao_last,
-                             all_time_frames_ao_diff_15, all_time_frames_volume ]
-                row_data += [ average_ao_diff, open_trades, closed_trades_pnl, booked_pnl ]
+                header_row = ['Timestamp', 'Symbol', 'Close', 'Recommendations', 'Change', 'RSI', 'AO', 'AO Last',
+                              'AO Diff 15', 'Volume', 'Average AO Diff', 'Open Trades', 'Closed Trades P&L', 'Booked P&L']
+
+                row_data = [timestamp, symbol, close, all_time_frames_recommendations, all_time_frames_change,
+                            all_time_frames_rsi, all_time_frames_ao, all_time_frames_ao_last,
+                            all_time_frames_ao_diff_15, all_time_frames_volume]
+
+                with open('Crypto Analysis_Data.csv', 'a', newline='') as file:
+                    writer = csv.writer(file)
+                    writer.writerow(header_row)
+                    writer.writerow(row_data)
                 with open ( 'Crypto Analysis_Data.csv', 'a', newline='' ) as file :
                     writer = csv.writer ( file )
                     writer.writerow ( row_data )
