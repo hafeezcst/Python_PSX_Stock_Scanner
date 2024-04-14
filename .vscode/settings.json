@@ -9,5 +9,8 @@
         "openpyxl",
         "sqlalchemy"
     ],
-    "wolf.disableHotModeWarning": true
+    "wolf.disableHotModeWarning": true,
+    "python.analysis.extraPaths": [
+        "./MT5 Connection"
+    ]
 }
