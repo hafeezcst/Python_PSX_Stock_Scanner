@@ -173,7 +173,7 @@ while True :  # Infinite loop to keep the script running
             # At the beginning of your script, initialize an empty dictionary to store the last recommendation for each symbol
             
             if strong_buy_count >= min_strong_buy_count or strong_sell_count >= min_strong_sell_count :
-                recommendation = "Strong Buy" if (strong_buy_count > min_strong_buy_count and ao_diff_15 >= 0 ) else "Strong Sell"  # recommendation_options = ["STRONG_BUY", "BUY", "NEUTRAL", "SELL", "STRONG_SELL"]
+                recommendation = "Strong Buy" if (strong_buy_count > min_strong_buy_count and ao_diff_5 >= 0 ) else "Strong Sell"  # recommendation_options = ["STRONG_BUY", "BUY", "NEUTRAL", "SELL", "STRONG_SELL"]
                 print ( f"Recommendation for {symbol}: {recommendation}" )
                 # Only send a message if the recommendation has changed
                 if symbol not in last_recommendations or recommendation != last_recommendations [ symbol ] :
@@ -183,8 +183,8 @@ while True :  # Infinite loop to keep the script running
                     message += f"{symbol}: {recommendation} @ Close: {close}\n"
                     message += f"Recommendations:{all_time_frames} - {all_time_frames_recommendations}\n"
                     message += f"RSI: {all_time_frames_rsi}\n"
-                    message += f"AO_Diff_15 with ADX_15 >=25 (buy): {ao_diff_15}\n"
-                    message += f"AO_Diff_5 {ao_diff_5}\n"
+                    message += f"AO_Diff_5(buy): {ao_diff_5}\n"
+                    message += f"AO_Diff_5 (sell) {ao_diff_5}\n"
                     message += f"AO: {all_time_frames_ao}\n"
                     message += f"AO_Difference: {all_time_frames_ao_diff}\n"                 
                     message += f"Average_AO_Diff: {average_ao_diff}\n"
