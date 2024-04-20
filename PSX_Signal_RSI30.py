@@ -73,21 +73,22 @@ while True:# Infinite loop to keep the script running
                     all_time_frames_high.append(high)
                     close = round(indicators['close'],3)
                     all_time_frames_close.append(close)
-                    low = indicators['low']
+                    low = round(indicators['low'],3)
                     all_time_frames_low.append(low)
-                    change = indicators['change']
+                    change = round(indicators['change'],3)
                     all_time_frames_change.append(change)
-                    volume = indicators['volume']
+                    volume = round(indicators['volume'],3)
                     all_time_frames_volume.append(volume)
                     ao = round(indicators['AO'],3)
                     all_time_frames_ao.append(ao)
-                    ao_last = indicators['AO[1]']  # Added to store the last AO val
+                    ao_last = round(indicators['AO[1]'],3)  # Added to store the last AO value
                     all_time_frames_ao_last.append(ao_last)
                     # Get the support and resistance values
-                    fabonacciS1 = indicators['Pivot.M.Fibonacci.S1']
-                    fabonacciS2 = indicators['Pivot.M.Fibonacci.S2']
-                    fabonacciR1 = indicators['Pivot.M.Fibonacci.R1']
-                    fabonacciR2 = indicators['Pivot.M.Fibonacci.R2']                      
+                    fabonacciS1 = round(indicators['Pivot.M.Fibonacci.S1'],3)
+                    fabonacciS2 = round(indicators['Pivot.M.Fibonacci.S2'],3)
+                    fabonacciR1 = round(indicators['Pivot.M.Fibonacci.R1'],3)
+                    fabonacciR2 = round(indicators['Pivot.M.Fibonacci.R2'],3)
+                    
                     print(f"Time Frame: {time_frame} - Summary: {summary} - RSI: {rsi} - AO: {ao} -AO_LAST: {ao_last} - Volume: {volume} - Change: {change}")
                     # check if the AO is increasing or decreasing for 5 and 15 minutes time frame
                     ao_diff = {}
@@ -99,7 +100,10 @@ while True:# Infinite loop to keep the script running
                         ao_diff['15_minutes'] = ao - ao_last
                         ao_diff_15 = round(ao_diff['15_minutes'],4)
                         print(f"AO_DIFF_15: {ao_diff_15}")
-                        
+                        fabonacciS1_SL1 = fabonacciS1
+                        fabonacciS2_SL2 = fabonacciS2
+                        fabonacciR1_TP1 = fabonacciR1
+                        fabonacciR2_TP2 = fabonacciR2
                     if time_frame == Interval.INTERVAL_30_MINUTES:
                         ao_diff['30_minutes'] = ao - ao_last
                         ao_diff_30 = round(ao_diff['30_minutes'],4)
@@ -112,18 +116,15 @@ while True:# Infinite loop to keep the script running
                     if time_frame == Interval.INTERVAL_2_HOURS:
                         ao_diff['2_hours'] = ao - ao_last
                         ao_diff_2_hour = round(ao_diff['2_hours'],4)
-                        fabonacciS1_SL1 = indicators['Pivot.M.Fibonacci.S1']
-                        fabonacciS2_SL2 = indicators['Pivot.M.Fibonacci.S2']
-                        fabonacciR1_TP1 = indicators['Pivot.M.Fibonacci.R1']
-                        fabonacciR2_TP2 = indicators['Pivot.M.Fibonacci.R2']
+                        
                     if time_frame == Interval.INTERVAL_4_HOURS:
                         ao_diff['4_hours'] = ao - ao_last
                         ao_diff_4_hours = round(ao_diff['4_hours'],4) 
 
                     # Check the conditions for strong buy or strong sell
-                    if summary in ('STRONG_BUY','BUY','NEUTRAL') and ao_diff_2_hour > 0 and  rsi >= 30:
+                    if summary in ('STRONG_BUY','BUY','NEUTRAL') and ao_diff_15 > 0 and  rsi >= 30:
                             strong_buy_count += 1
-                    elif summary in ('STRONG_SELL','SELL','NEUTRAL') and ao_diff_1_hour < 0 and  rsi <= 70:
+                    elif summary in ('STRONG_SELL','SELL','NEUTRAL') and ao_diff_5 < 0 and  rsi <= 70:
                             strong_sell_count += 1
                     time.sleep(2)  # Wait for 2 second
                 except Exception as e:
@@ -146,8 +147,8 @@ while True:# Infinite loop to keep the script running
                     message += f"{symbol}: {recommendation} @ Close: {close}\n"
                     message += f"Recommendations:{all_time_frames} - {all_time_frames_recommendations}\n"
                     message += f"RSI: {all_time_frames_rsi}\n"
-                    message += f"AO_Diff_2H (Entry): {ao_diff_2_hour}\n"
-                    message += f"AO_Diff_1H (Exit): {ao_diff_1_hour}\n"
+                    message += f"AO_Diff_15M (Entry): {ao_diff_15}\n"
+                    message += f"AO_Diff_5M (Exit): {ao_diff_1_hour}\n"
                     message += f"Average_AO_Diff: {average_ao_diff}\n"
                     if recommendation == "Strong Buy":
                         message += f"TP1: {fabonacciR1_TP1} and TP2: {fabonacciR2_TP2}\n"
@@ -221,7 +222,7 @@ while True:# Infinite loop to keep the script running
                 subject = f"{symbol} - PSX- Daily Technical_Analysis"
                 try:
                     # Send email
-                    #send_email(subject, body)
+                    send_email(subject, body)
                     print("Email sent successfully!")
                 except Exception as e:
                     print(f"Error sending email: {str(e)}")

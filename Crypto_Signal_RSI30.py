@@ -5,6 +5,7 @@ from tradingview_ta import TA_Handler, Interval
 from email_functions import send_email
 from Create_crypto_list import create_crypto_list
 from telegram_message import send_telegram_message
+import time
 # create a list of crypto symbols to analyze
 symbol_selection = create_crypto_list ( )
 # symbol selection for testing
@@ -42,6 +43,7 @@ while True :  # Infinite loop to keep the script running
             all_time_frames_high = [ ]
             all_time_frames_close = [ ]
             all_time_frames_low = [ ]
+            all_time_frames_ao_diff = [ ]  # Added to store the last ao difference
             all_time_frames_rsi_last = [ ]  # Added to store the last RSI value
             all_time_frames_ao_last = [ ]  # Added to store the last AO value
             all_time_frames_ao_diff_5 = [ ]  # Added to store the AO difference for 5 minutes time frame
@@ -50,6 +52,7 @@ while True :  # Infinite loop to keep the script running
             all_time_frames_ao_diff_4_hours = [ ]  # Added to store the AO difference for 4 hours time frame
             all_time_frames_macd = [ ]  # Added to store the MACD value
             all_time_frames_stoch = [ ]  # Added to store the Stoch value
+            all_time_frames_adx = [ ]  # Added to store the ADX value
             # Print the symbol being analyzed
             print ( f"Analyzing {symbol}..." )
             # Loop through all the time frames
@@ -73,40 +76,42 @@ while True :  # Infinite loop to keep the script running
                     rsi_last = round ( indicators [ 'RSI[1]' ], 2 )  # Added to store the last RSI value
                     all_time_frames_rsi_last.append ( rsi_last )
                     # Fetch the high
-                    high = round(indicators [ 'high' ],3)
+                    high = round(indicators [ 'high' ], 2)
                     all_time_frames_high.append ( high )
                     # Fetch the close
-                    close = round ( indicators [ 'close' ], 3 )
+                    close = round ( indicators [ 'close' ], 2 )
                     close = close + PriceDelta
                     all_time_frames_close.append ( close )
                     # Fetch the low
-                    low = round(indicators [ 'low' ],3)
+                    low = round(indicators [ 'low' ], 2)
                     all_time_frames_low.append ( low )
                     # Fetch the change
-                    change = round(indicators [ 'change' ],3)
+                    change = round(indicators [ 'change' ], 2)
                     all_time_frames_change.append ( change )
                     # Fetch the volume
                     volume = indicators [ 'volume' ]
                     all_time_frames_volume.append ( volume )
                     # Fetch the AO
-                    ao = round ( indicators [ 'AO' ], 3 )
+                    ao = round ( indicators [ 'AO' ], 2 )
                     all_time_frames_ao.append ( ao )
                     # Fetch the AO last value
-                    ao_last = round(indicators [ 'AO[1]' ],3)  # Added to store the last AO val
+                    ao_last = round(indicators [ 'AO[1]' ], 2)  # Added to store the last AO val
                     all_time_frames_ao_last.append ( ao_last )
                     # Fetch the MACD
-                    macd = round(indicators [ 'MACD.macd' ],3)
+                    macd = round(indicators [ 'MACD.macd' ], 2)
                     all_time_frames_macd.append ( macd )
                     
                     # Fetch the Stoch
-                    stoch = round(indicators [ 'Stoch.K' ],3)
+                    stoch = round(indicators [ 'Stoch.K' ], 2)
                     all_time_frames_stoch.append ( stoch )
-                    
+                    # Fecth the adx
+                    adx = round(indicators [ 'ADX' ], 2)
+                    all_time_frames_adx.append ( adx )
                     # Get the support and resistance values
-                    fabonacciS1 = round(indicators [ 'Pivot.M.Fibonacci.S1' ]+PriceDelta,3)
-                    fabonacciS2 = round(indicators [ 'Pivot.M.Fibonacci.S2' ]+PriceDelta,3)
-                    fabonacciR1 = round(indicators [ 'Pivot.M.Fibonacci.R1' ]+PriceDelta,3)
-                    fabonacciR2 = round(indicators [ 'Pivot.M.Fibonacci.R2' ]+PriceDelta,3)
+                    fabonacciS1 = round(indicators [ 'Pivot.M.Fibonacci.S1' ]+PriceDelta, 2)
+                    fabonacciS2 = round(indicators [ 'Pivot.M.Fibonacci.S2' ]+PriceDelta, 2)
+                    fabonacciR1 = round(indicators [ 'Pivot.M.Fibonacci.R1' ]+PriceDelta, 2)
+                    fabonacciR2 = round(indicators [ 'Pivot.M.Fibonacci.R2' ]+PriceDelta, 2)
                     print (
                         f"Time Frame: {time_frame} - Summary: {summary} - RSI: {rsi} - AO: {ao} -AO_LAST: {ao_last} - Volume: {volume} - Change: {change}" )
                     # check if the AO is increasing or decreasing for 5 and 15 minutes time frame
@@ -114,13 +119,20 @@ while True :  # Infinite loop to keep the script running
                     if time_frame == Interval.INTERVAL_5_MINUTES :
                         ao_diff [ '5_minutes' ] = ao - ao_last
                         ao_diff_5 = round ( ao_diff [ '5_minutes' ], 3 )
-                        fabonacciS1_SL1_Sell = fabonacciS1
-                        fabonacciS2_SL2_Sell = fabonacciS2
-                        fabonacciR1_TP1_Sell = fabonacciR1
-                        fabonacciR2_TP2_Sell = fabonacciR2
+                        all_time_frames_ao_diff.append(ao_diff_5)  # Added to store the last ao difference
+                        adx_5 = round(adx,2)
+                        print ( f"ADX_5: {adx_5}" )   
+                        print ( f"AO_DIFF_5: {ao_diff_5}" )
+                        fabonacciS1_TP1_Sell = fabonacciS1
+                        fabonacciS2_TP2_Sell = fabonacciS2
+                        fabonacciR1_SL1_Sell = fabonacciR1
+                        fabonacciR2_SL2_Sell = fabonacciR2
                     if time_frame == Interval.INTERVAL_15_MINUTES :
                         ao_diff [ '15_minutes' ] = ao - ao_last
                         ao_diff_15 = round ( ao_diff [ '15_minutes' ], 3 )
+                        all_time_frames_ao_diff.append(ao_diff_15)
+                        adx_15 = round(adx,2)
+                        print ( f"ADX_15: {adx_15}" ) 
                         print ( f"AO_DIFF_15: {ao_diff_15}" )
                         fabonacciS1_SL1_Buy = fabonacciS1
                         fabonacciS2_SL2_Buy = fabonacciS2
@@ -129,22 +141,26 @@ while True :  # Infinite loop to keep the script running
                     if time_frame == Interval.INTERVAL_30_MINUTES :
                         ao_diff [ '30_minutes' ] = ao - ao_last
                         ao_diff_30 = round ( ao_diff [ '30_minutes' ], 3 )
-                    
+                        all_time_frames_ao_diff.append(ao_diff_30)
                     if time_frame == Interval.INTERVAL_1_HOUR :
                         ao_diff [ '1_hour' ] = ao - ao_last
                         ao_diff_1_hour = round ( ao_diff [ '1_hour' ], 3 )
-                    
+                        print ( f"AO_DIFF_1H: {ao_diff_1_hour}" )
+                        all_time_frames_ao_diff.append(ao_diff_1_hour)
                     if time_frame == Interval.INTERVAL_2_HOURS :
                         ao_diff [ '2_hours' ] = ao - ao_last
                         ao_diff_2_hour = round ( ao_diff [ '2_hours' ], 3 )
-                    
+                        print ( f"AO_DIFF_2H: {ao_diff_2_hour}" )
+                        all_time_frames_ao_diff.append(ao_diff_2_hour)
                     if time_frame == Interval.INTERVAL_4_HOURS :
                         ao_diff [ '4_hours' ] = ao - ao_last
-                        ao_diff_4_hours = round ( ao_diff [ '4_hours' ], 3 )    
+                        ao_diff_4_hours = round ( ao_diff [ '4_hours' ], 3 )
+                        print ( f"AO_DIFF_4H: {ao_diff_4_hours}" )
+                        all_time_frames_ao_diff.append(ao_diff_4_hours)   
                         # Check the conditions for strong buy or strong sell
-                    if summary in ('STRONG_BUY', 'BUY') and ao_diff_15 > 0 and rsi >= 30 :
+                    if summary in ('STRONG_BUY', 'BUY'):
                         strong_buy_count += 1
-                    elif summary in ('STRONG_SELL', 'SELL') and ao_diff_5 < 0 and rsi <= 70 :
+                    elif summary in ('STRONG_SELL', 'SELL'):
                         strong_sell_count += 1
                     time.sleep ( 2 )  # Wait for 2 second
                 except Exception as e :
@@ -155,8 +171,9 @@ while True :  # Infinite loop to keep the script running
                 closed_trades_pnl = [ ]  # Store P&L for closed trades
             # Initialize last_recommendation as None at the start of your program
             # At the beginning of your script, initialize an empty dictionary to store the last recommendation for each symbol
+            
             if strong_buy_count >= min_strong_buy_count or strong_sell_count >= min_strong_sell_count :
-                recommendation = "Strong Buy" if strong_buy_count >= min_strong_buy_count else "Strong Sell"  # recommendation_options = ["STRONG_BUY", "BUY", "NEUTRAL", "SELL", "STRONG_SELL"]
+                recommendation = "Strong Buy" if (strong_buy_count > min_strong_buy_count and ao_diff_15 >= 0 ) else "Strong Sell"  # recommendation_options = ["STRONG_BUY", "BUY", "NEUTRAL", "SELL", "STRONG_SELL"]
                 print ( f"Recommendation for {symbol}: {recommendation}" )
                 # Only send a message if the recommendation has changed
                 if symbol not in last_recommendations or recommendation != last_recommendations [ symbol ] :
@@ -166,15 +183,17 @@ while True :  # Infinite loop to keep the script running
                     message += f"{symbol}: {recommendation} @ Close: {close}\n"
                     message += f"Recommendations:{all_time_frames} - {all_time_frames_recommendations}\n"
                     message += f"RSI: {all_time_frames_rsi}\n"
-                    message += f"AO_Diff_15: {ao_diff_15}\n"
-                    message += f"AO_Diff_5: {ao_diff_5}\n"
+                    message += f"AO_Diff_15 with ADX_15 >=25 (buy): {ao_diff_15}\n"
+                    message += f"AO_Diff_5 {ao_diff_5}\n"
+                    message += f"AO: {all_time_frames_ao}\n"
+                    message += f"AO_Difference: {all_time_frames_ao_diff}\n"                 
                     message += f"Average_AO_Diff: {average_ao_diff}\n"
                     if recommendation == "Strong Buy" :
                         message += f"TP1: {fabonacciR1_TP1_Buy} and TP2: {fabonacciR2_TP2_Buy}\n"
                         message += f"SL1: {fabonacciS1_SL1_Buy} and SL2: {fabonacciS2_SL2_Buy}\n"
                     elif recommendation == "Strong Sell" :
-                        message += f"TP1: {fabonacciS1_SL1_Sell} and TP2: {fabonacciS2_SL2_Sell}\n"
-                        message += f"SL1: {fabonacciR1_TP1_Sell} and SL2: {fabonacciR2_TP2_Sell}\n"
+                        message += f"TP1: {fabonacciS1_TP1_Sell} and TP2: {fabonacciS2_TP2_Sell}\n"
+                        message += f"SL1: {fabonacciR1_SL1_Sell} and SL2: {fabonacciR2_SL2_Sell}\n"
                     try :
                         send_telegram_message ( message )
                         print ( "Telegram message sent successfully" )
@@ -243,7 +262,6 @@ while True :  # Infinite loop to keep the script running
                         print ( f"Simulated opening SELL trade for {symbol} at {close}" )
                 # Update to show current and booked P&L
                 booked_pnl = sum ( closed_trades_pnl )
-                print ( f"Total booked P&L: {booked_pnl}" )
                 for trade in open_trades :
                     current_pnl = calculate_pnl ( trade [ 'entry_price' ], close, trade [ 'direction' ],
                                                   trade [ 'lot_size' ] )
@@ -264,18 +282,17 @@ while True :  # Infinite loop to keep the script running
                 with open ( 'Crypto Analysis_Data.csv', 'a', newline='' ) as file :
                     writer = csv.writer ( file )
                     writer.writerow ( row_data )
-                
-        
-        countdown = 60  # Set the countdown time in seconds (1 minute)
-        print ( f"Waiting for {countdown} seconds before starting the next analysis..." )
-        while countdown > 0 :
-            minutes = countdown // 60
-            seconds = countdown % 60
-            print ( f"Next Analysis: {minutes} minutes {seconds} seconds" )
-            time.sleep ( 1 )  # Wait for 1 second
-            countdown -= 1
-        
-        print ( "Countdown finished. Starting the next analysis..." )
+                print ( "Data written to CSV file successfully" )
+        def countdown_timer(seconds):
+            print(f"Waiting for {seconds}            before starting the next analysis...", end="")
+            while seconds > 0:
+                print(f"\rNext Analysis: {seconds} seconds ", end="", flush=True)
+                time.sleep(1)
+                seconds -= 1
+            print("\nCountdown finished. Starting the next analysis...")
+
+        # Call the function with the desired countdown time
+        countdown_timer(60)
     
     except Exception as e :
         print ( "Error:", e )
