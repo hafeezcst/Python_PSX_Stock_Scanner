@@ -21,7 +21,7 @@ logging.basicConfig(filename='analysis_log.txt', level=logging.ERROR)
 
 # Global constants
 VOLUME_THRESHOLD = 100000
-MIN_VOLUME = 5000
+MIN_VOLUME = 100
 AO_THRESHOLD = 0
 RSI_THRESHOLD = 30
 
@@ -193,33 +193,39 @@ def save_to_database(analyzed_data, strong_buy_symbols, buy_symbols, sell_symbol
 
 def send_notifications(analyzed_data, strong_buy_symbols, buy_symbols, sell_symbols, analysis_type, symbol_selection, recommendation_filter):
     today_date = datetime.datetime.now().date()
-    
+
     df_strong_buy = pd.DataFrame(strong_buy_symbols, columns=['Date and Time', 'Symbol', 'Summary', f'{analysis_type} Close', 'Sell', 'Neutral', 'Buy', 'Volume', 'ADX', 'RSI', 'Last RSI', 'AO', '%Change(D)', 'Support', 'Resistance', 'Charts', 'Financials', 'Technicals'])
     df_buy = pd.DataFrame(buy_symbols, columns=['Date and Time', 'Symbol', 'Summary', f'{analysis_type} Close', 'Sell', 'Neutral', 'Buy', 'Volume', 'ADX', 'RSI', 'Last RSI', 'AO', '%Change(D)', 'Support', 'Resistance', 'Charts', 'Financials', 'Technicals'])
     df_sell = pd.DataFrame(sell_symbols, columns=['Date and Time', 'Symbol', 'Summary', f'{analysis_type} Close', 'Sell', 'Neutral', 'Buy', 'Volume', 'ADX', 'RSI', 'Last RSI', 'AO', '%Change(D)', 'Support', 'Resistance', 'Charts', 'Financials', 'Technicals'])
-    
+
+    # Convert 'Date and Time' column to datetime
+    df_strong_buy['Date and Time'] = pd.to_datetime(df_strong_buy['Date and Time'])
+    df_buy['Date and Time'] = pd.to_datetime(df_buy['Date and Time'])
+    df_sell['Date and Time'] = pd.to_datetime(df_sell['Date and Time'])
+
     today_Strong_buy = df_strong_buy[df_strong_buy['Date and Time'].dt.date == today_date]
     today_buy = df_buy[df_buy['Date and Time'].dt.date == today_date]
     today_sell = df_sell[df_sell['Date and Time'].dt.date == today_date]
-    
+
     custom_message_strong_buy = f"Strong Buy Conditions: Volume >{VOLUME_THRESHOLD},RSI>{RSI_THRESHOLD}, AO >{AO_THRESHOLD} and {recommendation_filter} from Trading view."
     custom_message_buy = f"Buy Conditions: AO > {AO_THRESHOLD} and Buy from Trading view and RSI>{RSI_THRESHOLD}"
     custom_message_sell = f"Sell Conditions: AO < {AO_THRESHOLD} and Sell from Trading view and RSI<{RSI_THRESHOLD}"
-    
+
     today_Strong_buy_mail = today_Strong_buy.to_string(index=True, justify='left', col_space=10)
     today_buy_mail = today_buy.to_string(index=True, justify='left', col_space=10)
     today_sell_mail = today_sell.to_string(index=True, justify='left', col_space=10)
-    
+
     body = f"\n\n\n{custom_message_sell}\n{today_sell_mail}\n\n\n{custom_message_buy}\n{today_buy_mail}\n\n\n{custom_message_strong_buy}\n{today_Strong_buy_mail}"
-    
+
     attachment_path = f"{analysis_type}-Advance_Technical_Analysis_{symbol_selection}_{recommendation_filter}.xlsx"
     subject = f"{analysis_type}-{symbol_selection}- {recommendation_filter}-Technical_Analysis_"
-    
+
     try:
         send_email(subject, body, attachment_path)
         send_telegram_message(body)
     except Exception as e:
         print(f"Error sending email: {str(e)}")
+
 
 if __name__ == "__main__":
     current_day = datetime.datetime.now().weekday()
