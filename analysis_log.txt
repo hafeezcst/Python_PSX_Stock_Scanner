@@ -3363,3 +3363,7 @@ ERROR:root:2024-07-06 16:42:49.272709 - Exception occurred for symbol: WHALE. Er
 ERROR:root:2024-07-10 19:22:58.462950 - Exception occurred for symbol: WHALE. Error Message: Exchange or symbol not found.
 ERROR:root:2024-07-10 19:29:00.294564 - Exception occurred for symbol: WHALE. Error Message: Exchange or symbol not found.
 ERROR:root:2024-07-10 19:32:27.177567 - Exception occurred for symbol: WHALE. Error Message: Exchange or symbol not found.
+ERROR:root:2024-07-10 19:38:55.441705 - Exception occurred for symbol: WHALE. Error Message: Exchange or symbol not found.
+ERROR:root:2024-07-10 19:48:24.283318 - Exception occurred for symbol: WHALE. Error Message: Exchange or symbol not found.
+ERROR:root:2024-07-10 19:56:21.089228 - Exception occurred for symbol: WHALE. Error Message: Exchange or symbol not found.
+ERROR:root:2024-07-10 20:04:48.855766 - Exception occurred for symbol: WHALE. Error Message: Exchange or symbol not found.

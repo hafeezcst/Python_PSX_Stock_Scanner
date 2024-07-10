@@ -23,7 +23,7 @@ logging.basicConfig(filename='analysis_log.txt', level=logging.ERROR)
 VOLUME_THRESHOLD = 100000
 MIN_VOLUME = 100
 AO_THRESHOLD = 0
-RSI_THRESHOLD = 30
+RSI_THRESHOLD = 50
 
 def get_analysis_type():
     return "D"  # Placeholder function
@@ -104,16 +104,16 @@ def main(country_selection):
 
                 analyzed_data.append(data_entry)
 
-                if (summary in ["STRONG_BUY", "BUY", "NEUTRAL"] and isinstance(Volume, (int, float)) and Volume > VOLUME_THRESHOLD and isinstance(AO, (int, float)) and AO > AO_THRESHOLD and isinstance(RSI, (int, float)) and RSI > RSI_THRESHOLD):
+                if (summary in ["BUY", "NEUTRAL"] and isinstance(Volume, (int, float)) and Volume > VOLUME_THRESHOLD and isinstance(AO, (int, float)) and AO > AO_THRESHOLD and isinstance(RSI, (int, float)) and RSI > RSI_THRESHOLD):
                     strong_buy_symbols.append(data_entry)
 
-                if summary == "BUY" and isinstance(Volume, (int, float)) and Volume > MIN_VOLUME and isinstance(AO, (int, float)) and AO > AO_THRESHOLD and isinstance(RSI, (int, float)) and RSI > RSI_THRESHOLD:
+                if summary == "NEUTRAL" and isinstance(Volume, (int, float)) and Volume > MIN_VOLUME and isinstance(AO, (int, float)) and AO > AO_THRESHOLD and isinstance(RSI, (int, float)) and RSI > RSI_THRESHOLD:
                     buy_symbols.append(data_entry)
 
                 if summary == "SELL" and isinstance(AO, (int, float)) and AO < AO_THRESHOLD and isinstance(RSI, (int, float)) and RSI < RSI_THRESHOLD:
                     sell_symbols.append(data_entry)
 
-                if summary in ["NEUTRAL", "SELL", "STRONG_SELL"] and isinstance(AO, (int, float)) and AO < AO_THRESHOLD and isinstance(RSI, (int, float)) and RSI < RSI_THRESHOLD:
+                if summary in ["NEUTRAL", "SELL", "STRONG_SELL"] and isinstance(AO, (int, float)) and AO > AO_THRESHOLD and isinstance(RSI, (int, float)) and RSI < RSI_THRESHOLD:
                     AO_symbols.append(data_entry)
 
     save_to_excel(analyzed_data, strong_buy_symbols, buy_symbols, sell_symbols, AO_symbols, analysis_type, symbol_selection, recommendation_filter)
