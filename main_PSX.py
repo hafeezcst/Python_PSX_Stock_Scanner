@@ -10,7 +10,6 @@ from openpyxl.formatting.rule import Rule
 from openpyxl.styles import Font
 from openpyxl.styles import PatternFill
 from openpyxl.styles.differential import DifferentialStyle
-
 from analysis_functions import analyze_symbol
 from convert_excel_to_lists import CUSTUM, KMIALL, KMI100, KMI30, MYLIST, QSE,CRYPTO
 from email_functions import send_email
@@ -27,7 +26,7 @@ logging.basicConfig(filename='analysis_log.txt', level=logging.ERROR)
 # Set the volume threshold to 1,000,000
 VOLUME_THRESHOLD = 100000
 # Set the minimum volume to 50,00
-MIN_VOLUME = 50000
+MIN_VOLUME = 5000
 # Set the AO threshold to 0
 AO_THRESHOLD = 0
 # Set the RSI threshold to 50
@@ -607,7 +606,7 @@ if __name__ == "__main__":
     # Get the current day of the month
     current_month_day = datetime.datetime.now().day
     # If today is Saturday, set the analysis type to "W"
-    if current_day == 5:
+    if current_day == 3:
         analysis_type = "W"
     elif current_month_day == 1:
         analysis_type = "M"
@@ -631,8 +630,8 @@ if __name__ == "__main__":
     # Get the current day of the month
     current_month_day = datetime.datetime.now().day
 
-    # If today is Saturday, set the analysis type to "W"
-    if current_day == 5:
+    # If today is thrusday, set the analysis type to "W"so Friday can be exist day
+    if current_day == 4:
         analysis_type = "W"
     elif current_month_day == 1:
         analysis_type = "M"

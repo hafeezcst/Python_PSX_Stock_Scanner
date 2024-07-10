@@ -2,7 +2,7 @@
 
 
 a = Analysis(
-    ['main_PSX.py'],
+    ['main_psx.py'],
     pathex=[],
     binaries=[],
     datas=[],
@@ -21,7 +21,7 @@ exe = EXE(
     a.binaries,
     a.datas,
     [],
-    name='main_PSX',
+    name='main_psx',
     debug=False,
     bootloader_ignore_signals=False,
     strip=False,

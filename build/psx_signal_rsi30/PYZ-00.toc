@@ -1,4 +1,4 @@
-('C:\\Users\\Administrator\\OneDrive\\VSCODE\\Python_PSX_Stock_Scanner\\build\\psx_signal_rsi30\\PYZ-00.pyz',
+('C:\\Users\\Administrator\\OneDrive\\VSCODE\\Python_PSX_Stock_Scanner\\build\\PSX_Signal_RSI30\\PYZ-00.pyz',
  [('IPython',
    'C:\\Users\\Administrator\\AppData\\Local\\Programs\\Python\\Python39\\lib\\site-packages\\IPython\\__init__.py',
    'PYMODULE'),

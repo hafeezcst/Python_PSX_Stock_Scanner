@@ -17,15 +17,15 @@ PriceDelta=0 # Price difference between the close and the binance and aacual pri
 
 # variables for buy and sell count
 min_strong_buy_count = 3
-min_strong_sell_count = 2
+min_strong_sell_count = 3
 # Time frames for analysis
 all_time_frames = [
     Interval.INTERVAL_5_MINUTES,
     Interval.INTERVAL_15_MINUTES,
-    Interval.INTERVAL_30_MINUTES,
+    #Interval.INTERVAL_30_MINUTES,
     Interval.INTERVAL_1_HOUR,
-    Interval.INTERVAL_2_HOURS,
-    Interval.INTERVAL_4_HOURS,
+    #Interval.INTERVAL_2_HOURS,
+    #Interval.INTERVAL_4_HOURS,
 ]
 # last recommendation for the symbol
 last_recommendations = {}  # Example: {'BTCUSDT': 'Strong Buy', 'ETHUSDT': 'Strong Sell'}
@@ -138,31 +138,34 @@ while True :  # Infinite loop to keep the script running
                         fabonacciS2_SL2_Buy = fabonacciS2
                         fabonacciR1_TP1_Buy = fabonacciR1
                         fabonacciR2_TP2_Buy = fabonacciR2
-                    if time_frame == Interval.INTERVAL_30_MINUTES :
-                        ao_diff [ '30_minutes' ] = ao - ao_last
-                        ao_diff_30 = round ( ao_diff [ '30_minutes' ], 3 )
-                        all_time_frames_ao_diff.append(ao_diff_30)
+                    # if time_frame == Interval.INTERVAL_30_MINUTES :
+                    #     ao_diff [ '30_minutes' ] = ao - ao_last
+                    #     ao_diff_30 = round ( ao_diff [ '30_minutes' ], 3 )
+                    #     all_time_frames_ao_diff.append(ao_diff_30)
                     if time_frame == Interval.INTERVAL_1_HOUR :
-                        ao_diff [ '1_hour' ] = ao - ao_last
-                        ao_diff_1_hour = round ( ao_diff [ '1_hour' ], 3 )
-                        print ( f"AO_DIFF_1H: {ao_diff_1_hour}" )
-                        all_time_frames_ao_diff.append(ao_diff_1_hour)
-                    if time_frame == Interval.INTERVAL_2_HOURS :
-                        ao_diff [ '2_hours' ] = ao - ao_last
-                        ao_diff_2_hour = round ( ao_diff [ '2_hours' ], 3 )
-                        print ( f"AO_DIFF_2H: {ao_diff_2_hour}" )
-                        all_time_frames_ao_diff.append(ao_diff_2_hour)
-                    if time_frame == Interval.INTERVAL_4_HOURS :
-                        ao_diff [ '4_hours' ] = ao - ao_last
-                        ao_diff_4_hours = round ( ao_diff [ '4_hours' ], 3 )
-                        print ( f"AO_DIFF_4H: {ao_diff_4_hours}" )
-                        all_time_frames_ao_diff.append(ao_diff_4_hours)   
+                         ao_diff [ '1_hour' ] = ao - ao_last
+                         ao_diff_1_hour = round ( ao_diff [ '1_hour' ], 3 )
+                         print ( f"AO_DIFF_1H: {ao_diff_1_hour}" )
+                         all_time_frames_ao_diff.append(ao_diff_1_hour)
+                    # if time_frame == Interval.INTERVAL_2_HOURS :
+                    #     ao_diff [ '2_hours' ] = ao - ao_last
+                    #     ao_diff_2_hour = round ( ao_diff [ '2_hours' ], 3 )
+                    #     print ( f"AO_DIFF_2H: {ao_diff_2_hour}" )
+                    #     all_time_frames_ao_diff.append(ao_diff_2_hour)
+                    # if time_frame == Interval.INTERVAL_4_HOURS :
+                    #     ao_diff [ '4_hours' ] = ao - ao_last
+                    #     ao_diff_4_hours = round ( ao_diff [ '4_hours' ], 3 )
+                    #     print ( f"AO_DIFF_4H: {ao_diff_4_hours}" )
+                    #     all_time_frames_ao_diff.append(ao_diff_4_hours)
+                    average_ao_diff = round ( ((ao_diff_5 + ao_diff_15 + ao_diff_1_hour ) / 3), 3 )
+                    #average_ao_diff = round ( ((ao_diff_5 + ao_diff_15 + ao_diff_1_hour + ao_diff_4_hours) / 4), 3 )
+                    print ( f"Average_AO_Diff (5,15,30): {average_ao_diff}" )  
                         # Check the conditions for strong buy or strong sell
-                    if summary in ('STRONG_BUY', 'BUY'):
-                        strong_buy_count += 1
-                    elif summary in ('STRONG_SELL', 'SELL'):
-                        strong_sell_count += 1
-                    time.sleep ( 2 )  # Wait for 2 second
+                    if summary in ('NEUTRAL') and ao_diff_15 >= 0 and  rsi <= 30:
+                            strong_buy_count += 1
+                    elif summary in ('NEUTRAL') and ao_diff_15 <= 0 and  rsi <= 60:
+                            strong_sell_count += 1
+                    time.sleep(2)  # Wait for 2 second
                 except Exception as e :
                     print ( f"Error for {symbol} - {time_frame}:", e )
                 # Check if the strong buy or strong sell count is greater than or equal to 2
@@ -173,12 +176,11 @@ while True :  # Infinite loop to keep the script running
             # At the beginning of your script, initialize an empty dictionary to store the last recommendation for each symbol
             
             if strong_buy_count >= min_strong_buy_count or strong_sell_count >= min_strong_sell_count :
-                recommendation = "Strong Buy" if (strong_buy_count > min_strong_buy_count and ao_diff_5 >= 0 ) else "Strong Sell"  # recommendation_options = ["STRONG_BUY", "BUY", "NEUTRAL", "SELL", "STRONG_SELL"]
+                recommendation = "Strong Buy" if strong_buy_count >= min_strong_buy_count else "Strong Sell"  # recommendation_options = ["STRONG_BUY", "BUY", "NEUTRAL", "SELL", "STRONG_SELL"]
                 print ( f"Recommendation for {symbol}: {recommendation}" )
                 # Only send a message if the recommendation has changed
                 if symbol not in last_recommendations or recommendation != last_recommendations [ symbol ] :
                     timestamp = datetime.now ( ).strftime ( "%Y-%m-%d %H:%M:%S" )
-                    average_ao_diff = round ( ((ao_diff_5 + ao_diff_15 + ao_diff_1_hour + ao_diff_4_hours) / 4), 3 )
                     message = f"Starting Trading Analysis at -: {timestamp} with Target-75 PIPs (3-lot Gold) to be achieved in 24 hours\n"
                     message += f"{symbol}: {recommendation} @ Close: {close}\n"
                     message += f"Recommendations:{all_time_frames} - {all_time_frames_recommendations}\n"
@@ -209,8 +211,8 @@ while True :  # Infinite loop to keep the script running
                     subject = f" {symbol} - Gold-Technical_Analysis"
                     try :
                     #  Send email
-                        send_email(subject, body)
-                        print ( "Email sent successfully!" )
+                        # send_email(subject, body)
+                        print ( "Email processed successfully!" )
                     except Exception as e :
                         print ( f"Error sending email: {str ( e )}" )
                         
@@ -219,70 +221,6 @@ while True :  # Infinite loop to keep the script running
                     print ( f"Last Recommendation: {last_recommendations}" )
                     # Define a function to calculate the P&L for a trade
                 
-                
-                def calculate_pnl(entry_price, exit_price, direction, lot_size) :
-                    if direction == "BUY" :
-                        return (exit_price - entry_price) * lot_size
-                    else :  # direction == "SELL"
-                        return (entry_price - exit_price) * lot_size
-                  
-                # Inside your main analysis loop, after determining the signal (strong buy or strong sell)
-                if recommendation == "Strong Buy" :
-                    # Check if there is already an open buy trade for this symbol
-                    open_trade = next ( (trade for trade in open_trades if
-                                         trade [ 'symbol' ] == symbol and trade [ 'direction' ] == 'BUY'), None )
-                    if not open_trade :
-                        # No open buy trade, simulate opening a new trade
-                        open_trades.append ( {
-                            'symbol' : symbol,
-                            'entry_price' : close,
-                            'lot_size' : 3,  # Fixed lot size for gold
-                            'direction' : 'BUY'
-                        } )
-                        print ( f"Simulated opening BUY trade for {symbol} at {close}" )
-                
-                elif recommendation == "Strong Sell" :
-                    # Check if there is an open buy trade for this symbol
-                    open_trade = next ( (trade for trade in open_trades if
-                                         trade [ 'symbol' ] == symbol and trade [ 'direction' ] == 'BUY'), None )
-                    if open_trade :
-                        # Calculate P&L for the closed buy trade
-                        pnl = calculate_pnl ( open_trade [ 'entry_price' ], close, 'BUY', open_trade [ 'lot_size' ] )
-                        closed_trades_pnl.append ( pnl )
-                        # Simulate closing the buy trade
-                        print ( f"Simulated closing BUY trade for {symbol} at {close} with P&L: {pnl}" )
-                        open_trades.remove ( open_trade )
-                        # Simulate opening a new sell trade
-                        open_trades.append ( {
-                            'symbol' : symbol,
-                            'entry_price' : close,
-                            'lot_size' : 3,
-                            'direction' : 'SELL'
-                        } )
-                        print ( f"Simulated opening SELL trade for {symbol} at {close}" )
-                # Update to show current and booked P&L
-                booked_pnl = sum ( closed_trades_pnl )
-                for trade in open_trades :
-                    current_pnl = calculate_pnl ( trade [ 'entry_price' ], close, trade [ 'direction' ],
-                                                  trade [ 'lot_size' ] )
-                    print (
-                        f"Current P&L for open {trade [ 'direction' ]} trade for {trade [ 'symbol' ]} is {current_pnl}" )
-                timestamp = datetime.now ( ).strftime ( "%Y-%m-%d %H:%M:%S" )
-                header_row = ['Timestamp', 'Symbol', 'Close', 'Recommendations', 'Change', 'RSI', 'AO', 'AO Last',
-                              'AO Diff 15', 'Volume', 'Average AO Diff', 'Open Trades', 'Closed Trades P&L', 'Booked P&L']
-
-                row_data = [timestamp, symbol, close, all_time_frames_recommendations, all_time_frames_change,
-                            all_time_frames_rsi, all_time_frames_ao, all_time_frames_ao_last,
-                            all_time_frames_ao_diff_15, all_time_frames_volume]
-
-                with open('Crypto Analysis_Data.csv', 'a', newline='') as file:
-                    writer = csv.writer(file)
-                    writer.writerow(header_row)
-                    writer.writerow(row_data)
-                with open ( 'Crypto Analysis_Data.csv', 'a', newline='' ) as file :
-                    writer = csv.writer ( file )
-                    writer.writerow ( row_data )
-                print ( "Data written to CSV file successfully" )
         def countdown_timer(seconds):
             print(f"Waiting for {seconds}            before starting the next analysis...", end="")
             while seconds > 0:

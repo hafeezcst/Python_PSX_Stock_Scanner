@@ -14,17 +14,13 @@ def get_symbol_selection():
 
 symbol_selection = get_symbol_selection()
 # variales for buy and sell count
-min_strong_buy_count=4
-min_strong_sell_count=3
+min_strong_buy_count=3
+min_strong_sell_count=2
 # Time frames for analysis
 all_time_frames = [
-    Interval.INTERVAL_5_MINUTES,
-    Interval.INTERVAL_15_MINUTES,
-    Interval.INTERVAL_30_MINUTES,
-    Interval.INTERVAL_1_HOUR,
-    Interval.INTERVAL_2_HOURS,
-    Interval.INTERVAL_4_HOURS,
-    Interval.INTERVAL_1_DAY
+    Interval.INTERVAL_1_DAY,
+    Interval.INTERVAL_1_WEEK,
+    Interval.INTERVAL_1_MONTH,
 ]
 # last recommendatrion for the symbol
 last_recommendations = {}  
@@ -92,39 +88,27 @@ while True:# Infinite loop to keep the script running
                     print(f"Time Frame: {time_frame} - Summary: {summary} - RSI: {rsi} - AO: {ao} -AO_LAST: {ao_last} - Volume: {volume} - Change: {change}")
                     # check if the AO is increasing or decreasing for 5 and 15 minutes time frame
                     ao_diff = {}
-                    if time_frame == Interval.INTERVAL_5_MINUTES:
-                        ao_diff['5_minutes'] = ao - ao_last
-                        ao_diff_5 = round(ao_diff['5_minutes'],4)
+                    if time_frame == Interval.INTERVAL_1_DAY:
+                        ao_diff['1_Day'] = ao - ao_last
+                        ao_diff_1_Day = round(ao_diff['1_Day'],4)
 
-                    if time_frame == Interval.INTERVAL_15_MINUTES:
-                        ao_diff['15_minutes'] = ao - ao_last
-                        ao_diff_15 = round(ao_diff['15_minutes'],4)
-                        print(f"AO_DIFF_15: {ao_diff_15}")
+                    if time_frame == Interval.INTERVAL_1_WEEK:
+                        ao_diff['1_week'] = ao - ao_last
+                        ao_diff_1_Week = round(ao_diff['1_week'],4)
+                        print(f"1_week: {ao_diff_1_Week}")
                         fabonacciS1_SL1 = fabonacciS1
                         fabonacciS2_SL2 = fabonacciS2
                         fabonacciR1_TP1 = fabonacciR1
                         fabonacciR2_TP2 = fabonacciR2
-                    if time_frame == Interval.INTERVAL_30_MINUTES:
-                        ao_diff['30_minutes'] = ao - ao_last
-                        ao_diff_30 = round(ao_diff['30_minutes'],4)
-                        
-                        print(f"AO_DIFF_30: {ao_diff_30}")
-                    if time_frame == Interval.INTERVAL_1_HOUR:
-                        ao_diff['1_hour'] = ao - ao_last
-                        ao_diff_1_hour = round(ao_diff['1_hour'],4)
-
-                    if time_frame == Interval.INTERVAL_2_HOURS:
-                        ao_diff['2_hours'] = ao - ao_last
-                        ao_diff_2_hour = round(ao_diff['2_hours'],4)
-                        
-                    if time_frame == Interval.INTERVAL_4_HOURS:
-                        ao_diff['4_hours'] = ao - ao_last
-                        ao_diff_4_hours = round(ao_diff['4_hours'],4) 
+                                            
+                    if time_frame == Interval.INTERVAL_1_MONTH:
+                        ao_diff['1_Month'] = ao - ao_last
+                        ao_diff_1_Month = round(ao_diff['1_Month'],4) 
 
                     # Check the conditions for strong buy or strong sell
-                    if summary in ('STRONG_BUY','BUY','NEUTRAL') and ao_diff_15 > 0 and  rsi >= 30:
+                    if summary in ('STRONG_BUY','BUY',"NEUTRAL") and ao_diff_1_Day > 0:
                             strong_buy_count += 1
-                    elif summary in ('STRONG_SELL','SELL','NEUTRAL') and ao_diff_5 < 0 and  rsi <= 70:
+                    elif summary in ('STRONG_SELL','SELL') and ao_diff_1_Day < 0:
                             strong_sell_count += 1
                     time.sleep(2)  # Wait for 2 second
                 except Exception as e:
@@ -142,13 +126,13 @@ while True:# Infinite loop to keep the script running
                 # Only send a message if the recommendation has changed
                 if symbol not in last_recommendations or recommendation != last_recommendations[symbol]:
                     timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")  
-                    average_ao_diff = round(((ao_diff_5 + ao_diff_15 + ao_diff_1_hour + ao_diff_4_hours) / 4),3) 
+                    average_ao_diff = round(((ao_diff_1_Day+ ao_diff_1_Week + ao_diff_1_Month ) / 3),3) 
                     message =f"Starting PSX Analysis at -: {timestamp}\n"
                     message += f"{symbol}: {recommendation} @ Close: {close}\n"
                     message += f"Recommendations:{all_time_frames} - {all_time_frames_recommendations}\n"
                     message += f"RSI: {all_time_frames_rsi}\n"
-                    message += f"AO_Diff_15M (Entry): {ao_diff_15}\n"
-                    message += f"AO_Diff_5M (Exit): {ao_diff_1_hour}\n"
+                    message += f"AO_Diff_1_DAy with 2 Buy (Entry): {ao_diff_1_Day}\n"
+                    message += f"AO_Diff_1_Day with 1 Sell (Exit): {ao_diff_1_Day}\n"
                     message += f"Average_AO_Diff: {average_ao_diff}\n"
                     if recommendation == "Strong Buy":
                         message += f"TP1: {fabonacciR1_TP1} and TP2: {fabonacciR2_TP2}\n"
@@ -205,19 +189,16 @@ while True:# Infinite loop to keep the script running
                         })
                         print(f"Simulated opening SELL trade for {symbol} at {close}")
                 # Update to show current and booked P&L
-                booked_pnl = sum(closed_trades_pnl)
-                print(f"Total booked P&L: {booked_pnl}")
                 for trade in open_trades:
                     current_pnl = calculate_pnl(trade['entry_price'], close, trade['direction'], trade['lot_size'])
                     print(f"Current P&L for open {trade['direction']} trade for {trade['symbol']} is {current_pnl}")               
                 timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
                 row_data = [timestamp, symbol, close, all_time_frames_recommendations, all_time_frames_change, all_time_frames_rsi, all_time_frames_ao,all_time_frames_ao_last,all_time_frames_ao_diff_15, all_time_frames_volume]
-                row_data +=[average_ao_diff,open_trades,closed_trades_pnl,booked_pnl]
                 with open('Crypto Analysis_Data.csv', 'a', newline='') as file:
                     writer = csv.writer(file)
                     writer.writerow(row_data)
                 body = f"Target-3.5%  to be achieved in 1 day Trading Session\n"
-                body += f"At least {min_strong_buy_count} time frames: AO_DIFF_2H  : {ao_diff_2_hour}\n {recommendation} for {symbol} @ {close}. Recommendations: {all_time_frames}: \n {all_time_frames_recommendations} \n Change:{all_time_frames_change}\n RSI: {all_time_frames_rsi} \n AO: {all_time_frames_ao} \n Volume: {all_time_frames_volume}\n"
+                body += f"At least {min_strong_buy_count} time frames: AO_DIFF_1_Day  : {ao_diff_1_Day}\n {recommendation} for {symbol} @ {close}. Recommendations: {all_time_frames}: \n {all_time_frames_recommendations} \n Change:{all_time_frames_change}\n RSI: {all_time_frames_rsi} \n AO: {all_time_frames_ao} \n Volume: {all_time_frames_volume}\n"
                 body += f"average_ao_diff: {average_ao_diff}\n"
                 subject = f"{symbol} - PSX- Daily Technical_Analysis"
                 try:

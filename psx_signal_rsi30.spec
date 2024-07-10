@@ -2,7 +2,7 @@
 
 
 a = Analysis(
-    ['psx_signal_rsi30.py'],
+    ['PSX_Signal_RSI30.py'],
     pathex=[],
     binaries=[],
     datas=[],
@@ -21,7 +21,7 @@ exe = EXE(
     a.binaries,
     a.datas,
     [],
-    name='psx_signal_rsi30',
+    name='PSX_Signal_RSI30',
     debug=False,
     bootloader_ignore_signals=False,
     strip=False,
