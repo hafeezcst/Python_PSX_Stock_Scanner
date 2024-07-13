@@ -73,20 +73,16 @@ def analyze_symbol(symbol, analysis_type,screener_selection,exchange_selection,b
                 change = indicators [ 'change' ]
                 adx = indicators [ 'ADX' ]
                 fabonacciS1 = indicators['Pivot.M.Fibonacci.S1']
-                fabonacciS2 = indicators['Pivot.M.Fibonacci.S2']
-                fabonacciS3 = indicators['Pivot.M.Fibonacci.S3']
+
                 fabonacciR1 = indicators['Pivot.M.Fibonacci.R1']
-                fabonacciR2 = indicators['Pivot.M.Fibonacci.R2']
-                fabonacciR3 = indicators['Pivot.M.Fibonacci.R3']
+
                 classicS1 = indicators['Pivot.M.Classic.S1']
-                classicS2 = indicators['Pivot.M.Classic.S2']
-                classicS3 = indicators['Pivot.M.Classic.S3']
+
                 classicR1 = indicators['Pivot.M.Classic.R1']
-                classicR2 = indicators['Pivot.M.Classic.R2']
-                classicR3 = indicators['Pivot.M.Classic.R3']               
+              
                 
-                support_values      = [fabonacciS1, fabonacciS2, fabonacciS3, classicS1, classicS2, classicS3]
-                resistance_value    = [fabonacciR1, fabonacciR2, fabonacciR3, classicR1, classicR2, classicR3]
+                support_values      = [fabonacciS1, classicS1]
+                resistance_value    = [fabonacciR1, classicR1]
                 Svalues = [value for value in support_values if value is not None]  # Exclude None values
                 Rvalues = [value for value in resistance_value if value is not None]  # Exclude None values
                 
