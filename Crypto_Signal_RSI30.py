@@ -161,17 +161,17 @@ while True :  # Infinite loop to keep the script running
                     #average_ao_diff = round ( ((ao_diff_5 + ao_diff_15 + ao_diff_1_hour + ao_diff_4_hours) / 4), 3 )
                     print ( f"Average_AO_Diff (5,15,30): {average_ao_diff}" )  
                         # Check the conditions for strong buy or strong sell
-                    if summary in ('NEUTRAL') and ao_diff_15 >= 0 and  rsi <= 30:
+                    if summary in ('NEUTRAL','BUY') and average_ao_diff >= 0 and  rsi <= 30:
                             strong_buy_count += 1
-                    elif summary in ('NEUTRAL') and ao_diff_15 <= 0 and  rsi <= 60:
+                    elif summary in ('NEUTRAL','SELL') and average_ao_diff <= 0 and  rsi <= 70:
                             strong_sell_count += 1
                     time.sleep(2)  # Wait for 2 second
                 except Exception as e :
                     print ( f"Error for {symbol} - {time_frame}:", e )
                 # Check if the strong buy or strong sell count is greater than or equal to 2
                 # At the beginning of your script, initialize an empty list to track open trades
-                open_trades = [ ]  # Existing open trades
-                closed_trades_pnl = [ ]  # Store P&L for closed trades
+                #open_trades = [ ]  # Existing open trades
+                #closed_trades_pnl = [ ]  # Store P&L for closed trades
             # Initialize last_recommendation as None at the start of your program
             # At the beginning of your script, initialize an empty dictionary to store the last recommendation for each symbol
             
