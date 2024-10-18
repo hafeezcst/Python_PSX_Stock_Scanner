@@ -1,11 +1,10 @@
-import time
+import time,math
 import csv
 from datetime import datetime
 from tradingview_ta import TA_Handler, Interval
 from email_functions import send_email
 from Create_crypto_list import create_crypto_list
 from telegram_message import send_telegram_message
-import time
 # create a list of crypto symbols to analyze
 symbol_selection = create_crypto_list ( )
 # symbol selection for testing
@@ -22,10 +21,10 @@ min_strong_sell_count = 3
 all_time_frames = [
     Interval.INTERVAL_5_MINUTES,
     Interval.INTERVAL_15_MINUTES,
-    #Interval.INTERVAL_30_MINUTES,
+    Interval.INTERVAL_30_MINUTES,
     Interval.INTERVAL_1_HOUR,
-    #Interval.INTERVAL_2_HOURS,
-    #Interval.INTERVAL_4_HOURS,
+    Interval.INTERVAL_2_HOURS,
+    Interval.INTERVAL_4_HOURS,
 ]
 # last recommendation for the symbol
 last_recommendations = {}  # Example: {'BTCUSDT': 'Strong Buy', 'ETHUSDT': 'Strong Sell'}
@@ -138,50 +137,67 @@ while True :  # Infinite loop to keep the script running
                         fabonacciS2_SL2_Buy = fabonacciS2
                         fabonacciR1_TP1_Buy = fabonacciR1
                         fabonacciR2_TP2_Buy = fabonacciR2
-                    # if time_frame == Interval.INTERVAL_30_MINUTES :
-                    #     ao_diff [ '30_minutes' ] = ao - ao_last
-                    #     ao_diff_30 = round ( ao_diff [ '30_minutes' ], 3 )
-                    #     all_time_frames_ao_diff.append(ao_diff_30)
+                    if time_frame == Interval.INTERVAL_30_MINUTES :
+                         ao_diff [ '30_minutes' ] = ao - ao_last
+                         ao_diff_30 = round ( ao_diff [ '30_minutes' ], 3 )
+                         all_time_frames_ao_diff.append(ao_diff_30)
                     if time_frame == Interval.INTERVAL_1_HOUR :
                          ao_diff [ '1_hour' ] = ao - ao_last
                          ao_diff_1_hour = round ( ao_diff [ '1_hour' ], 3 )
                          print ( f"AO_DIFF_1H: {ao_diff_1_hour}" )
                          all_time_frames_ao_diff.append(ao_diff_1_hour)
-                    # if time_frame == Interval.INTERVAL_2_HOURS :
-                    #     ao_diff [ '2_hours' ] = ao - ao_last
-                    #     ao_diff_2_hour = round ( ao_diff [ '2_hours' ], 3 )
-                    #     print ( f"AO_DIFF_2H: {ao_diff_2_hour}" )
-                    #     all_time_frames_ao_diff.append(ao_diff_2_hour)
-                    # if time_frame == Interval.INTERVAL_4_HOURS :
-                    #     ao_diff [ '4_hours' ] = ao - ao_last
-                    #     ao_diff_4_hours = round ( ao_diff [ '4_hours' ], 3 )
-                    #     print ( f"AO_DIFF_4H: {ao_diff_4_hours}" )
-                    #     all_time_frames_ao_diff.append(ao_diff_4_hours)
-                    average_ao_diff = round ( ((ao_diff_5 + ao_diff_15 + ao_diff_1_hour ) / 3), 3 )
+                    if time_frame == Interval.INTERVAL_2_HOURS :
+                         ao_diff [ '2_hours' ] = ao - ao_last
+                         ao_diff_2_hour = round ( ao_diff [ '2_hours' ], 3 )
+                         print ( f"AO_DIFF_2H: {ao_diff_2_hour}" )
+                         all_time_frames_ao_diff.append(ao_diff_2_hour)
+                    if time_frame == Interval.INTERVAL_4_HOURS :
+                         ao_diff [ '4_hours' ] = ao - ao_last
+                         ao_diff_4_hours = round ( ao_diff [ '4_hours' ], 3 )
+                         print ( f"AO_DIFF_4H: {ao_diff_4_hours}" )
+                         all_time_frames_ao_diff.append(ao_diff_4_hours)
+                    # Define the time periods in minutes
+                    time_periods = [5, 15, 30, 60, 120, 240]
+
+                    # Calculate weights using the Wiight formula
+                    weights = []
+                    for t in time_periods:
+                        weight = (1 / math.log(t)) ** 2
+                        weights.append(weight)
+
+                    # Normalize weights so they sum to 1
+                    total_weight = sum(weights)
+                    normalized_weights = [w / total_weight for w in weights]
+
+                    # Apply weights to the differences
+                    weighted_ao_diff_5 = ao_diff_5 * normalized_weights[0]
+                    weighted_ao_diff_15 = ao_diff_15 * normalized_weights[1]
+                    weighted_ao_diff_30 = ao_diff_30 * normalized_weights[2]
+                    weighted_ao_diff_1_hour = ao_diff_1_hour * normalized_weights[3]
+                    weighted_ao_diff_2_hour = ao_diff_2_hour * normalized_weights[4]
+                    weighted_ao_diff_4_hours = ao_diff_4_hours * normalized_weights[5]
+
+                    # Calculate the average of the normalized differences
+                    average_ao_diff = round((weighted_ao_diff_5 + weighted_ao_diff_15 + weighted_ao_diff_30+weighted_ao_diff_1_hour+weighted_ao_diff_2_hour+weighted_ao_diff_4_hours), 3)
+
                     #average_ao_diff = round ( ((ao_diff_5 + ao_diff_15 + ao_diff_1_hour + ao_diff_4_hours) / 4), 3 )
-                    print ( f"Average_AO_Diff (5,15,30): {average_ao_diff}" )  
+                    print ( f"Average_AO_Diff (5,15,30,1H,2H,4H): {average_ao_diff}" )  
                         # Check the conditions for strong buy or strong sell
-                    if summary in ('NEUTRAL','BUY') and average_ao_diff >= 0 and  rsi <= 30:
+                    if summary in ('STRONG_BUY','BUY') and average_ao_diff >= 0 and rsi_last > 55:
                             strong_buy_count += 1
-                    elif summary in ('NEUTRAL','SELL') and average_ao_diff <= 0 and  rsi <= 70:
+                    elif summary in ('SELL','STRONG_SELL') and average_ao_diff <= 0 and rsi_last < 50:
                             strong_sell_count += 1
                     time.sleep(2)  # Wait for 2 second
                 except Exception as e :
                     print ( f"Error for {symbol} - {time_frame}:", e )
-                # Check if the strong buy or strong sell count is greater than or equal to 2
-                # At the beginning of your script, initialize an empty list to track open trades
-                #open_trades = [ ]  # Existing open trades
-                #closed_trades_pnl = [ ]  # Store P&L for closed trades
-            # Initialize last_recommendation as None at the start of your program
-            # At the beginning of your script, initialize an empty dictionary to store the last recommendation for each symbol
-            
+                
             if strong_buy_count >= min_strong_buy_count or strong_sell_count >= min_strong_sell_count :
                 recommendation = "Strong Buy" if strong_buy_count >= min_strong_buy_count else "Strong Sell"  # recommendation_options = ["STRONG_BUY", "BUY", "NEUTRAL", "SELL", "STRONG_SELL"]
                 print ( f"Recommendation for {symbol}: {recommendation}" )
                 # Only send a message if the recommendation has changed
                 if symbol not in last_recommendations or recommendation != last_recommendations [ symbol ] :
                     timestamp = datetime.now ( ).strftime ( "%Y-%m-%d %H:%M:%S" )
-                    message = f"Starting Trading Analysis at -: {timestamp} with Target-75 PIPs (3-lot Gold) to be achieved in 24 hours\n"
+                    message = f"IMAC-27, Starting Trading Analysis at -: {timestamp} with Target-75 PIPs (3-lot Gold) to be achieved in 24 hours\n"
                     message += f"{symbol}: {recommendation} @ Close: {close}\n"
                     message += f"Recommendations:{all_time_frames} - {all_time_frames_recommendations}\n"
                     message += f"RSI: {all_time_frames_rsi}\n"

@@ -574,7 +574,7 @@ def main():
         today_sell_mail = today_sell.to_string( index=True, justify='left', col_space=10)
         # Define the body of the email
         body = f"\n\n\n{custom_message_sell}\n{today_sell_mail}\n\n\n{custom_message_buy}\n{today_buy_mail}\n\n\n{custom_message_strong_buy}\n{today_Strong_buy_mail}"
-        print(body) 
+        #print(body) 
         # Define the subject of the email
         attachment_path = excel_file_path
         subject = f"{analysis_type}-{symbol_selection}- {recommendation_filter}-Technical_Analysis_"
@@ -618,6 +618,7 @@ if __name__ == "__main__":
     country_selection = "P" 
     # Call the main function to run the analysis
     main()
+    
     # Print a message to indicate that the analysis is complete
     print("PSX Analysis complete")
     # Wait for 5 seconds before exiting the program

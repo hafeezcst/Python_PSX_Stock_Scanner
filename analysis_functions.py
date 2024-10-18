@@ -63,22 +63,19 @@ def analyze_symbol(symbol, analysis_type,screener_selection,exchange_selection,b
                 buy_signal = summary [ 'BUY' ]
                 sell_signal = summary [ 'SELL' ]
                 neutral_signal = summary [ 'NEUTRAL' ]
-                rsi = indicators [ 'RSI' ]
-                rsi_last = indicators [ 'RSI[1]' ]
-                high = indicators [ 'high' ]
-                close = indicators [ 'close' ]
-                low = indicators [ 'low' ]
-                volume = indicators [ 'volume' ]
-                ao = indicators [ 'AO' ]
-                change = indicators [ 'change' ]
-                adx = indicators [ 'ADX' ]
-                fabonacciS1 = indicators['Pivot.M.Fibonacci.S1']
-
-                fabonacciR1 = indicators['Pivot.M.Fibonacci.R1']
-
-                classicS1 = indicators['Pivot.M.Classic.S1']
-
-                classicR1 = indicators['Pivot.M.Classic.R1']
+                rsi = round(indicators['RSI'], 2)
+                rsi_last = round(indicators['RSI[1]'], 2)
+                high = round(indicators['high'], 2)
+                close = round(indicators['close'], 2)
+                low = round(indicators['low'], 2)
+                volume = round(indicators['volume'], 2)
+                ao = round(indicators['AO'], 2)
+                change = round(indicators['change'], 2)
+                adx = round(indicators['ADX'], 2)
+                fabonacciS1 = round(indicators['Pivot.M.Fibonacci.S1'], 2)
+                fabonacciR1 = round(indicators['Pivot.M.Fibonacci.R1'], 2)
+                classicS1 = round(indicators['Pivot.M.Classic.S1'], 2)
+                classicR1 = round(indicators['Pivot.M.Classic.R1'], 2)
               
                 
                 support_values      = [fabonacciS1, classicS1]
