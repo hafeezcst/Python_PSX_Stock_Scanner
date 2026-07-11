@@ -1,0 +1,12 @@
+# Core runtime dependencies for the PSX/QSE stock scanner.
+# Inferred from module imports (repo has no other manifest).
+# Install with: pip install -r requirements.txt
+pandas
+numpy
+SQLAlchemy
+openpyxl
+tradingview_ta
+requests
+beautifulsoup4
+python-dateutil
+tqdm
