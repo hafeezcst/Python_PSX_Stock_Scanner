@@ -1,10 +1,15 @@
 import MetaTrader5 as Mt5
+import configparser
+
+# Load MT5 credentials from config file
+config = configparser.ConfigParser()
+config.read('config.ini')
 
 # Login to MetaTrader 5 terminal
-Login = 51169531  # Replace with your actual login number
-Password = "Allah2meOnly!"  # Replace with your actual password
-Server = "Pepperstone-MT5-Live01"  # Replace with your actual server name
-Path = "C:\Program Files\Pepperstone MetaTrader 5\terminal64.exe"
+Login = int(config.get('mt5', 'login'))
+Password = config.get('mt5', 'password')
+Server = config.get('mt5', 'server')
+Path = config.get('mt5', 'path', fallback="C:\\Program Files\\MetaTrader 5\\terminal64.exe")
 # establish MetaTrader 5 connection to a specified trading account
 if not Mt5.initialize ( login=Login, server=Server, password=Password, path=Path):
     print ( "initialize() failed, error code =", Mt5.last_error ( ))

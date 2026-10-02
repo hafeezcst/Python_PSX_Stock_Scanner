@@ -1,6 +1,12 @@
 # Load the MetaTrader5 package
 import MetaTrader5 as mt5
-Path="C:\\Program Files\\MetaTrader 5\\terminal64.exe"
+import configparser
+
+# Load MT5 credentials from config file
+config = configparser.ConfigParser()
+config.read('config.ini')
+
+Path = config.get('mt5', 'path', fallback="C:\\Program Files\\MetaTrader 5\\terminal64.exe")
 
 # initialize and login to MetaTrader5
 def get_market_price(symbol, type):
@@ -13,9 +19,9 @@ def get_market_price(symbol, type):
 if mt5.initialize():
     print("MT5 initialized")
 # set the login details
-login = 167146561
-password = 'Allah2meOnly!'
-server = 'Exness-MT5Real3'
+login = int(config.get('mt5', 'login'))
+password = config.get('mt5', 'password')
+server = config.get('mt5', 'server')
 # connect to the trade account using the specified login, password and server
 mt5.login(login, password, server, timeout=1000, portable_path=Path)
 

@@ -1,6 +1,15 @@
 import MetaTrader5 as mt5
+import configparser
 
-def modify_sl_tp(login, password, server, stop_loss, take_profit):
+def modify_sl_tp(stop_loss, take_profit):
+    # Load MT5 credentials from config file
+    config = configparser.ConfigParser()
+    config.read('config.ini')
+    
+    login = int(config.get('mt5', 'login'))
+    password = config.get('mt5', 'password')
+    server = config.get('mt5', 'server')
+    
     # initialize and login to MetaTrader5
     if mt5.initialize():
         print("MT5 initialized")
@@ -33,11 +42,8 @@ def modify_sl_tp(login, password, server, stop_loss, take_profit):
             if res.comment != "":
                 print("   comment: {}".format(res.comment))
 
-# Usage examples
-login = 'your_login'
-password = 'your_password'
-server = 'your_server'
+# Usage example
 stop_loss = 100
 take_profit = 200
 
-modify_sl_tp(login, password, server, stop_loss, take_profit)
+modify_sl_tp(stop_loss, take_profit)
