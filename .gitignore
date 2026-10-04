@@ -2,3 +2,7 @@
 .Rhistory
 .RData
 .Ruserdata
+
+# Configuration files with credentials
+config.ini
+config.env
